@@ -1,12 +1,12 @@
+
+
 # online-Education-platform
-
-
 
 ## 📘 Online Education Platform
 
-**online-education-platform** is a web-based learning system that provides courses, video tutorials, mock tests, and an exam module with timer and webcam monitoring.
+**online-education-platform** is a comprehensive web-based learning management system that provides courses, video tutorials, mock tests, and an exam module with timer and webcam monitoring, powered by a **MySQL database** for persistent data storage.
 
----
+-----
 
 ## 🚀 Features
 
@@ -16,11 +16,14 @@
 ✅ Scoring & points system
 ✅ Final exam with countdown timer
 ✅ Webcam monitoring
+✅ **Persistent data storage (MySQL)** 🔄
 ✅ Fully responsive design
 
----
+-----
 
 ## 📂 Project Structure
+
+The project structure must now include a **Backend** directory and configuration files.
 
 ```
 online-education-platform/
@@ -30,20 +33,25 @@ online-education-platform/
 ├── watch-video.html
 ├── submit-exam.html
 │
+├── server/
+│   ├── config/
+│   └── api/ (e.g., Node.js/PHP/Python files handling DB logic)
+│
 ├── css/
-│   └── style.css
+│   └── style.css
 │
 ├── js/
-│   └── script.js
+│   └── script.js (Frontend logic)
+│
+├── db/
+│   └── schema.sql (Database setup scripts)
 │
 ├── images/
-│   └── posters, thumbnails
 │
 └── videos/
-    └── (optional if using YouTube)
 ```
 
----
+-----
 
 ## 🎥 Video Integration
 
@@ -56,7 +64,7 @@ Supports YouTube embeds:
   allowfullscreen></iframe>
 ```
 
----
+-----
 
 ## 📝 Mock Test Format
 
@@ -70,24 +78,26 @@ Supports YouTube embeds:
 }
 ```
 
----
+-----
 
 ## 🧪 Final Exam Module
 
-* Timer auto-submit
-* Result display
-* Webcam monitoring
+  * Timer auto-submit
+  * Result display
+  * Webcam monitoring
 
----
+-----
 
 ## 🔧 Technologies Used
 
-* HTML5
-* CSS3
-* JavaScript
-* YouTube Embed API (optional)
+  * HTML5
+  * CSS3
+  * JavaScript
+  * **MySQL (Backend Database)** 💾
+  * **[Server Language, e.g., Node.js, PHP, Python]** (Required for connecting to MySQL)
+  * YouTube Embed API (optional)
 
----
+-----
 
 ## 🛠️ How to Run
 
@@ -97,26 +107,32 @@ Supports YouTube embeds:
 git clone https://github.com/yourusername/online-education-platform.git
 ```
 
-2️⃣ Open `index.html` in your browser.
-3️⃣ No backend required.
+2️⃣ **Set up the Database:**
 
----
+  * Install **MySQL** or use a cloud-hosted instance.
+  * Execute the schema file (`db/schema.sql`) to create the necessary tables.
+
+3️⃣ **Configure Backend:**
+
+  * Navigate to the `server/` directory.
+  * Configure your database connection string/credentials (e.g., in a `.env` file).
+  * Run the server using the appropriate command (e.g., `npm start` or `python server.py`).
+
+4️⃣ **Access Frontend:**
+
+  * Open `index.html` in your browser.
+
+-----
 
 ## 🌟 Future Enhancements
 
-* Login & authentication
-* User progress tracking
-* Certification
-* Backend & database
-* Live classes
+  * Login & authentication
+  * User progress tracking
+  * Certification
+  * Live classes
 
----
+-----
 
 ## 🤝 Contributing
 
 Pull requests are welcome. For major changes, open an issue first.
-
----
-
-
-
