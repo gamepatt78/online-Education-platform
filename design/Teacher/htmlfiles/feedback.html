@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback | Teacher Portal</title>
+    <link rel="stylesheet" href="../css/feedback.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+ <div class="side-nav">
+        <div class="nav-header">
+            <i class="fas fa-user-circle"></i>
+            <span>Teacher Portal</span>
+        </div>
+        <nav>
+            <a href="home.html"><i class="fas fa-home"></i> Home</a>
+            <a href="assignment.html"><i class="fas fa-tasks"></i> Assignment</a>
+            <a href="attendance.html"><i class="fas fa-user-check"></i> Attendance</a>
+            <a href="questions.html"><i class="fas fa-question-circle"></i> Questions</a>
+            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+            <a href="help.html"><i class="fas fa-info-circle"></i> Help</a>
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            <a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+            <a href="notifications.html"><i class="fas fa-bell"></i> Notifications</a>
+            <a href="calendar.html"><i class="fas fa-calendar-alt"></i> Calendar</a>
+            <a href="resources.html"><i class="fas fa-book"></i> Resources</a>
+            <a href="feedback.html"><i class="fas fa-comments"></i> Feedback</a>
+            <a href="proctor.html" ><i class="fas fa-user-shield"></i> Proctor</a>
+            <a href="support.html"><i class="fas fa-hands-helping"></i> Support</a>
+            <a href="teacher-login.html" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </div>
+     <div class="feedback-container">
+        <h1><i class="fas fa-comments"></i> Student Feedback</h1>
+
+        <div class="feedback-filters">
+            <select id="subjectFilter">
+                <option value="">All Subjects</option>
+                <option value="programming">Programming</option>
+                <option value="database">Database</option>
+                <option value="networks">Networks</option>
+            </select>
+            <select id="dateFilter">
+                <option value="week">This Week</option>
+                <option value="month">This Month</option>
+                <option value="semester">This Semester</option>
+            </select>
+        </div>
+
+        <div class="feedback-stats">
+            <div class="stat-card">
+                <i class="fas fa-star"></i>
+                <h3>Average Rating</h3>
+                <p>4.5/5.0</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-comment"></i>
+                <h3>Total Feedback</h3>
+                <p>128</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Response Rate</h3>
+                <p>85%</p>
+            </div>
+        </div>
+
+        <div class="feedback-list">
+            <div class="feedback-item">
+                <div class="feedback-header">
+                    <div class="student-info">
+                        <i class="fas fa-user-circle"></i>
+                        <div>
+                            <h3>Programming Fundamentals</h3>
+                            <span>July 15, 2025</span>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <p class="feedback-text">
+                    "The programming exercises were challenging but very helpful. The explanations were clear and concise."
+                </p>
+                <div class="feedback-actions">
+                    <button class="reply-btn"><i class="fas fa-reply"></i> Reply</button>
+                    <button class="archive-btn"><i class="fas fa-archive"></i> Archive</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="feedback-pagination">
+            <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <span>Page 1 of 5</span>
+            <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <script src="../js/feedback.js"></script>
+</body>
+</html>

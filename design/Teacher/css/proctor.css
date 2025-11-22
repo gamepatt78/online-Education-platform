@@ -1,0 +1,367 @@
+body {
+    font-family: 'Segoe UI', 'Times New Roman', Times, serif, sans-serif;
+    background: #f4f7fb;
+    margin: 0;
+}
+
+/* Header styles */
+.proctor-header {
+    background: #6366f1;
+    color: white;
+    text-align: center;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 250px; /* Match sidebar width */
+    z-index: 99;
+}
+
+/* Main content styles */
+.main-content {
+    flex: 1;
+    margin-left: 250px;
+    margin-top: 60px;
+    padding: 2rem;
+    background: #bd023d;
+}
+
+/* Sections styling */
+.quotes-section,
+.about-section,
+.contact-section {
+    background: rgb(229, 5, 5);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    margin: 0 0 1.5rem 0;
+    color: #1f2937;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Quote cards */
+.quotes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.quote-card {
+    background: #6366f1;
+    color: rgb(239, 15, 15);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+
+.proctor-header {
+   background: #6366f1;
+    color: rgb(245, 10, 10);
+    text-align: center;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 250px; /* Match sidebar width */
+    z-index: 99;
+}
+
+.proctor-header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.proctor-header p {
+    margin: 0.5rem 0 0 0;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+/* Side Navigation Styles */
+.side-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 250px;
+    background: #fff;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.nav-header {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: #fff;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-header i {
+    font-size: 2rem;
+}
+
+.side-nav nav {
+    padding: 1rem 0;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+
+.side-nav nav a {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    color: #374151;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    gap: 1rem;
+}
+
+.side-nav nav a:hover {
+    background: #f3f4f6;
+    color: #6366f1;
+}
+
+.side-nav nav a.active {
+    background: #f3f4f6;
+    color: #6366f1;
+    border-left: 4px solid #6366f1;
+}
+
+.side-nav nav a i {
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+}
+
+.side-nav nav a.logout {
+    color: #dc2626;
+    border-top: 1px solid #f30c0c;
+    margin-top: 1rem;
+}
+
+.side-nav nav a.logout:hover {
+    background: #b80c0c;
+}
+
+/* Main content styles */
+.main-content {
+    flex: 1;
+    margin-left: 250px;
+    margin-top: 60px;
+    padding: 2rem;
+    background: #f8fafc;
+}
+
+.proctor-main {
+    margin-left: 220px;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.student-table-section {
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 2rem;
+}
+
+
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.student-table th, .student-table td {
+    padding: 1rem 0.7rem;
+    text-align: left;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.student-table th {
+    background: #f0f4fa;
+    color: #2a4d8f;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.student-table tr:last-child td {
+    border-bottom: none;
+}
+
+.status-pass {
+    color: #28a745;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+.status-warning {
+    color: #ffc107;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+.status-flagged {
+    color: #dc3545;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+.status-neutral {
+    color: #6c757d;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.proctor-info,
+.proctor-actions,
+.proctor-tips,
+.proctor-support {
+    flex: 1 1 320px;
+    min-width: 300px;
+    max-width: 350px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 1.5rem 1.2rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.proctor-info h2,
+.proctor-actions h2,
+.proctor-tips h2,
+.proctor-support h2 {
+    color: #2a4d8f;
+    margin-top: 0;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.proctor-info ul,
+.proctor-actions ul,
+.proctor-tips ul {
+    margin: 0 0 0 1.2rem;
+    padding: 0;
+    color: #f40101;
+    font-size: 1rem;
+}
+
+.proctor-info li,
+.proctor-actions li,
+.proctor-tips li {
+    margin-bottom: 0.7rem;
+    line-height: 1.6;
+}
+
+.proctor-support p {
+    font-size: 1rem;
+    color: #e00d0d;
+}
+
+.proctor-support a {
+    color: #6c7ae0;
+    text-decoration: underline;
+}
+.proctor-support a:hover {
+    color: #2a4d8f;
+}
+
+.proctor-cards-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+@media (max-width: 768px) {
+    .proctor-main, .student-table-section, .proctor-info, .proctor-actions, .proctor-faq {
+        margin-left: 0;
+        max-width: 98vw;
+    }
+}
+
+@media (max-width: 1200px) {
+    .proctor-cards-row {
+        gap: 1rem;
+    }
+    .proctor-info,
+    .proctor-actions,
+    .proctor-tips,
+    .proctor-support {
+        min-width: 260px;
+        max-width: 100%;
+    }
+}
+@media (max-width: 900px) {
+    .side-nav {
+        position: static;
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+        padding-top: 0.5rem;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+    .nav-header {
+        display: none;
+    }
+    .side-nav nav {
+        flex-direction: row;
+        gap: 0.2rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    .side-nav nav a {
+        font-size: 0.95rem;
+        padding: 0.5rem 0.7rem;
+        margin: 0 0.2rem;
+    }
+    .proctor-header, .proctor-main {
+        margin-left: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .student-table-section, .proctor-info, .proctor-actions, .proctor-faq {
+        width: 100%;
+        padding: 0.5rem;
+    }
+    .student-table th, .student-table td {
+        padding: 0.5rem;
+        font-size: 0.95rem;
+    }
+    .proctor-cards-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+    }
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question Bank - Teacher Portal</title>
+    <link rel="stylesheet" href="../css/questions.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+ <div class="side-nav">
+        <div class="nav-header">
+            <i class="fas fa-user-circle"></i>
+            <span>Teacher Portal</span>
+        </div>
+        <nav>
+            <a href="home.html"><i class="fas fa-home"></i> Home</a>
+            <a href="assignment.html"><i class="fas fa-tasks"></i> Assignment</a>
+            <a href="attendance.html"><i class="fas fa-user-check"></i> Attendance</a>
+            <a href="questions.html"><i class="fas fa-question-circle"></i> Questions</a>
+            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+            <a href="help.html"><i class="fas fa-info-circle"></i> Help</a>
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            <a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+            <a href="notifications.html"><i class="fas fa-bell"></i> Notifications</a>
+            <a href="calendar.html"><i class="fas fa-calendar-alt"></i> Calendar</a>
+            <a href="resources.html"><i class="fas fa-book"></i> Resources</a>
+            <a href="feedback.html"><i class="fas fa-comments"></i> Feedback</a>
+            <a href="proctor.html" ><i class="fas fa-user-shield"></i> Proctor</a>
+            <a href="support.html"><i class="fas fa-hands-helping"></i> Support</a>
+            <a href="teacher-login.html" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1><i class="fas fa-question-circle"></i> Question Bank</h1>
+        </header>
+
+        <div class="question-controls">
+            <button class="add-question"><i class="fas fa-plus"></i> Add New Question</button>
+            <div class="filters">
+                <select id="subjectFilter">
+                    <option value="">All Subjects</option>
+                    <option value="programming">Programming</option>
+                    <option value="database">Database Management</option>
+                    <option value="networking">Computer Networks</option>
+                    <option value="webdev">Web Development</option>
+                    <option value="cybersecurity">Cyber Security</option>
+                    <option value="os">Operating Systems</option>
+                </select>
+                <select id="gradeFilter">
+                    <option value="">All Levels</option>
+                    <option value="basic">Basic</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="question-form hidden">
+            <h2>Add New Question</h2>
+            <form id="questionForm">
+                <div class="form-group">
+                    <label>Subject:</label>
+                    <select name="subject" required>
+                        <option value="">Select Subject</option>
+                        <option value="programming">Programming</option>
+                        <option value="database">Database Management</option>
+                        <option value="networking">Computer Networks</option>
+                        <option value="webdev">Web Development</option>
+                        <option value="cybersecurity">Cyber Security</option>
+                        <option value="os">Operating Systems</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Difficulty Level:</label>
+                    <select name="grade" required>
+                        <option value="">Select Level</option>
+                        <option value="basic">Basic</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Topic:</label>
+                    <input type="text" name="topic" placeholder="e.g., Arrays, SQL Queries, TCP/IP" required>
+                </div>
+                <div class="form-group">
+                    <label>Question Type:</label>
+                    <select name="type" required>
+                        <option value="multiple">Multiple Choice</option>
+                        <option value="written">Written Answer</option>
+                        <option value="true-false">True/False</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Question:</label>
+                    <textarea name="question" rows="4" required></textarea>
+                </div>
+                <div class="form-group answers-section">
+                    <label>Answers:</label>
+                    <div class="answer-inputs">
+                        <input type="text" name="answer1" placeholder="Answer 1" required>
+                        <input type="text" name="answer2" placeholder="Answer 2" required>
+                        <input type="text" name="answer3" placeholder="Answer 3" required>
+                        <input type="text" name="answer4" placeholder="Answer 4" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Correct Answer:</label>
+                    <select name="correctAnswer" required>
+                        <option value="1">Answer 1</option>
+                        <option value="2">Answer 2</option>
+                        <option value="3">Answer 3</option>
+                        <option value="4">Answer 4</option>
+                    </select>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="save-btn">Save Question</button>
+                    <button type="button" class="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="questions-list">
+            <!-- Questions will be dynamically added here -->
+        </div>
+    </div>
+
+    <script src="../js/questions.js"></script>
+</body>
+</html>

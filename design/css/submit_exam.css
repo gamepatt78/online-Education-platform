@@ -1,0 +1,139 @@
+.submission-container {
+    min-height: calc(100vh - 6rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: var(--light-bg);
+}
+
+.summary-card {
+    background-color: var(--white);
+    border-radius: 1rem;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    animation: slideUp 0.5s ease-out;
+}
+
+.success-icon {
+    font-size: 5rem;
+    color: #4CAF50;
+    margin-bottom: 2rem;
+    animation: pulse 2s infinite;
+}
+
+.summary-card h3 {
+    font-size: 2.4rem;
+    color: var(--black);
+    margin-bottom: 1rem;
+}
+
+.summary-card p {
+    font-size: 1.6rem;
+    color: var(--light-color);
+    margin-bottom: 2rem;
+}
+
+.results {
+    background-color: var(--light-bg);
+    padding: 2rem;
+    border-radius: 0.8rem;
+    margin: 2rem 0;
+}
+
+.results p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.results p:last-child {
+    border-bottom: none;
+}
+
+.results strong {
+    color: var(--black);
+    font-size: 1.6rem;
+}
+
+.results span {
+    color: var(--main-color);
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.btn {
+    background-color: var(--main-color);
+    color: var(--white);
+    padding: 1.2rem 3rem;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background-color: var(--black);
+    transform: translateY(-3px);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+[data-theme="dark"] .summary-card {
+    background-color: var(--black);
+}
+
+[data-theme="dark"] .results {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .results p {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .summary-card {
+        padding: 2rem;
+        margin: 1rem;
+    }
+
+    .success-icon {
+        font-size: 4rem;
+    }
+
+    .summary-card h3 {
+        font-size: 2rem;
+    }
+
+    .results strong,
+    .results span {
+        font-size: 1.4rem;
+    }
+
+    .btn {
+        padding: 1rem 2rem;
+        font-size: 1.4rem;
+    }
+}

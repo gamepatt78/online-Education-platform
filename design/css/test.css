@@ -1,0 +1,92 @@
+.mock-nav {
+    padding: 2rem;
+}
+
+.mock-section {
+    margin-bottom: 2rem;
+}
+
+.mock-heading {
+    color: var(--white);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.mock-list {
+    list-style: none;
+    padding: 0;
+}
+
+.mock-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.mock-item:hover {
+    background: var(--light-bg);
+}
+
+.test-status {
+    margin-left: auto;
+    padding: 0.3rem 0.8rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+}
+
+.test-status.completed {
+    background: var(--success-color);
+    color: var(--white);
+}
+
+.test-status.pending {
+    background: var(--warning-color);
+    color: var(--black);
+}
+
+.test-status.locked {
+    background: var(--light-color);
+    color: var(--white);
+}
+
+.test-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.question {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+.dark-mode .question {
+    background: var(--black);
+}
+
+.options {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.option {
+    padding: 1rem;
+    border: 2px solid var(--border);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option:hover {
+    border-color: var(--primary-color);
+}

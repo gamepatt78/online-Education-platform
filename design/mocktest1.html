@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Education Portal - Mock Test 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mocktest.css">
+    <link rel="stylesheet" href="css/search.css">
+</head>
+
+
+<header class="header">
+   <section class="flex">
+      <a href="home.html" class="logo">Online Education Portal</a>
+
+      <form action="search.html" method="get" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="user-btn" class="fas fa-user"></div>        
+         <div id="logout-btn" class="fas fa-sign-out-alt" title="Logout"></div>
+      </div>
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+         <a href="profile.html" class="btn">view profile</a>
+            </div>
+</section>
+</header>
+
+<div class="side-bar">
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+   
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+   </div>
+
+     <nav class="navbar">
+      <a href="home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+
+      <div class="nav-item dropdown">
+    <a href="#" class="dropdown-toggle">
+      <i class="fas fa-tasks"></i>
+      <span>Mock Tests</span>
+      <i class="fas fa-chevron-down"></i>
+    </a>
+    <div class="dropdown-menu">
+      <a href="mocktest1.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 1</span>
+      </a>
+      <a href="mocktest2.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 2</span>
+      </a>
+      <a href="mocktest3.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 3</span>
+      </a>
+    </div>
+  </div>
+
+      <a href="feedback.html"><i class="fas fa-comments"></i><span>Feedback</span></a>
+            <a href="exam.html"><i class="fas fa-file-alt"></i><span>Exams</span></a>
+
+      <a href="certification.html"><i class="fas fa-certificate"></i><span>Certificate</span></a>
+      <a href="status.html"><i class="fas fa-check-circle"></i><span>Status</span></a>
+      <a href="billing.html"><i class="fas fa-receipt"></i><span>Billing</span></a>
+   </nav>
+</div>
+
+<body class="dark-mode">
+    
+    <section class="test-content">
+            <div class="test-header">
+                <h2>Mock Test 1</h2>
+                <div class="test-info">
+                    <div class="timer" style="display: none;">
+                        <i class="fas fa-clock"></i>
+                        <span id="countdown">45:00</span>
+                    </div>
+                    <button id="start-test" class="start-btn">
+                        <i class="fas fa-play"></i>
+                        Start Test
+                    </button>
+                </div>
+            </div>
+
+            <div id="test-overlay" class="test-overlay">
+                <div class="start-screen">
+                    <h2>Ready to Begin?</h2>
+                    <p>You will have 45 minutes to complete this test.</p>
+                    <ul class="test-rules">
+                        <li>Do not refresh the page during the test</li>
+                        <li>Answer all questions</li>
+                        <li>You can mark questions for review</li>
+                        <li>Submit before time runs out</li>
+                    </ul>
+                    <button id="confirm-start" class="start-btn">
+                        <i class="fas fa-play"></i>
+                        Begin Test
+                    </button>
+                </div>
+            </div>
+
+            <div class="test-instructions">
+                <p>Instructions: Answer all questions. Select the correct option for each question.</p>
+                <p>Time Remaining: <span id="time-remaining">45:00</span></p>
+            </div>
+
+
+            <div class="questions-container">
+                <div class="question-section" id="html-basics">
+                    <div class="question active" id="q1">
+                        <h3>Question 1 of 20 </h3>
+                        <p>What does HTML stand for?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q1" value="a">
+                                <span>Hyper Text Markup Language</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q1" value="b">
+                                <span>High Tech Modern Language</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q1" value="c">
+                                <span>Hyperlinks Text Markup Language</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q1" value="d">
+                                <span>None of the above</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" id="q2">
+                        <h3>Question 2 of 20 </h3>
+                        <p>Which tag is used to create a hyperlink?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q2" value="a">
+                                <span>&lt;link&gt;</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q2" value="b">
+                                <span>&lt;a&gt;</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q2" value="c">
+                                <span>&lt;href&gt;</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q2" value="d">
+                                <span>&lt;url&gt;</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" id="q3">
+                        <h3>Question 3 of 20</h3>
+                        <p>Which tag is used to create a list?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q3" value="a">
+                                <span>&lt;list&gt;</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q3" value="b">
+                                <span>&lt;ul&gt;</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q3" value="c">
+                                <span>&lt;ol&gt;</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q3" value="d">
+                                <span>&lt;item&gt;</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" id="q4">
+                        <h3>Question 4 of 20</h3>
+                        <p>Which attribute is used to specify the URL of the page the link goes to?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q4" value="a">
+                                <span>src</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q4" value="b">
+                                <span>href</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q4" value="c">
+                                <span>link</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q4" value="d">
+                                <span>url</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" id="q5">
+                        <h3>Question 5 of 20</h3>
+                        <p>Which HTML element is used to define the title of a document?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q5" value="a">
+                                <span>&lt;title&gt;</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q5" value="b">
+                                <span>&lt;head&gt;</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q5" value="c">
+                                <span>&lt;meta&gt;</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q5" value="d">
+                                <span>&lt;header&gt;</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question" id="q6">
+                        <h3>Question 6 of 20</h3>
+                        <p>Which tag is used to create a line break?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q" value="a">
+                                <span>&lt;br&gt;</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q6" value="b">
+                                <span>&lt;break&gt;</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q6" value="c">
+                                <span>&lt;lb&gt;</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q6" value="d">
+                                <span>&lt;linebreak&gt;</span>
+                            </label>
+                        </div>
+                    </div>
+
+               
+
+                    <div class="question active" id="q7">
+                        <h3>Question 7 of 20</h3>
+                        <p>What does CSS stand for?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q7" value="a">
+                                <span>Cascading Style Sheets</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q7" value="b">
+                                <span>Colorful Style Sheets</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q7" value="c">
+                                <span>Creative Style Sheets</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q7" value="d">
+                                <span>Computer Style Sheets</span>
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="question" id="q8">
+                        <h3>Question 8 of 20</h3>
+                        <p>Which property is used to change the background color?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q8" value="a">
+                                <span>bgcolor</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q8" value="b">
+                                <span>background-color</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q8" value="c">
+                                <span>color</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q8" value="d">
+                                <span>background</span>
+                            </label>
+                        </div>
+
+                    </div>
+
+
+                    <div class="question" id="q9">
+                        <h3>Question 9 of 20</h3>
+                        <p>Which CSS property controls the text size?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q9" value="a">
+                                <span>font-size</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q9" value="b">
+                                <span>text-size</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q9" value="c">
+                                <span>font-style</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q9" value="d">
+                                <span>text-style</span>
+                            </label>
+                        </div>
+                    </div>
+
+                        <div class="question" id="q10">
+                            <h3>Question 10 of 20</h3>
+                            <p>Which HTML element is used to define the footer of a document?</p>
+                            <div class="options">
+                                <label class="option">
+                                    <input type="radio" name="q10" value="a">
+                                    <span>&lt;footer&gt;</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q10" value="b">
+                                    <span>&lt;bottom&gt;</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q10" value="c">
+                                    <span>&lt;section&gt;</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q10" value="d">
+                                    <span>&lt;div&gt;</span>
+                                </label>
+                            </div>
+
+                        </div>
+
+                    
+
+                    <div class="question" id="q11">
+                        <h3>Question 11 of 20</h3>
+                        <p>Which CSS property is used to change the text color?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q11" value="a">
+                                <span>color</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q11" value="b">
+                                <span>text-color</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q11" value="c">
+                                <span>font-color</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q11" value="d">
+                                <span>background-color</span>
+                            </label>
+                        </div>
+                    </div>
+
+                        <div class="question" id="q12">
+                            <h3>Question 12 of 20</h3>
+                            <p>Which CSS property is used to change the font size?</p>
+                            <div class="options">
+                                <label class="option">
+                                    <input type="radio" name="q12" value="a">
+                                    <span>font-size</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q12" value="b">
+                                    <span>text-size</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q12" value="c">
+                                    <span>font-style</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q12" value="d">
+                                    <span>text-style</span>
+                                </label>
+                            </div>
+
+                        </div>
+
+
+                    <div class="question" id="q13">
+                        <h3>Question 13 of 20</h3>
+                        <p>Which CSS property is used to change the font of an element?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q13" value="a">
+                                <span>font-family</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q13" value="b">
+                                <span>font-style</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q13" value="c">
+                                <span>text-style</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q13" value="d">
+                                <span>font-weight</span>
+                            </label>
+                        </div>
+
+
+                </div>
+
+
+            <div class="question" id="q14">
+                <h3>Question 14 of 20</h3>
+                <p>Which CSS property is used to change the font of an element?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q14" value="a">
+                        <span>font-family</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q14" value="b">
+                        <span>font-style</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q14" value="c">
+                        <span>text-style</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q14" value="d">
+                        <span>font-weight</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="question" id="q15">
+                <h3>Question 15 of 20</h3>
+                <p>Which CSS property is used to change the font of an element?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q15" value="a">
+                        <span>font-family</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q15 " value="b">
+                        <span>font-style</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q15" value="c">
+                        <span>text-style</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q15" value="d">
+                        <span>font-weight</span>
+                    </label>
+                </div>
+            </div>
+            <div class="question" id="q16">
+                <h3>Question 16 of 20</h3>
+                <p>Which CSS property is used to change the font of an element?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q16" value="a">
+                        <span>font-family</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q16" value="b">
+                        <span>font-style</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q16" value="c">
+                        <span>text-style</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q16" value="d">
+                        <span>font-weight</span>
+                    </label>
+                </div>
+            </div>
+         
+
+
+                <!-- HTML js Section -->
+
+                    <div class="question" id="q1">
+                        <h3>Question 17 of 20</h3>
+                        <p>What does JS stand for?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q17" value="a">
+                                <span>JavaScript</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q17" value="b">
+                                <span>JavaStyle</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q17" value="c">
+                                <span>JavaScriptStyle</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q17" value="d">
+                                <span>JavaScriptScript</span>
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <div class="question" id="q19">
+                        <h3>Question 19 of 20</h3>
+                        <p>Which HTML element is used to define JavaScript?</p>
+                        <div class="options">
+                            <label class="option">
+                                <input type="radio" name="q19" value="a">
+                                <span>&lt;script&gt;</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q19" value="b">
+                                <span>&lt;js&gt;</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q19" value="c">
+                                <span>&lt;javascript&gt;</span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="q19" value="d">
+                                <span>&lt;code&gt;</span>
+                            </label>
+                        </div>
+                    </div>  
+                    
+                <div class="question" id="q20">
+                    <h3>Question 20 of 20</h3>
+                    <p>Which HTML attribute is used to define Cloud Computing styles?</p>
+                    <div class="options">       
+
+                        <label class="option">
+                            <input type="radio" name="q20" value="a">
+                            <span>style</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q20" value="b">
+                            <span>styles</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q20" value="c">
+                            <span>class</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q20" value="d">
+                            <span>css</span>
+                        </label>
+                    </div>
+
+                </div>
+            </div>  
+            </div>
+
+
+            <div class="test-controls">
+                <button id="prev" class="nav-btn" type="button" disabled>Previous</button>
+                <button id="mark" class="mark-btn" type="button">Mark for Review</button>
+                <button id="next" class="nav-btn" type="button">Next</button>
+                <button id="submit" class="submit-btn" type="submit">Submit Test</button>
+            </div>
+
+
+            <div class="section-navigation">
+       
+        <button class="section-btn active" data-section="html-basics">HTML</button>
+    </div>
+
+        </form>
+        <div class="test-footer">
+            <p>Note: This is a mock test. Complete all sections. Good luck!</p>
+        </div>  
+    </section>
+
+    <script src="js/script.js"></script>
+    <script src="js/test.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/mocktest1-submit.js"></script>
+</body>
+</html>

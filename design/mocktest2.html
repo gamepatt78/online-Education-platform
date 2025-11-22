@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Education Portal - Mock Test 2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mocktest.css">
+    <link rel="stylesheet" href="css/search.css"> 
+</head>
+
+
+<header class="header">
+   <section class="flex">
+      <a href="home.html" class="logo">Student E-Learning Portal</a>
+
+      <form action="search.html" method="get" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="user-btn" class="fas fa-user"></div>        
+         <div id="logout-btn" class="fas fa-sign-out-alt" title="Logout"></div>
+      </div>
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+         <a href="profile.html" class="btn">view profile</a>
+            </div>
+</section>
+</header>
+
+<div class="side-bar">
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+   
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+   </div>
+
+     <nav class="navbar">
+      <a href="home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+
+      <div class="nav-item dropdown">
+    <a href="#" class="dropdown-toggle">
+      <i class="fas fa-tasks"></i>
+      <span>Mock Tests</span>
+      <i class="fas fa-chevron-down"></i>
+    </a>
+    <div class="dropdown-menu">
+      <a href="mocktest1.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 1</span>
+      </a>
+      <a href="mocktest2.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 2</span>
+      </a>
+      <a href="mocktest3.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 3</span>
+      </a>
+    </div>
+  </div>
+
+      <a href="feedback.html"><i class="fas fa-comments"></i><span>Feedback</span></a>
+            <a href="exam.html"><i class="fas fa-file-alt"></i><span>Exams</span></a>
+
+      <a href="certification.html"><i class="fas fa-certificate"></i><span>Certificate</span></a>
+      <a href="status.html"><i class="fas fa-check-circle"></i><span>Status</span></a>
+      <a href="billing.html"><i class="fas fa-receipt"></i><span>Billing</span></a>
+   </nav>
+</div>
+
+
+
+<body class="dark-mode">
+ 
+
+    <section class="test-content">
+
+        <div class="test-header">
+            <h2>Mock Test 1</h2>
+            <div class="test-info">
+                <div class="timer" style="display: none;">
+                    <i class="fas fa-clock"></i>
+                    <span id="countdown">45:00</span>
+                </div>
+                <button id="start-test" class="start-btn">
+                    <i class="fas fa-play"></i>
+                    Start Test
+                </button>
+            </div>
+        </div>
+
+        <div id="test-overlay" class="test-overlay">
+            <div class="start-screen">
+                <h2>Ready to Begin?</h2>
+                <p>You will have 45 minutes to complete this test.</p>
+                <ul class="test-rules">
+                    <li>Do not refresh the page during the test</li>
+                    <li>Answer all questions</li>
+                    <li>You can mark questions for review</li>
+                    <li>Submit before time runs out</li>
+                </ul>
+                <button id="confirm-start" class="start-btn">
+                    <i class="fas fa-play"></i>
+                    Begin Test
+                </button>
+            </div>
+        </div>
+
+        <div class="test-instructions">
+            <p>Instructions: Answer all questions. Select the correct option for each question.</p>
+            <p>Time Remaining: <span id="time-remaining">45:00</span></p>
+        </div>
+
+       
+
+                   <div class="question-section" id="html-basics">
+                <div class="question active" id="q1">
+                    <h3>Question 1 of 20</h3>
+                    <p>What is Cloud Computing?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="cloud_q1" value="a">
+                            <span>Delivery of computing services over the Internet</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="cloud_q1" value="b">
+                            <span>Local storage of data</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="cloud_q1" value="c">
+                            <span>Weather forecasting system</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="cloud_q1" value="d">
+                            <span>A type of network cable</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" id="q2">
+                    <h3>Question 2 of 20</h3>
+                    <p>Which of these is a major cloud service provider?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="cloud_q2" value="a">
+                            <span>Amazon Web Services (AWS)</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="cloud_q2" value="b">
+                            <span>Microsoft Paint</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="cloud_q2" value="c">
+                            <span>Notepad</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="cloud_q2" value="d">
+                            <span>File Explorer</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" id="q3">
+                    <h3>Question 3 of 20</h3>
+                    <p>What is IaaS in cloud computing?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="cloud_q3" value="a">
+                            <span>Infrastructure as a Service</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="cloud_q3" value="b">
+                            <span>Internet as a Service</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="cloud_q3" value="c">
+                            <span>Information as a Service</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="cloud_q3" value="d">
+                            <span>Intelligence as a Service</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" id="q4">
+                    <h3>Question 4 of 20</h3>
+                    <p>Which deployment model keeps data within an organization's internal network?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="cloud_q4" value="a">
+                            <span>Private Cloud</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="cloud_q4" value="b">
+                            <span>Public Cloud</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="cloud_q4" value="c">
+                            <span>Hybrid Cloud</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="cloud_q4" value="d">
+                            <span>Community Cloud</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question" id="q5">
+                    <h3>Question 5 of 20</h3>
+                    <p>What is the main advantage of cloud computing?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="cloud_q5" value="a">
+                            <span>Cost-effective and scalable resources</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="cloud_q5" value="b">
+                            <span>Slower processing speed</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="cloud_q5" value="c">
+                            <span>Limited storage capacity</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="cloud_q5" value="d">
+                            <span>Offline access to data</span>
+                        </label>
+                    </div>
+                </div>
+
+            <div class="question" id="q6">
+    <h3>Question 6 of 20</h3>
+    <p>Which of the following best describes the Software as a Service (SaaS) model?</p>
+    <div class="options">
+        <label class="option">
+            <input type="radio" name="cloud_q6" value="a">
+            <span>Users manage the underlying hardware and software infrastructure.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="cloud_q6" value="b">
+            <span>Developers build applications using cloud-provided tools and libraries.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="cloud_q6" value="c">
+            <span>End-users access software hosted by a third party over the internet.</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="cloud_q6" value="d">
+            <span>Functions are executed in a stateless compute environment on demand.</span>
+        </label>
+    </div>
+</div>
+                  <div class="question" id="q7">
+                     <h3>Question 7 of 20</h3>
+                     <p>What is the primary purpose of a Content Delivery Network (CDN)?</p>
+                     <div class="options">
+                           <label class="option">
+                              <input type="radio" name="cloud_q7" value="a">
+                              <span>To distribute content to users based on their geographic location</span>
+                           </label>
+                           <label class="option">
+                              <input type="radio" name="cloud_q7" value="b">
+                              <span>To store data in a centralized database</span>
+                           </label>
+                           <label class="option">
+                              <input type="radio" name="cloud_q7" value="c">
+                              <span>To provide virtual machines for running applications</span>
+                           </label>
+                           <label class="option">
+                              <input type="radio" name="cloud_q7" value="d">
+                              <span>To manage user authentication and access control</span>
+                           </label>
+                     </div>
+                  </div>
+
+              <div class="question" id="q8">
+                  <h3>Question 8 of 20</h3>
+                  <p>Which of the following is a NoSQL database?</p>
+                  <div class="options">
+                      <label class="option">
+                          <input type="radio" name="data_q8" value="a">
+                          <span>MySQL</span>
+                      </label>
+                      <label class="option">
+                        <input type="radio" name="data_q8" value="b">
+                        <span>MongoDB</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="data_q8" value="c">
+                        <span>PostgreSQL</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="data_q8" value="d">
+                        <span>SQLite</span>
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="question" id="q9">
+                <h3>Question 9 of 20</h3>
+                <p>Which of the following is a type of machine learning?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="data_q9" value="a">
+                        <span>Supervised Learning</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="data_q9" value="b">
+                        <span>Unsupervised Learning</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="data_q9" value="c">
+                        <span>Reinforcement Learning</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="data_q9" value="d">
+                        <span>All of the above</span>
+                    </label>
+                </div>
+                  </div>
+
+                    
+            <div class="question" id="q10">
+                <h3>Question 10 of 20</h3>
+                <p>Which of the following is a popular data visualization library in Python?</p>
+                <div class="options">  
+                    <label class="option">
+                        <input type="radio" name="data_q10" value="a">
+                        <span>Matplotlib</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="data_q10" value="b">
+                        <span>NumPy</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="data_q10" value="c">
+                        <span>Pandas</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="data_q10" value="d">
+                        <span>TensorFlow</span>
+                    </label>
+                  </div>
+            </div>
+
+            <div class="question" id="q11">
+                <h3>Question 11 of 20</h3>
+                <p>Which of the following is a popular data analysis library in Python?</p>
+                <div class="options">
+                     <label class="option">
+                           <input type="radio" name="data_q11" value="a">
+                           <span>NumPy</span>
+                     </label>
+                     <label class="option">
+                           <input type="radio" name="data_q11" value="b">
+                           <span>Pandas</span>
+                     </label>
+                     <label class="option">
+                           <input type="radio" name="data_q11" value="c">
+                           <span>Matplotlib</span>
+                     </label>
+                     <label class="option">
+                           <input type="radio" name="data_q11" value="d">
+                           <span>Seaborn</span>
+                     </label>
+                  </div>
+            </div>
+
+            <div class="question" id="q12">
+                <h3>Question 12 of 20</h3>
+                <p>Which of the following is a popular machine learning library in Python?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="data_q12" value="a">
+                        <span>Scikit-learn</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="data_q12" value="b">
+                        <span>NumPy</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="data_q12" value="c">
+                        <span>Pandas</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="data_q12" value="d">
+                        <span>Matplotlib</span>
+                    </label>
+                </div>
+
+            </div>
+            <div class="question" id="q13">
+                <h3>Question 13 of 20</h3>
+                <p>Which of the following is a popular deep learning library in Python?</p>
+                <div class="options">        
+                     <label class="option">
+                           <input type="radio" name="data_q13" value="a">
+                           <span>TensorFlow</span>
+                     </label>
+                     <label class="option">
+                           <input type="radio" name="data_q13" value="b">
+                           <span>NumPy</span>
+                     </label>
+                     <label class="option">
+                           <input type="radio" name="data_q13" value="c">
+                           <span>Pandas</span>
+                     </label>
+                     <label class="option">
+                           <input type="radio" name="data_q13" value="d">
+                           <span>Matplotlib</span>
+                     </label>
+                 </div>    
+            </div>
+            <div class="question" id="q14">
+                <h3>Question 14 of 20</h3>
+                <p>Which of the following is a popular data manipulation library in Python?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="data_q14" value="a">
+                        <span>Pandas</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="data_q14" value="b">
+                        <span>NumPy</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="data_q14" value="c">
+                        <span>Matplotlib</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="data_q14" value="d">
+                        <span>Seaborn</span>
+                    </label>  
+                  </div>   
+            </div>
+            <!--different questions for other sections-->
+            <div class="question" id="q15">
+                <h3>Question 15 of 20</h3>
+                <p>Which HTML tag is used to create a hyperlink?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="html_q15" value="a">
+                        <span>&lt;link&gt;</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="html_q15" value="b">
+                        <span>&lt;href&gt;</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="html_q15" value="c">
+                        <span>&lt;a&gt;</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="html_q15" value="d">
+                        <span>&lt;hyperlink&gt;</span>
+                    </label>
+                </div>
+</div>
+
+
+            <div class="question" id="q16">
+                <h3>Question 16 of 20</h3>
+                <p>Which HTML tag is used to create a list?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="html_q16" value="a">
+                        <span>&lt;list&gt;</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="html_q16" value="b">
+                        <span>&lt;ul&gt;</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="html_q16" value="c">
+                        <span>&lt;ol&gt;</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="html_q16" value="d">
+                        <span>&lt;li&gt;</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="question" id="q17">
+                <h3>Question 17 of 20</h3>
+                <p>Which HTML tag is used to create a table?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="html_q17" value="a">
+                        <span>&lt;table&gt;</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="html_q17" value="b">
+                        <span>&lt;tab&gt;</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="html_q17" value="c">
+                        <span>&lt;tr&gt;</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="html_q17" value="d">
+                        <span>&lt;td&gt;</span>
+                    </label>
+                </div>
+
+
+
+            </div>
+            <div class="question" id="q18">
+                <h3>Question 18 of 20</h3>
+                <p>Which HTML tag is used to create a form?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="html_q18" value="a">
+                        <span>&lt;form&gt;</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="html_q18" value="b">
+                        <span>&lt;input&gt;</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="html_q18" value="c">
+                        <span>&lt;textarea&gt;</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="html_q18" value="d">
+                        <span>&lt;button&gt;</span>
+                    </label>
+                </div>
+
+            </div>
+<div class="question" id="q18">
+    <h3>Question 18 of 20</h3>
+    <p>Which jQuery syntax is used to hide an HTML element with the ID "box"?</p>
+    <div class="options">
+        <label class="option">
+            <input type="radio" name="jq_q18" value="a">
+            <span>$("#box").hide();</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="jq_q18 " value="b">
+            <span>document.getElementById("box").hide();</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="jq_q18" value="c">
+            <span>hide("#box");</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="jq_q18" value="d">
+            <span>$("#box").style.display = "none";</span>
+        </label>
+    </div>
+</div>
+
+
+            <div class="question" id="q19">
+                <h3>Question 19 of 20</h3>
+                <p>Which HTML tag is used to create a dropdown list?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="html_q19" value="a">
+                        <span>&lt;select&gt;</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="html_q19" value="b">
+                        <span>&lt;dropdown&gt;</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="html_q19" value="c">
+                        <span>&lt;list&gt;</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="html_q19" value="d">
+                        <span>&lt;option&gt;</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="question" id="q20">
+                <h3>Question 20 of 20</h3>
+                <p>Which HTML tag is used to create a line break?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="html_q20" value="a">
+                        <span>&lt;br&gt;</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="html_q20" value="b">
+                        <span>&lt;break&gt;</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="html_q20" value="c">
+                        <span>&lt;line&gt;</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="html_q20" value="d">
+                        <span>&lt;lb&gt;</span>
+                    </label>
+                </div>
+
+            </div>
+
+            </div>
+         </div>
+
+        <div class="test-controls">
+            <button id="prev" class="nav-btn" disabled>Previous</button>
+            <button id="mark" class="mark-btn">Mark for Review</button>
+            <button id="next" class="nav-btn">Next</button>
+            <button id="submit" class="submit-btn">Submit Test</button>
+        </div>
+
+
+        <div class="section-navigation">
+            <button class="section-btn active" data-section="html-basics">HTML</button>
+            <button class="section-btn" data-section="css-basics">CSS</button>
+            <button class="section-btn" data-section="js-basics">JavaScript</button>      
+            <button class="section-btn" data-section="cloud-computing">Cloud Computing</button>
+            <button class="section-btn" data-section="web-development">Web Development</button>
+            <button class="section-btn" data-section="data-science">Data Science</button>
+            
+        </div>
+
+        <div class="test-footer">
+            <p>Note: This is a mock test. Complete all sections. Good luck!</p>
+        </div>  
+
+    </section>
+
+    <script src="js/script.js"></script>
+    <script src="js/test.js"></script>
+        <script src="js/search.js"></script>
+
+</body>
+</html>

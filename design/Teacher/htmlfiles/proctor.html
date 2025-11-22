@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="../css/proctor.css">
+    <link rel="stylesheet" href="../css/home.css">  
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="../js/proctor.js" defer></script>
+</head>
+<body>
+    <div class="side-nav">
+        <div class="nav-header">
+            <i class="fas fa-user-circle"></i>
+            <span>Teacher Portal</span>
+        </div>
+        <nav>
+            <a href="home.html"><i class="fas fa-home"></i> Home</a>
+            <a href="assignment.html"><i class="fas fa-tasks"></i> Assignment</a>
+            <a href="attendance.html"><i class="fas fa-user-check"></i> Attendance</a>
+            <a href="questions.html"><i class="fas fa-question-circle"></i> Questions</a>
+            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+            <a href="help.html"><i class="fas fa-info-circle"></i> Help</a>
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            <a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+            <a href="notifications.html"><i class="fas fa-bell"></i> Notifications</a>
+            <a href="calendar.html"><i class="fas fa-calendar-alt"></i> Calendar</a>
+            <a href="resources.html"><i class="fas fa-book"></i> Resources</a>
+            <a href="feedback.html"><i class="fas fa-comments"></i> Feedback</a>
+            <a href="proctor.html" ><i class="fas fa-user-shield"></i> Proctor</a>
+            <a href="support.html"><i class="fas fa-hands-helping"></i> Support</a>
+            <a href="teacher-login.html" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </div>
+                
+    <main class="proctor-main">
+        <section class="student-table-section">
+            <h2><i class="fas fa-users"></i> Student Proctoring Status</h2>
+            <table class="student-table">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Roll Number</th>
+                        <th>Exam Status</th>
+                        <th>Proctoring Status</th>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Amit Kumar</td>
+                        <td>202501</td>
+                        <td>Completed</td>
+                        <td><span class="status-pass"><i class="fas fa-check-circle"></i> No Issues</span></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Priya Singh</td>
+                        <td>202502</td>
+                        <td>In Progress</td>
+                        <td><span class="status-warning"><i class="fas fa-exclamation-triangle"></i> Webcam Off</span></td>
+                        <td>Reminded to turn on webcam</td>
+                    </tr>
+                    <tr>
+                        <td>Rahul Verma</td>
+                        <td>202503</td>
+                        <td>Completed</td>
+                        <td><span class="status-flagged"><i class="fas fa-flag"></i> Flagged</span></td>
+                        <td>Suspicious activity detected</td>
+                    </tr>
+                    <tr>
+                        <td>Sneha Patel</td>
+                        <td>202504</td>
+                        <td>Completed</td>
+                        <td><span class="status-pass"><i class="fas fa-check-circle"></i> No Issues</span></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Mohit Sharma</td>
+                        <td>202505</td>
+                        <td>Not Started</td>
+                        <td><span class="status-neutral"><i class="fas fa-clock"></i> Awaiting</span></td>
+                        <td>Exam scheduled for tomorrow</td>
+                    </tr>
+                    <tr>
+                        <td>Riya Mehra</td>
+                        <td>202506</td>
+                        <td>Completed</td>
+                        <td><span class="status-pass"><i class="fas fa-check-circle"></i> No Issues</span></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Arjun Joshi</td>
+                        <td>202507</td>
+                        <td>Completed</td>
+                        <td><span class="status-warning"><i class="fas fa-exclamation-triangle"></i> Audio Muted</span></td>
+                        <td>Asked to unmute during exam</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <div class="proctor-cards-row">
+            <section class="proctor-info">
+                <h2><i class="fas fa-info-circle"></i> Proctoring Guidelines</h2>
+                <ul>
+                    <li>Monitor live exam sessions for suspicious activity.</li>
+                    <li>Flagged students should be reviewed for possible violations.</li>
+                    <li>Remind students to keep their webcam and microphone on during the exam.</li>
+                    <li>Use the remarks column to note any interventions or issues.</li>
+                    <li>Export student proctoring data for record-keeping and reporting.</li>
+                </ul>
+            </section>
+            <section class="proctor-actions">
+                <h2><i class="fas fa-tasks"></i> Proctoring Actions</h2>
+                <ul>
+                    <li><strong>Send Warning:</strong> Instantly notify students about suspicious activity.</li>
+                    <li><strong>Live Chat:</strong> Communicate with students during the exam for clarifications.</li>
+                    <li><strong>Session Recording:</strong> Enable/disable video and audio recording for review.</li>
+                    <li><strong>Download Reports:</strong> Export detailed proctoring logs in PDF or Excel format.</li>
+                    <li><strong>Manual Review:</strong> Mark students for manual review after the exam.</li>
+                </ul>
+            </section>
+            <section class="proctor-tips">
+                <h2><i class="fas fa-lightbulb"></i> Proctoring Tips</h2>
+                <ul>
+                    <li>Encourage students to join the exam session 10 minutes early for system checks.</li>
+                    <li>Remind students to have a stable internet connection and a quiet environment.</li>
+                    <li>Use the chat feature to resolve minor technical issues without interrupting the exam.</li>
+                    <li>Regularly update proctoring software for the latest security features.</li>
+                    <li>Review flagged sessions soon after the exam for timely resolution.</li>
+                </ul>
+            </section>
+            <section class="proctor-support">
+                <h2><i class="fas fa-headset"></i> Need Help?</h2>
+                <p>If you encounter technical issues or have questions about proctoring, please <a href="support.html">contact support</a> or refer to the <a href="help.html">Help Center</a>.</p>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

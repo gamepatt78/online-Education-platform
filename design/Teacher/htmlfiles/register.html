@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher Registration</title>
+    <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="register-container">
+        <h2>Teacher Registration</h2>
+        <form id="registerForm" class="horizontal-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="regName">Full Name</label>
+                    <input type="text" id="regName" name="name" required 
+                        pattern="[A-Za-z\s]+" title="Please enter a valid name (letters and spaces only)">
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" name="email" required
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        title="Please enter a valid email address">
+                    <small class="form-text">Example: name@domain.com</small>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="regPhone">Phone Number</label>
+                    <input type="tel" id="regPhone" name="phone" required
+                        pattern="[0-9]{10}"
+                        title="Please enter a valid 10-digit phone number">
+                    <small class="form-text">Enter 10-digit number without spaces or dashes</small>
+                </div>
+                <div class="form-group">
+                    <label for="regDob">Date of Birth</label>
+                    <input type="date" id="regDob" name="dob" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="regDesignation">Current Designation</label>
+                    <input type="text" id="regDesignation" name="designation" required>
+                </div>
+            </div>
+
+            <div class="form-group degrees-section">
+                <label for="regDegrees">Previous Degrees</label>
+                <div id="degreesList">
+                    <div class="degree-entry">
+                        <input type="text" name="degree[]" placeholder="Degree Name" required>
+                        <input type="text" name="university[]" placeholder="University" required>
+                        <input type="number" name="year[]" placeholder="Year" min="1950" max="2025" required>
+                        <button type="button" class="remove-degree" style="display: none;">
+                            <i class="fas fa-minus-circle"></i>
+                        </button>
+                    </div>
+                </div>
+                <button type="button" id="addDegree" class="secondary-btn">
+                    <i class="fas fa-plus"></i> Add Another Degree
+                </button>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+        <p class="login-link">Already have an account? <a href="teacher-login.html">Login</a></p>
+    </div>
+    <script src="../js/register.js"></script>
+</body>
+</html>

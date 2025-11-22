@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher Profile</title>
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+ <div class="side-nav">
+        <div class="nav-header">
+            <i class="fas fa-user-circle"></i>
+            <span>Teacher Portal</span>
+        </div>
+        <nav>
+            <a href="home.html"><i class="fas fa-home"></i> Home</a>
+            <a href="assignment.html"><i class="fas fa-tasks"></i> Assignment</a>
+            <a href="attendance.html"><i class="fas fa-user-check"></i> Attendance</a>
+            <a href="questions.html"><i class="fas fa-question-circle"></i> Questions</a>
+            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+            <a href="help.html"><i class="fas fa-info-circle"></i> Help</a>
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            <a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+            <a href="notifications.html"><i class="fas fa-bell"></i> Notifications</a>
+            <a href="calendar.html"><i class="fas fa-calendar-alt"></i> Calendar</a>
+            <a href="resources.html"><i class="fas fa-book"></i> Resources</a>
+            <a href="feedback.html"><i class="fas fa-comments"></i> Feedback</a>
+            <a href="proctor.html" ><i class="fas fa-user-shield"></i> Proctor</a>
+            <a href="support.html"><i class="fas fa-hands-helping"></i> Support</a>
+            <a href="teacher-login.html" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </div>
+
+    <div class="profile-container">
+        <h1><i class="fas fa-user-circle"></i> Teacher Profile</h1>
+        
+        <div class="profile-grid">
+            <div class="profile-card main-info">
+                <div class="profile-header">
+                    <img src="/images/81.jpg" alt="Profile Photo" class="profile-photo">
+                    <button class="edit-photo"><i class="fas fa-camera"></i></button>
+                </div>
+                <div class="profile-details">
+                    <h2> Priya</h2>
+                    <p><i class="fas fa-graduation-cap"></i> Computer Science Professor</p>
+                    <p><i class="fas fa-envelope"></i> Priya@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> 91 + 9876543210</p>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <h3><i class="fas fa-info-circle"></i>  Information</h3>
+                <form class="profile-form">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" value=" Priya" name="fullname">
+                    </div>
+                    <div class="form-group">
+                        <label>Employee ID</label>
+                        <input type="text" value="TCH001" name="empid" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Department</label>
+                        <input type="text" value="Computer Science" name="department">
+                    </div>
+                    <div class="form-group">
+                        <label>Join Date</label>
+                        <input type="date" value="2020-01-15" name="Priya">
+                    </div>
+                </form>
+            </div>
+
+            <div class="profile-card">
+                <h3><i class="fas fa-book"></i> Teaching Details</h3>
+                <div class="teaching-details">
+                    <div class="stat-item">
+                        <span>Courses Teaching</span>
+                        <strong>7</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>Total Students</span>
+                        <strong>210</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>Years Experience</span>
+                        <strong>5</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="save-btn">Save Changes</button>
+    </div>
+    
+    <script src="../js/profile.js"></script>
+</body>
+</html>

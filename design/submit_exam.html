@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Submitted - Online Education Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/submit_exam.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="search.css"> <!-- Add this line -->
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+   <section class="flex">
+      <a href="home.html" class="logo">Online Education Portal</a>
+
+      <form action="search.html" method="get" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+        <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="user-btn" class="fas fa-user"></div>    
+         <div id="logout-btn" class="fas fa-sign-out-alt" title="Logout"></div>
+      </div>
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+         <a href="profile.html" class="btn">view profile</a>
+            </div>
+</section>
+</header>
+
+    <div class="side-bar">
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+   
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+   </div>
+
+     <nav class="navbar">
+      <a href="home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+      
+      <div class="nav-item dropdown">
+         <a href="#" class="dropdown-toggle">
+            <i class="fas fa-tasks"></i>
+            <span>Mock Tests</span>
+            <i class="fas fa-chevron-down"></i>
+         </a>
+         <div class="dropdown-menu">
+            <a href="mocktest1.html" class="dropdown-item">
+               <i class="fas fa-file-alt"></i>
+               <span>Mock Test 1</span>
+            </a>
+            <a href="mocktest2.html" class="dropdown-item">
+               <i class="fas fa-file-alt"></i>
+               <span>Mock Test 2</span>
+            </a>
+            <a href="mocktest3.html" class="dropdown-item">
+               <i class="fas fa-file-alt"></i>
+               <span>Mock Test 3</span>
+            </a>
+         </div>
+      </div>
+      <a href="feedback.html"><i class="fas fa-comments"></i><span>Feedback</span></a>
+            <a href="exam.html"><i class="fas fa-file-alt"></i><span>Exams</span></a>
+
+      <a href="certification.html"><i class="fas fa-certificate"></i><span>Certificate</span></a>
+      <a href="status.html"><i class="fas fa-check-circle"></i><span>Status</span></a>
+      <a href="billing.html"><i class="fas fa-receipt"></i><span>Billing</span></a>
+   </nav>
+</div>
+    <div class="submission-container">
+        <div class="summary-card">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h3>Exam Submitted Successfully!</h3>
+            <p>Thank you for completing the exam. Here's your result summary:</p>
+            
+            <div class="results">
+                <p>
+                    <strong>Total Questions:</strong>
+                    <span id="totalQuestions">10</span>
+                </p>
+                <p>
+                    <strong>Correct Answers:</strong>
+                    <span id="correctAnswers">7</span>
+                </p>
+                <p>
+                    <strong>Score:</strong>
+                    <span id="score">70%</span>
+                </p>
+            </div>
+
+            <a href="home.html" class="btn">Back To Home</a>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const total = params.get('total') || localStorage.getItem('totalQuestions') || 10;
+            const correct = params.get('correct') || localStorage.getItem('correctAnswers') || 7;
+            const score = Math.round((correct / total) * 100);
+
+            document.getElementById('totalQuestions').textContent = total;
+            document.getElementById('correctAnswers').textContent = correct;
+            document.getElementById('score').textContent = score + '%';
+        });
+    </script>
+</body>
+</html>

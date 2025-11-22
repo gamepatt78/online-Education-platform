@@ -1,8 +1,9 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory, abort
 from flask_cors import CORS
 import mysql.connector
 import secrets
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -114,5 +115,91 @@ def forgot_password():
 # ------------------- Start Server -------------------
 
 
+# Base directory for static files (the `design` folder)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Directory to store monitor events and images
+MONITOR_DIR = os.path.join(BASE_DIR, 'monitor_events')
+IMAGES_DIR = os.path.join(MONITOR_DIR, 'images')
+os.makedirs(IMAGES_DIR, exist_ok=True)
+
+
+@app.route('/monitor-event', methods=['POST'])
+def monitor_event():
+    """Receive monitor events from client. Expects JSON with fields:
+    - event: short event type (no-face, multiple-faces, looking-away, monitor-start, ...)
+    - details: human-readable details
+    - student: optional student identifier/email
+    - timestamp: optional ISO timestamp
+    - image: optional data URL (data:image/jpeg;base64,...)
+    """
+    try:
+        data = request.get_json(force=True)
+    except Exception:
+        return jsonify({'message': 'Invalid JSON'}), 400
+
+    event = data.get('event') or 'unknown'
+    details = data.get('details') or ''
+    student = data.get('student') or data.get('user') or 'unknown'
+    timestamp = data.get('timestamp') or datetime.utcnow().isoformat()
+
+    # Save image if provided
+    image_name = None
+    image_data = data.get('image')
+    if image_data and image_data.startswith('data:image'):
+        try:
+            header, encoded = image_data.split(',', 1)
+            import base64
+            ext = 'jpg'
+            if 'png' in header: ext = 'png'
+            image_bytes = base64.b64decode(encoded)
+            image_name = f"{event.replace(' ','_')}_{datetime.utcnow().strftime('%Y%m%d%H%M%S%f')}.{ext}"
+            image_path = os.path.join(IMAGES_DIR, image_name)
+            with open(image_path, 'wb') as f:
+                f.write(image_bytes)
+        except Exception as e:
+            print('Failed to save image:', e)
+
+    # Append JSONL event
+    record = {
+        'event': event,
+        'details': details,
+        'student': student,
+        'timestamp': timestamp,
+        'image': image_name
+    }
+    try:
+        with open(os.path.join(MONITOR_DIR, 'events.jsonl'), 'a', encoding='utf-8') as fh:
+            fh.write(jsonify(record).get_data(as_text=True) + '\n')
+    except Exception:
+        # fallback to simple write
+        try:
+            import json as _json
+            with open(os.path.join(MONITOR_DIR, 'events_raw.jsonl'), 'a', encoding='utf-8') as fh:
+                fh.write(_json.dumps(record) + '\n')
+        except Exception as e:
+            print('Failed to write event:', e)
+
+    return jsonify({'message': 'event received', 'saved_image': image_name}), 200
+
+
+@app.route('/', methods=['GET'])
+def index():
+    # Serve the main index page
+    # Serve the dashboard page as the app entrypoint
+    return send_from_directory(BASE_DIR, 'dashbord.html')
+
+
+@app.route('/<path:filename>', methods=['GET'])
+def serve_file(filename):
+    # Serve files (HTML, CSS, JS, images) from the design folder
+    file_path = os.path.join(BASE_DIR, filename)
+    if os.path.exists(file_path):
+        return send_from_directory(BASE_DIR, filename)
+    # If the requested file isn't found, return a 404 JSON for API compatibility
+    return abort(404)
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Bind to 0.0.0.0 for local network testing; keep debug on for development
+    app.run(host='0.0.0.0', port=5000, debug=True)

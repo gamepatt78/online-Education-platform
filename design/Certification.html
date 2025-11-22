@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Online Education Portal - Certificate Services</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/certificate.css">
+   <link rel="stylesheet" href="css/search.css">
+</head>
+<body>
+
+<header class="header">
+   <section class="flex">
+      <a href="home.html" class="logo">Online Education Portal</a>
+
+      <form action="search.html" method="get" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="user-btn" class="fas fa-user"></div>        
+         <div id="logout-btn" class="fas fa-sign-out-alt" title="Logout"></div>
+      </div>
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+         <a href="profile.html" class="btn">view profile</a>
+            </div>
+</section>
+</header>
+
+<div class="side-bar">
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+   
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+   </div>
+
+     <nav class="navbar">
+      <a href="home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+
+      <div class="nav-item dropdown">
+    <a href="#" class="dropdown-toggle">
+      <i class="fas fa-tasks"></i>
+      <span>Mock Tests</span>
+      <i class="fas fa-chevron-down"></i>
+    </a>
+    <div class="dropdown-menu">
+      <a href="mocktest1.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 1</span>
+      </a>
+      <a href="mocktest2.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 2</span>
+      </a>
+      <a href="mocktest3.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 3</span>
+      </a>
+    </div>
+  </div>
+
+      <a href="feedback.html"><i class="fas fa-comments"></i><span>Feedback</span></a>
+            <a href="exam.html"><i class="fas fa-file-alt"></i><span>Exams</span></a>
+
+      <a href="certification.html"><i class="fas fa-certificate"></i><span>Certificate</span></a>
+      <a href="status.html"><i class="fas fa-check-circle"></i><span>Status</span></a>
+      <a href="billing.html"><i class="fas fa-receipt"></i><span>Billing</span></a>
+   </nav>
+</div>
+
+
+
+  <div class="certificates-section">
+    <h2 class="section-title">My Certificates</h2>
+    
+    <div class="certificates-grid">
+      <div class="certificate-card">
+        <div class="certificate-header">
+          <h3 class="certificate-title">HTML Tutorial</h3>
+          <p class="certificate-issuer">Online Education Platform</p>
+        </div>
+        <div class="certificate-body">
+          <div class="certificate-info">
+            <div class="info-item">
+              <span class="info-label">Videos Completed:</span>
+              <span class="info-value">6/6</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Certificate ID:</span>
+              <span class="info-value">CERT-HTML-2023-001</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Completion:</span>
+              <span class="info-value">100%</span>
+            </div>
+          </div>
+          <div class="certificate-actions">
+            <a href="#" class="certificate-btn view-btn" data-certificate="html">View Certificate</a>
+            <a href="#" class="certificate-btn download-btn">Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card">
+        <div class="certificate-header">
+          <h3 class="certificate-title">CSS Tutorial</h3>
+          <p class="certificate-issuer">Online Education Platform</p>
+        </div>
+        <div class="certificate-body">
+          <div class="certificate-info">
+            <div class="info-item">
+              <span class="info-label">Videos Completed:</span>
+              <span class="info-value">4/6</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Certificate ID:</span>
+              <span class="info-value">CERT-CSS-2023-002</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Completion:</span>
+              <span class="info-value">66%</span>
+            </div>
+          </div>
+          <div class="certificate-actions">
+            <a href="#" class="certificate-btn view-btn disabled" data-certificate="css">Complete Course to View</a>
+            <a href="#" class="certificate-btn download-btn disabled">Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card">
+        <div class="certificate-header">
+          <h3 class="certificate-title">JavaScript Tutorial</h3>
+          <p class="certificate-issuer">Online Education Platform</p>
+        </div>
+        <div class="certificate-body">
+          <div class="certificate-info">
+            <div class="info-item">
+              <span class="info-label">Videos Completed:</span>
+              <span class="info-value">3/6</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Certificate ID:</span>
+              <span class="info-value">CERT-JS-2023-003</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Completion:</span>
+              <span class="info-value">50%</span>
+            </div>
+          </div>
+          <div class="certificate-actions">
+            <a href="#" class="certificate-btn view-btn disabled" data-certificate="js">Complete Course to View</a>
+            <a href="#" class="certificate-btn download-btn disabled">Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card">
+        <div class="certificate-header">
+          <h3 class="certificate-title">Bootstrap Tutorial</h3>
+          <p class="certificate-issuer">Online Education Platform</p>
+        </div>
+        <div class="certificate-body">
+          <div class="certificate-info">
+            <div class="info-item">
+              <span class="info-label">Videos Completed:</span>
+              <span class="info-value ">5/10</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Certificate ID:</span>
+              <span class="info-value">CERT-BS-2023-004</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Completion:</span>
+              <span class="info-value">50%</span>
+            </div>
+          </div>
+          <div class="certificate-actions">
+            <a href="#" class="certificate-btn view-btn disabled" data-certificate="bs">Complete Course to View</a>
+            <a href="#" class="certificate-btn download-btn disabled">Download</a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="certificate-card">
+        <div class="certificate-header">
+          <h3 class="certificate-title">JQuery Tutorial</h3>
+          <p class="certificate-issuer">Online Education Platform</p>
+        </div>
+        <div class="certificate-body">
+          <div class="certificate-info">
+            <div class="info-item">
+              <span class="info-label">Videos Completed:</span>
+              <span class="info-value">7/10</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Certificate ID:</span>
+              <span class="info-value">CERT-JQ-2023-005</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Completion:</span>
+              <span class="info-value">70%</span>
+            </div>
+          </div>
+          <div class="certificate-actions">
+            <a href="#" class="certificate-btn view-btn disabled" data-certificate="jq">Complete Course to View</a>
+            <a href="#" class="certificate-btn download-btn disabled">Download</a>                                  
+          </div>  
+        </div>
+      </div>
+      <div class="certificate-card">
+        <div class="certificate-header">
+          <h3 class="certificate-title">SASS Tutorial</h3>
+          <p class="certificate-issuer">Online Education Platform</p>
+        </div>
+        <div class="certificate-body">
+          <div class="certificate-info">
+            <div class="info-item">
+              <span class="info-label">Videos Completed:</span>
+              <span class="info-value">4/6</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Certificate ID:</span>
+              <span class="info-value">CERT-SASS-2023-006</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Completion:</span>
+              <span class="info-value">66%</span>
+            </div>
+          </div>
+          <div class="certificate-actions">
+            <a href="#" class="certificate-btn view-btn disabled" data-certificate="sass">Complete Course to View</a>
+            <a href="#" class="certificate-btn download-btn disabled">Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="certificate-card">
+        <div class="certificate-header">
+          <h3 class="certificate-title">Cloud Computing</h3>
+          <p class="certificate-issuer">Online Education Platform</p>
+        </div>
+        <div class="certificate-body">
+          <div class="certificate-info">
+            <div class="info-item">
+              <span class="info-label">Videos Completed:</span>
+              <span class="info-value">8/10</span>
+            </div>  
+            <div class="info-item">
+              <span class="info-label">Certificate ID:</span>
+              <span class="info-value">CERT-CC-2023-007</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Completion:</span>
+              <span class="info-value">80%</span>
+            </div>
+          </div>
+          <div class="certificate-actions">
+            <a href="#" class="certificate-btn view-btn disabled" data-certificate="cc">Complete Course to View</a>
+            <a href="#" class="certificate-btn download-btn disabled">Download</a>
+          </div>
+        </div>
+      </div>
+      <div class="certificate-card">
+        <div class="certificate-header">
+          <h3 class="certificate-title">DBMS</h3>
+          <p class="certificate-issuer">Online Education Platform</p>
+        </div>
+        <div class="certificate-body">
+          <div class="certificate-info">
+            <div class="info-item">
+              <span class="info-label">Videos Completed:</span>
+              <span class="info-value">5/10</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Certificate ID:</span>
+              <span class="info-value">CERT-DBMS-2023-008</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Completion:</span>
+              <span class="info-value">50%</span>
+            </div>
+          </div>
+          <div class="certificate-actions">
+            <a href="#" class="certificate-btn view-btn disabled" data-certificate="dbms">Complete Course to View</a>
+            <a href="#" class="certificate-btn download-btn disabled">Download</a>
+          </div>
+        </div>
+      </div>
+      <div class="certificate-card">
+        <div class="certificate-header">
+          <h3 class="certificate-title">Data Structures</h3>
+          <p class="certificate-issuer">Online Education Platform</p>
+        </div>
+        <div class="certificate-body">
+          <div class="certificate-info">
+            <div class="info-item">
+              <span class="info-label">Videos Completed:</span>
+
+              <span class="info-value">6/10</span>
+            </div>  
+            <div class="info-item">
+              <span class="info-label">Certificate ID:</span>
+              <span class="info-value">CERT-DS-2023-009</span>   
+            </div>
+            <div class="info-item">
+              <span class="info-label">Completion:</span>
+              <span class="info-value">60%</span>
+            </div>
+          </div>
+          <div class="certificate-actions">
+            <a href="#" class="certificate-btn view-btn disabled" data-certificate="ds">Complete Course to View</a>
+            <a href="#" class="certificate-btn download-btn disabled">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+     
+
+
+<script src="js/script.js"></script>
+<script src="js/search.js"></script>
+
+

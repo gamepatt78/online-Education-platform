@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Attendance Management</title>
+    <link rel="stylesheet" href="../css/attendance.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+     <div class="side-nav">
+        <div class="nav-header">
+            <i class="fas fa-user-circle"></i>
+            <span>Teacher Portal</span>
+        </div>
+        <nav>
+            <a href="home.html"><i class="fas fa-home"></i> Home</a>
+            <a href="assignment.html"><i class="fas fa-tasks"></i> Assignment</a>
+            <a href="attendance.html"><i class="fas fa-user-check"></i> Attendance</a>
+            <a href="questions.html"><i class="fas fa-question-circle"></i> Questions</a>
+            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+            <a href="help.html"><i class="fas fa-info-circle"></i> Help</a>
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            <a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+            <a href="notifications.html"><i class="fas fa-bell"></i> Notifications</a>
+            <a href="calendar.html"><i class="fas fa-calendar-alt"></i> Calendar</a>
+            <a href="resources.html"><i class="fas fa-book"></i> Resources</a>
+            <a href="feedback.html"><i class="fas fa-comments"></i> Feedback</a>
+            <a href="proctor.html" ><i class="fas fa-user-shield"></i> Proctor</a>
+            <a href="support.html"><i class="fas fa-hands-helping"></i> Support</a>
+            <a href="teacher-login.html" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </div>
+
+    <div class="attendance-container">
+        <h1><i class="fas fa-user-check"></i> Attendance Management</h1>
+        
+        <div class="date-selector">
+            <input type="date" id="attendance-date">
+            <select id="subject-select">
+                <option value="">Select Subject</option>
+                <option value="programming">Programming Fundamentals</option>
+                <option value="database">Database Management</option>
+                <option value="networks">Computer Networks</option>
+                <option value="os">Operating Systems</option>
+                <option value="security">Cybersecurity</option>
+                <option value="ai">Artificial Intelligence</option>
+                <option value="dsa">Data Structures</option>
+            </select>
+        </div>
+
+        <div class="attendance-grid">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Status</th>
+                        <th>Remarks</th>
+                        <th>Total Present</th>
+                        <th>Total Absent</th>
+                        <th>Attendance %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jonathan</td>
+                        <td>
+                            <select class="status-select">
+                                <option value="present">Present</option>
+                                <option value="absent">Absent</option>
+                                <option value="late">Late</option>
+                            </select>
+                        </td>
+                        <td><input type="text" placeholder="Add remarks"></td>
+                        <td>15</td>
+                        <td>2</td>
+                        <td>88.2%</td>
+                    </tr>
+                    <tr>
+                        <td>Emily</td>
+                        <td>
+                            <select class="status-select">
+                                <option value="present">Present</option>
+                                <option value="absent">Absent</option>
+                                <option value="late">Late</option>
+                            </select>
+                        </td>
+                        <td><input type="text" placeholder="Add remarks"></td>
+                        <td>14</td>
+                        <td>3</td>
+                        <td>82.4%</td>
+                    </tr>
+                    <!-- Add more student rows as needed -->
+                    <tr>
+                        <td>Michael</td>
+                        <td>
+                            <select class="status-select">
+                                <option value="present">Present</option>
+                                <option value="absent">Absent</option>
+                                <option value="late">Late</option>
+                            </select>
+                        </td>
+                        <td><input type="text" placeholder="Add remarks"></td>
+                        <td>16</td>
+                        <td>1</td>
+                        <td>94.1%</td>
+                    </tr>
+
+  <!-- Add more student rows as needed -->
+
+    <tr>
+                                                        <td>Adèle Exarchopoulos </td>
+
+                                                        <td>
+                                                            <select class="status-select">
+                                                                <option value="present">Present</option>
+                                                                <option value="absent">Absent</option>
+                                                            </select>
+                                                        </td>
+                                                        <td><input type="text" placeholder="Add remarks"></td>
+                                                        <td>16</td>
+                                                        <td>1</td>
+                                                        <td>91.1%</td>
+                                                    </tr>
+
+                                                       <tr>
+                                                        <td>Jonny Blaze </td>
+
+                                                        <td>
+                                                            <select class="status-select">
+                                                                <option value="present">Present</option>
+                                                                <option value="absent">Absent</option>
+                                                            </select>
+                                                        </td>
+                                                        <td><input type="text" placeholder="Add remarks"></td>
+                                                        <td>16</td>
+                                                        <td>1</td>
+                                                        <td>92.5%</td>
+                                                    </tr>
+
+
+                                                       <tr>
+                                                        <td>Liu Kang</td>
+
+                                                        <td>
+                                                            <select class="status-select">
+                                                                <option value="present">Present</option>
+                                                                <option value="absent">Absent</option>
+                                                            </select>
+                                                        </td>
+                                                        <td><input type="text" placeholder="Add remarks"></td>
+                                                        <td>16</td>
+                                                        <td>4</td>
+                                                        <td>93.7%</td>
+                                                    </tr>
+
+
+
+                                                       <tr>
+                                                        <td>Sonya Blade</td>
+
+                                                        <td>
+                                                            <select class="status-select">
+                                                                <option value="present">Present</option>
+                                                                <option value="absent">Absent</option>
+                                                            </select>
+                                                        </td>
+                                                        <td><input type="text" placeholder="Add remarks"></td>
+                                                        <td>20</td>
+                                                        <td>5</td>
+                                                        <td>80.6%</td>
+                                                    </tr>
+
+
+
+                                                       <tr>
+                                                        <td>Hanzo Hasashi </td>
+
+                                                        <td>
+                                                            <select class="status-select">
+                                                                <option value="present">Present</option>
+                                                                <option value="absent">Absent</option>
+                                                            </select>
+                                                        </td>
+                                                        <td><input type="text" placeholder="Add remarks"></td>
+                                                        <td>19</td>
+                                                        <td>5</td>
+                                                        <td>61.8%</td>
+                                                    </tr>
+
+
+
+
+                                                       <tr>
+                                                        <td>Bi Han</td>
+
+                                                        <td>
+                                                            <select class="status-select">
+                                                                <option value="present">Present</option>
+                                                                <option value="absent">Absent</option>
+                                                            </select>
+                                                        </td>
+                                                        <td><input type="text" placeholder="Add remarks"></td>
+                                                        <td>17</td>
+                                                        <td>6</td>
+                                                        <td>65.2%</td>
+                                                    </tr>
+
+
+
+
+                                                       <tr>
+                                                        <td>Sindel </td>
+
+                                                        <td>
+                                                            <select class="status-select">
+                                                                <option value="present">Present</option>
+                                                                <option value="absent">Absent</option>
+                                                            </select>
+                                                        </td>
+                                                        <td><input type="text" placeholder="Add remarks"></td>
+                                                        <td>17</td>
+                                                        <td>3</td>
+                                                        <td>77.1%</td>
+                                                    </tr>
+
+
+                                                       <tr>
+                                                        <td> Kitana</td>
+
+                                                        <td>
+                                                            <select class="status-select">
+                                                                <option value="present">Present</option>
+                                                                <option value="absent">Absent</option>
+                                                            </select>
+                                                        </td>
+                                                        <td><input type="text" placeholder="Add remarks"></td>
+                                                        <td>11</td>
+                                                        <td>1</td>
+                                                        <td>88.9%</td>
+                                                    </tr>
+
+                                                </tbody>
+            </table>
+        </div>
+
+        <div class="attendance-summary">
+            <div class="summary-card">
+                <i class="fas fa-users"></i>
+                <h3>Total Students</h3>
+                <p>8</p>
+            </div>
+            <div class="summary-card">
+                <i class="fas fa-user-check"></i>
+                <h3>Present Today</h3>
+                <p>5</p>
+            </div>
+            <div class="summary-card">
+                <i class="fas fa-user-times"></i>
+                <h3>Absent Today</h3>
+                <p>3</p>
+            </div>
+            <div class="summary-card">
+                <i class="fas fa-percentage"></i>
+                <h3>Attendance Rate</h3>
+                <p>91.4%</p>
+            </div>
+        </div>
+
+        <button class="save-btn">Save Attendance</button>
+    </div>
+    
+    <script src="../js/attendance.js"></script>
+    <script src="../js/logout.js"></script>
+</body>
+</html>

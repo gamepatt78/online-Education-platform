@@ -1,0 +1,29 @@
+#search-results h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+    color: #fff;
+}
+
+.search-course-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+}
+
+.search-course-list li {
+    margin-bottom: 1rem;
+}
+
+.search-course-list a {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #a78bfa; 
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.search-course-list a:hover {
+    color: #fff;
+    text-decoration: underline;
+}

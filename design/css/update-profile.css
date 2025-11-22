@@ -1,0 +1,74 @@
+/* Update Profile Page Styles */
+.update-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #070707;
+  padding: 32px 24px;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+.profile-img-section {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+.profile-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #eee;
+}
+.change-photo-btn {
+  padding: 8px 18px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.profile-form-grid {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.form-column {
+  flex: 1;
+}
+.input-group {
+  margin-bottom: 18px;
+}
+.input-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.button-group {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+}
+.update-btn {
+  background: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.cancel-btn {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+}

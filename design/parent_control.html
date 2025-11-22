@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parental Control</title>
+  <link rel="stylesheet" href="css/parent_control.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Parental Control Panel</h1>
+    <a href="home.html" class="back-home-btn">← Back to Home</a>
+    
+    <div class="login-section" id="loginSection">
+      <p>Enter Parent Password:</p>
+      <input type="password" id="password" placeholder="Enter password">
+      <button onclick="login()">Login</button>
+      <p class="error" id="errorMessage"></p>
+    </div>
+    
+    <div class="control-panel hidden" id="controlPanel">
+      <h2>Settings</h2>
+      
+      <label for="screenTime">Set Screen Time Limit (minutes):</label>
+      <input type="number" id="screenTime" min="1">
+      
+      <label for="blockSites">Blocked Websites (comma separated):</label>
+      <input type="text" id="blockSites" placeholder="e.g. youtube.com, facebook.com">
+
+      
+      
+      <button onclick="saveSettings()">Save Settings</button>
+      <p class="success" id="saveMessage"></p>
+    </div>
+  </div>
+
+  <script src="js/parent_control.js"></script>
+</body>
+</html>

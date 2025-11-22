@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>online-education platform</title>
+    <link rel="stylesheet" href="css/dashbord.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Hero/banner with Unsplash background */
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            padding: 64px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 16px auto;
+            max-width: 1100px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+        .hero h2 { font-size: 32px; margin: 0 0 8px; }
+        .hero p { font-size: 16px; margin: 0; opacity: 0.95; }
+
+        .features {
+            display: flex;
+            gap: 18px;
+            max-width: 1100px;
+            margin: 18px auto;
+            padding: 0 12px;
+            align-items: stretch;
+        }
+        .feature-card {
+            flex: 1;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+        }
+        .feature-hero {
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+        }
+        .feature-body { padding: 14px; }
+        .feature-body h3 { margin: 0 0 8px; }
+        .feature-body ul { margin: 8px 0 0 18px; }
+        @media (max-width:800px){ .features{flex-direction:column;} }
+    </style>
+</head>
+<body>
+    <div class="dashboard-header">
+        <h1> Online Education Dashboard</h1>
+    </div>
+    <!-- Hero / Banner -->
+    <div class="hero" role="banner">
+        <h2>Welcome to the Online Education Platform</h2>
+        <p>Learn at your own pace — courses, assessments and resources for students and teachers.</p>
+    </div>
+    <div class="login-buttons">
+        <a href="login.html" class="login-btn student-login">
+            <i class="fas fa-user-graduate"></i>
+            Student Login
+        </a>
+        <a href="Teacher/htmlfiles/teacher-login.html" class="login-btn teacher-login">
+            <i class="fas fa-chalkboard-teacher"></i>
+            Teacher Login
+        </a>
+    </div>
+
+    <!-- Features: Students & Teachers -->
+    <section class="features" aria-label="Students and Teachers">
+        <article class="feature-card" id="students">
+            <div class="feature-hero" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1400&q=80');" aria-hidden="true"></div>
+            <div class="feature-body">
+                <h3>For Students</h3>
+                <p>Designed to help learners of all levels — our student experience focuses on clear learning paths, hands-on projects, and measurable outcomes.</p>
+                <strong>Benefits:</strong>
+                <ul>
+                    <li>Structured courses with step-by-step modules</li>
+                    <li>Interactive quizzes, assignments and instant feedback</li>
+                    <li>Progress tracking and certificate on completion</li>
+                    <li>Access to community forums and study resources</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="feature-card" id="teachers">
+            <div class="feature-hero" style="background-image: url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1400&q=80');" aria-hidden="true"></div>
+            <div class="feature-body">
+                <h3>For Teachers</h3>
+                <p>Tools and workflows for educators to create, manage and assess content — saving time while improving learning outcomes.</p>
+                <strong>Benefits:</strong>
+                <ul>
+                    <li>Simple content authoring and course management</li>
+                    <li>Built-in grading tools and attendance tracking</li>
+                    <li>Analytics to monitor student engagement and performance</li>
+                    <li>Integrations for assignments, quizzes and certificates</li>
+                </ul>
+            </div>
+        </article>
+    </section>
+    
+    <section class="courses-section" id="coursesSection" style="display:none;">
+        <h2> Courses Available</h2>
+        <div class="courses-list">
+            <div class="course-card">
+                <div class="course-title">HTML & CSS Fundamentals</div>
+                <div class="course-desc">
+                    Learn the building blocks of web development. Covers HTML5, CSS3, layouts, forms, and responsive design.
+                </div>
+                <div class="course-meta">8 Modules • 40+ Lessons • Beginner Friendly</div>
+            </div>
+            <div class="course-card">
+                <div class="course-title">JavaScript Essentials</div>
+                <div class="course-desc">
+                    Master the basics of JavaScript, including variables, functions, DOM manipulation, and ES6 features.
+                </div>
+                <div class="course-meta">10 Modules • 50+ Lessons • Interactive Quizzes</div>
+            </div>
+            <div class="course-card">
+                <div class="course-title">Python Programming</div>
+                <div class="course-desc">
+                    Dive into Python with hands-on projects. Topics include syntax, data structures, OOP, and file handling.
+                </div>
+                <div class="course-meta">12 Modules • 60+ Lessons • Project Based</div>
+            </div>
+            <div class="course-card">
+                <div class="course-title">MySQL & Database Design</div>
+                <div class="course-desc">
+                    Understand relational databases, SQL queries, normalization, and database design best practices.
+                </div>
+                <div class="course-meta">7 Modules • 35+ Lessons • Real-world Examples</div>
+                </div>
+            
+            <div class="course-card">
+                <div class="course-title">Full Stack Web Development</div>
+                <div class="course-desc">
+                    Become a full stack developer! Learn front-end, back-end, REST APIs, and deployment strategies.
+                </div>
+                <div class="course-meta">15 Modules • 80+ Lessons • Certificate</div>
+            </div>
+        </div>
+    </section>
+    <script src="js/dashbord.js"></script>
+</body>
+</html>

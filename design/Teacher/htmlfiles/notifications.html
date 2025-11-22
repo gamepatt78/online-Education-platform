@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notifications | Teacher Portal</title>
+    <link rel="stylesheet" href="../css/notifications.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <div class="side-nav">
+        <div class="nav-header">
+            <i class="fas fa-user-circle"></i>
+            <span>Teacher Portal</span>
+        </div>
+        <nav>
+            <a href="home.html"><i class="fas fa-home"></i> Home</a>
+            <a href="assignment.html"><i class="fas fa-tasks"></i> Assignment</a>
+            <a href="attendance.html"><i class="fas fa-user-check"></i> Attendance</a>
+            <a href="questions.html"><i class="fas fa-question-circle"></i> Questions</a>
+            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+            <a href="help.html"><i class="fas fa-info-circle"></i> Help</a>
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            <a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+            <a href="notifications.html"><i class="fas fa-bell"></i> Notifications</a>
+            <a href="calendar.html"><i class="fas fa-calendar-alt"></i> Calendar</a>
+            <a href="resources.html"><i class="fas fa-book"></i> Resources</a>
+            <a href="feedback.html"><i class="fas fa-comments"></i> Feedback</a>
+            <a href="proctor.html" ><i class="fas fa-user-shield"></i> Proctor</a>
+            <a href="support.html"><i class="fas fa-hands-helping"></i> Support</a>
+            <a href="teacher-login.html" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </div>
+    <div class="notifications-container">
+        <h1><i class="fas fa-bell"></i> Notifications</h1>
+
+        <div class="notification-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="assignments">Assignments</button>
+            <button class="filter-btn" data-filter="messages">Messages</button>
+            <button class="filter-btn" data-filter="system">System</button>
+            <button class="clear-btn">Clear All</button>
+        </div>
+
+        <div class="notifications-list">
+            <div class="notification-item unread" data-type="assignments">
+                <div class="notification-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <div class="notification-content">
+                    <h3>New Assignment Submission</h3>
+                    <p>John Doe submitted Programming Assignment #3</p>
+                    <span class="notification-time">2 minutes ago</span>
+                </div>
+                <button class="mark-read"><i class="fas fa-check"></i></button>
+            </div>
+
+            <div class="notification-item" data-type="messages">
+                <div class="notification-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="notification-content">
+                    <h3>New Message</h3>
+                    <p>Sarah Williams has a question about Database Design</p>
+                    <span class="notification-time">1 hour ago</span>
+                </div>
+            </div>
+
+            <div class="notification-item" data-type="system">
+                <div class="notification-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <div class="notification-content">
+                    <h3>System Update</h3>
+                    <p>New features have been added to the grading system</p>
+                    <span class="notification-time">2 hours ago</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="notification-settings">
+            <h2>Notification Settings</h2>
+            <div class="settings-group">
+                <label>
+                    <input type="checkbox" checked> Email Notifications
+                </label>
+                <label>
+                    <input type="checkbox" checked> Browser Notifications
+                </label>
+                <label>
+                    <input type="checkbox" checked> Sound Alerts
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/notifications.js"></script>
+</body>
+</html>

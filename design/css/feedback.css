@@ -1,0 +1,177 @@
+
+.feedback-container {
+    padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.feedback-form {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 3rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.form-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #9b59b6;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 2.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  color: #ecf0f1;
+}
+
+.form-control {
+  width: 100%;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #ecf0f1;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #9b59b6;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(155, 89, 182, 0.2);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+select.form-control {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    background-color: #fff;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+select.form-control:focus {
+    outline: none;
+    border-color: #8e44ad;
+    box-shadow: 0 0 5px rgba(142, 68, 173, 0.2);
+}
+
+select.form-control option {
+    padding: 10px;
+}
+
+textarea.form-control {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submit-btn-container {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.submit-btn {
+  background-color: #9b59b6;
+  color: white;
+    border: none;
+  padding: 1.5rem 3rem;
+  font-size: 1.6rem;
+  border-radius: 8px;
+    cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  min-width: 200px;
+    width: 100%;
+  }
+
+.submit-btn:hover {
+  background-color: #8e44ad;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.rating-container,
+.rating-slider,
+.rating-slider::-webkit-slider-thumb,
+.rating-slider::-moz-range-thumb,
+.rating-value {
+    display: none;
+}
+
+@media (max-width: 768px) {
+  .feedback-form {
+    padding: 2rem;
+  }
+  
+  .form-title {
+    font-size: 2.2rem;
+  }
+  
+  .form-control {
+    font-size: 1.5rem;
+    padding: 1.2rem;
+  }
+}
+
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.dark-mode .feedback-form {
+    background-color: #2d2d2d;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .form-control {
+    background-color: #3d3d3d;
+    border-color: #4d4d4d;
+    color: #fff;
+}
+
+.dark-mode .form-control:focus {
+    border-color: #8e44ad;
+    box-shadow: 0 0 5px rgba(142, 68, 173, 0.4);
+}
+
+.dark-mode select.form-control {
+    background-color: #3d3d3d;
+    border-color: #4d4d4d;
+    color: #fff;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+}
+
+.dark-mode select.form-control option {
+    background-color: #3d3d3d;
+    color: #fff;
+}
+
+.dark-mode .submit-btn {
+    background-color: #8e44ad;
+    color: #fff;
+}
+
+.dark-mode .submit-btn:hover {
+    background-color: #7d3c98;
+}
+
+.dark-mode .form-title {
+    color: #fff;
+}

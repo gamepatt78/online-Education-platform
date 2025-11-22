@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Online Education Portal</title>
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/home.css">
+      <link rel="stylesheet" href="css/search.css"> 
+</head>
+
+
+<header class="header">
+   <section class="flex">
+      <a href="home.html" class="logo">Online Education Portal</a>
+
+      <form action="search.html" method="get" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+        
+         <div id="user-btn" class="fas fa-user"></div>        
+         <div id="logout-btn" class="fas fa-sign-out-alt" title="Logout"></div>
+                 <div class="theme-toggle" id="theme-toggle">
+            <div class="toggle-track">
+               <div class="toggle-icons">
+                  <i class="fas fa-sun"></i>
+                  <i class="fas fa-moon"></i>
+               </div>
+               <div class="toggle-thumb"></div>
+            </div>
+         </div>
+      </div>
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+         <a href="profile.html" class="btn">view profile</a>
+            </div>
+</section>
+</header>
+
+<div class="side-bar">
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+   
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+   </div>
+
+     <nav class="navbar">
+      <a href="home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+      
+      <div class="nav-item dropdown">
+         <a href="#" class="dropdown-toggle">
+            <i class="fas fa-tasks"></i>
+            <span>Mock Tests</span>
+            <i class="fas fa-chevron-down"></i>
+         </a>
+         <div class="dropdown-menu">
+            <a href="mocktest1.html" class="dropdown-item">
+               <i class="fas fa-file-alt"></i>
+               <span>Mock Test 1</span>
+            </a>
+            <a href="mocktest2.html" class="dropdown-item">
+               <i class="fas fa-file-alt"></i>
+               <span>Mock Test 2</span>
+            </a>
+            <a href="mocktest3.html" class="dropdown-item">
+               <i class="fas fa-file-alt"></i>
+               <span>Mock Test 3</span>
+            </a>
+         </div>
+      </div>
+      <a href="feedback.html"><i class="fas fa-comments"></i><span>Feedback</span></a>
+            <a href="exam.html"><i class="fas fa-file-alt"></i><span>Exams</span></a>
+
+      <a href="certification.html"><i class="fas fa-certificate"></i><span>Certificate</span></a>
+      <a href="status.html"><i class="fas fa-check-circle"></i><span>Status</span></a>
+      <a href="billing.html"><i class="fas fa-receipt"></i><span>Billing</span></a>
+   </nav>
+</div>
+
+<body>
+  <section class="upgrade-gateway">
+    <h2>Confirm Your Upgrade</h2>
+    <div id="course-summary"></div>
+    <a id="proceed-payment" class="btn" href="#">Proceed to Payment</a>
+  </section>
+  <script src="js/upgrade.js"></script>
+
+  <script src="js/script.js"></script>
+<script src="js/theme-toggle.js"></script>
+<script src="js/search.js"></script>
+
+</body>
+</html>

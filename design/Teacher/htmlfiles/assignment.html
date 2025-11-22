@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignments Management</title>
+    <link rel="stylesheet" href="../css/assignments.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    
+<div class="side-nav">
+        <div class="nav-header">
+            <i class="fas fa-user-circle"></i>
+            <span>Teacher Portal</span>
+        </div>
+        <nav>
+            <a href="home.html"><i class="fas fa-home"></i> Home</a>
+            <a href="assignment.html"><i class="fas fa-tasks"></i> Assignment</a>
+            <a href="attendance.html"><i class="fas fa-user-check"></i> Attendance</a>
+            <a href="questions.html"><i class="fas fa-question-circle"></i> Questions</a>
+            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+            <a href="help.html"><i class="fas fa-info-circle"></i> Help</a>
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            <a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+            <a href="notifications.html"><i class="fas fa-bell"></i> Notifications</a>
+            <a href="calendar.html"><i class="fas fa-calendar-alt"></i> Calendar</a>
+            <a href="resources.html"><i class="fas fa-book"></i> Resources</a>
+            <a href="feedback.html"><i class="fas fa-comments"></i> Feedback</a>
+            <a href="proctor.html" ><i class="fas fa-user-shield"></i> Proctor</a>
+            <a href="support.html"><i class="fas fa-hands-helping"></i> Support</a>
+            <a href="teacher-login.html" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </div>
+
+    <div class="assignments-container">
+        <h1><i class="fas fa-tasks"></i> Assignment Management</h1>
+        
+        <div class="subjects-grid">
+            <!-- Computer Science Subjects -->
+            <div class="subject-card">
+                <h3><i class="fas fa-code"></i> Programming Fundamentals</h3>
+                <p>Total Marks: 30</p>
+            </div>
+
+            <div class="subject-card">
+                <h3><i class="fas fa-database"></i> Database Management</h3>
+                <p>Total Marks: 30</p>
+            </div>
+
+            <div class="subject-card">
+                <h3><i class="fas fa-network-wired"></i> Computer Networks</h3>
+                <p>Total Marks: 30</p>
+            </div>
+
+            <div class="subject-card">
+                <h3><i class="fas fa-microchip"></i> Operating Systems</h3>
+                <p>Total Marks: 30</p>
+            </div>
+
+            <div class="subject-card">
+                <h3><i class="fas fa-shield-alt"></i> Cybersecurity</h3>
+                <p>Total Marks: 30</p>
+            </div>
+
+            <div class="subject-card">
+                <h3><i class="fas fa-robot"></i> Artificial Intelligence</h3>
+                <p>Total Marks: 30</p>
+            </div>
+
+            <div class="subject-card">
+                <h3><i class="fas fa-project-diagram"></i> Data Structures</h3>
+                <p>Total Marks: 30</p>
+            </div>
+        </div>
+
+        <div class="assignment-details">
+            <h2><i class="fas fa-clipboard-list"></i> Recent Assignments</h2>
+            <div class="assignments-list">
+                <div class="assignment-card">
+                    <div class="assignment-header">
+                        <h3>Programming Fundamentals</h3>
+                        <span class="due-date">Due: Aug 10, 2025</span>
+                    </div>
+                    <p>Create a simple calculator using Python with GUI interface</p>
+                    <div class="submission-status">
+                        <span class="submitted">15 Submitted</span>
+                        <span class="pending">5 Pending</span>
+                    </div>
+                </div>
+
+                <div class="assignment-card">
+                    <div class="assignment-header">
+                        <h3>Database Management</h3>
+                        <span class="due-date">Due: Aug 12, 2025</span>
+                    </div>
+                    <p>Design and implement a normalized database for a library system</p>
+                    <div class="submission-status">
+                        <span class="submitted">18 Submitted</span>
+                        <span class="pending">2 Pending</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="create-assignment">
+            <h2><i class="fas fa-plus-circle"></i> Create New Assignment</h2>
+            <form class="assignment-form">
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <select id="subject" required>
+                        <option value="">Select Subject</option>
+                        <option value="programming">Programming Fundamentals</option>
+                        <option value="database">Database Management</option>
+                        <option value="networks">Computer Networks</option>
+                        <option value="os">Operating Systems</option>
+                        <option value="security">Cybersecurity</option>
+                        <option value="ai">Artificial Intelligence</option>
+                        <option value="dsa">Data Structures</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Assignment Title:</label>
+                    <input type="text" id="title" required placeholder="Enter assignment title">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" required placeholder="Enter assignment description"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="due-date">Due Date:</label>
+                        <input type="date" id="due-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="marks">Total Marks:</label>
+                        <input type="number" id="marks" required min="0" max="100">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="attachment">Attachment:</label>
+                    <input type="file" id="attachment">
+                </div>
+
+                <button type="submit" class="create-btn">Create Assignment</button>
+            </form>
+        </div>
+
+        <div class="student-marks">
+            <h2>Student Marks Allocation</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Programming</th>
+                        <th>Database</th>
+                        <th>Networks</th>
+                        <th>OS</th>
+                        <th>Security</th>
+                        <th>AI</th>
+                        <th>DSA</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jonathan</td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td class="total">0/210</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td class="total">0/210</td>
+                    </tr>
+                    <tr>
+                        <td>Mike Johnson</td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td class="total">0/210</td>
+                    </tr>
+                    <tr>
+                        <td>Sarah Williams</td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td class="total">0/210</td>
+                    </tr>
+                    <tr>
+                        <td>David Brown</td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td><input type="number" min="0" max="30" placeholder="0"></td>
+                        <td class="total">0/210</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="save-btn">Save Marks</button>
+        </div>
+    </div>
+    <script src="../js/assignments.js"></script>
+    <script src="../js/logout.js"></script>
+</body>
+</html>

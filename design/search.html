@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Online Education Portal - Search Results</title>
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/home.css">
+   <link rel="stylesheet" href="css/search.css"> 
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+   <style>
+      .search-course-title {
+         font-size: 1.3rem;
+         font-weight: bold;
+         color: #fff; 
+      }
+   </style>
+</head>
+<body>
+  <header class="header">
+   <section class="flex">
+      <a href="home.html" class="logo">Online Education Portal</a>
+
+      <form action="search.html" method="get" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="user-btn" class="fas fa-user"></div>        
+         <div id="logout-btn" class="fas fa-sign-out-alt" title="Logout"></div>
+      </div>
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+         <a href="profile.html" class="btn">view profile</a>
+            </div>
+</section>
+</header>
+
+<div class="side-bar">
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+   
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+   </div>
+
+     <nav class="navbar">
+      <a href="home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+
+      <div class="nav-item dropdown">
+    <a href="#" class="dropdown-toggle">
+      <i class="fas fa-tasks"></i>
+      <span>Mock Tests</span>
+      <i class="fas fa-chevron-down"></i>
+    </a>
+    <div class="dropdown-menu">
+      <a href="mocktest1.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 1</span>
+      </a>
+      <a href="mocktest2.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 2</span>
+      </a>
+      <a href="mocktest3.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 3</span>
+      </a>
+    </div>
+  </div>
+
+      <a href="feedback.html"><i class="fas fa-comments"></i><span>Feedback</span></a>
+            <a href="exam.html"><i class="fas fa-file-alt"></i><span>Exams</span></a>
+
+      <a href="certification.html"><i class="fas fa-certificate"></i><span>Certificate</span></a>
+      <a href="status.html"><i class="fas fa-check-circle"></i><span>Status</span></a>
+      <a href="billing.html"><i class="fas fa-receipt"></i><span>Billing</span></a>
+   </nav>
+</div>
+
+   <main class="search-main">
+      <div id="search-results"></div>
+   </main>
+
+   <script>
+      const courses = [
+         { title: "Complete HTML Tutorial", link: "watch-video.html?course=html" },
+         { title: "complete CSS tutorial", link: "watch-video1.html?course= CSS" },
+         { title: "complete js tutorial", link: "watch-video2.html?course= js " },
+         { title: "complete Boostrap tutorial", link: "watch-video3.html?course= Boostrap " },
+         { title: "complete JQuery tutorial", link: "watch-video4.html?course= JQuery " },
+
+            { title: "complete SASS tutorial", link: "watch-video5.html?course=SASS " },
+            { title: "complete cloud computing tutorials", link: "watch-video6.html?course=cloud-computing" },
+            { title: "Data Structures", link: "watch-video.html?course=data-structures" },
+            { title: "Cloud Computing", link: "watch-video.html?course=cloud-computing" },
+            { title: "dbms", link: "watch-video.html?course=database-management" },
+
+
+
+      ];
+
+      const params = new URLSearchParams(window.location.search);
+      const query = params.get('search_box');
+      const resultsDiv = document.getElementById('search-results');
+
+      if (query) {
+         // Filter courses by search term (case-insensitive)
+         const filtered = courses.filter(course =>
+            course.title.toLowerCase().includes(query.toLowerCase())
+         );
+
+         let html = `<h2>Results for: <em>${query}</em></h2>`;
+         if (filtered.length > 0) {
+            html += '<ul class="search-course-list">';
+            filtered.forEach(course => {
+               html += `<li><a href="${course.link}">${course.title}</a></li>`;
+            });
+            html += '</ul>';
+         } else {
+            html += '<p>No courses found.</p>';
+         }
+         resultsDiv.innerHTML = html;
+      } else {
+         resultsDiv.innerHTML = `<h2>No search term entered.</h2>`;
+      }
+   </script>
+</body>
+</html>

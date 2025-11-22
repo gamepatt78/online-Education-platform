@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Final Exam - Distance Education</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/exam.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="js/firebase.js"></script>
+  <script defer src="js/questions.js"></script>
+  <script defer src="js/exam.js"></script>
+     <link rel="stylesheet" href="css/search.css">
+     <script src="https://cdn.jsdelivr.net/npm/simple-peer@9.11.1/simplepeer.min.js"></script>
+
+</head>
+<body>
+  <header class="header">
+    <section class="flex">
+      <a href="home.html" class="logo">Online Education Portal</a>
+
+      <form action="search.html" method="get" class="search-form">
+        <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+        <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+
+        <div id="user-btn" class="fas fa-user"></div>
+        <div id="logout-btn" class="fas fa-sign-out-alt" title="Logout"></div>
+      </div>
+
+      <div class="profile">
+        <img src="images/pic-1.jpg" class="image" alt="">
+        <h3 class="name">Student 1</h3>
+        <p class="role">student</p>
+        <a href="profile.html" class="btn">view profile</a>
+      </div>
+    </section>
+  </header>
+
+  <div class="side-bar">
+    <div id="close-btn">
+      <i class="fas fa-times"></i>
+    </div>
+    
+    <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+    </div>
+
+    <nav class="navbar">
+      <a href="home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+      
+   <div class="nav-item dropdown">
+    <a href="#" class="dropdown-toggle">
+      <i class="fas fa-tasks"></i>
+      <span>Mock Tests</span>
+      <i class="fas fa-chevron-down"></i>
+    </a>
+    <div class="dropdown-menu">
+      <a href="mocktest1.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 1</span>
+      </a>
+      <a href="mocktest2.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 2</span>
+      </a>
+      <a href="mocktest3.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 3</span>
+      </a>
+    </div>
+  </div>
+
+      <a href="feedback.html"><i class="fas fa-comments"></i><span>Feedback</span></a>
+      <a href="exam.html"><i class="fas fa-file-alt"></i><span>Exams</span></a>
+      <a href="certification.html"><i class="fas fa-certificate"></i><span>Certificate</span></a>
+      <a href="status.html"><i class="fas fa-check-circle"></i><span>Status</span></a>
+      <a href="billing.html"><i class="fas fa-receipt"></i><span>Billing</span></a>
+    </nav>
+  </div>
+
+  <div class="exam-container">
+    <h2>Distance Education | Final Exam</h2>
+    <div id="timer">60:00</div>
+    <div class="webcam-container">
+      <video id="webcam" autoplay muted style="display:block;max-width:200px;"></video>
+      <div class="webcam-overlay">Webcam Monitoring Active</div>
+      <button id="webcam-toggle" class="webcam-toggle-btn">
+        <i class="fas fa-video"></i> 
+      </button>
+    </div>
+    <div id="webcam-warning" style="display:none;color:red;">Webcam access denied!</div>
+    <form id="examForm" action="https://formspree.io/f/xovdrpqg" method="POST" onsubmit="handleExamSubmit(event)">
+      <input type="hidden" name="score" id="exam-score" value="">
+      <input type="hidden" name="correct" id="exam-correct" value="">
+      <input type="hidden" name="wrong" id="exam-wrong" value="">
+      <input type="hidden" name="time_taken" id="exam-time" value="">
+    </form>
+    <button type="submit" class="submit-btn" form="examForm"><i class="fas fa-paper-plane"></i> Submit Exam</button>
+
+
+  </div>
+
+  <script src="js/script.js"></script>
+                  <script scr ="js/exam.js">    </script>
+                    <script src="js/search.js"></script>
+                    <script>
+let webcamStream = null;
+
+// Start webcam and display in <video>
+async function startWebcam() {
+    try {
+        webcamStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+        const video = document.getElementById('webcam');
+        video.srcObject = webcamStream;
+    } catch (err) {
+        const warning = document.getElementById('webcam-warning');
+        if (warning) warning.style.display = 'block';
+    }
+}
+
+// Take a snapshot from the webcam video
+function takeSnapshot() {
+    const video = document.getElementById('webcam');
+    if (!video || video.readyState !== 4) return null;
+    const canvas = document.createElement('canvas');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    return canvas.toDataURL('image/jpeg', 0.7); // base64 image
+}
+
+// Log webcam snapshot to Flask backend
+function logWebcamSnapshot() {
+    const imgData = takeSnapshot();
+    if (!imgData) return;
+    fetch('http://localhost:5000/api/log', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            student: 'Student 1', // Replace with dynamic student name/id if available
+            event: 'Webcam Snapshot',
+            details: 'Periodic webcam capture',
+            image: imgData
+        })
+    });
+}
+
+// Log suspicious activity to Flask backend
+function logActivity(eventType, details) {
+    fetch('http://localhost:5000/api/log', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            student: 'Student 1',
+            event: eventType,
+            details: details || '',
+            image: ''
+        })
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    startWebcam();
+    // Take a snapshot every 60 seconds
+    setInterval(logWebcamSnapshot, 60000);
+
+    // Log tab switch/minimize as suspicious activity and take a snapshot
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            logActivity('Tab Switch', 'User switched tab or minimized app');
+            logWebcamSnapshot();
+        }
+    });
+});
+
+let peer;
+let ws;
+
+async function startWebcamAndStream() {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+    document.getElementById('webcam').srcObject = stream;
+
+    ws = new WebSocket('ws://localhost:9000');
+    ws.onopen = () => {
+        peer = new SimplePeer({ initiator: true, trickle: false, stream });
+        peer.on('signal', data => ws.send(JSON.stringify({ type: 'signal', data })));
+        ws.onmessage = msg => {
+            const message = JSON.parse(msg.data);
+            if (message.type === 'signal') peer.signal(message.data);
+        };
+    };
+}
+
+document.addEventListener('DOMContentLoaded', startWebcamAndStream);
+</script>
+
+</body>
+</html>

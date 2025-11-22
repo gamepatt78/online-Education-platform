@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Online Education Portal - Upgrade Courses</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/billing.css">
+</head>
+<body>
+<header class="header">
+   <section class="flex">
+      <a href="home.html" class="logo">Online Education Portal</a>
+
+      <form action="search.html" method="get" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="user-btn" class="fas fa-user"></div>        
+         <div id="logout-btn" class="fas fa-sign-out-alt" title="Logout"></div>
+            
+         </div>
+      
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+         <a href="profile.html" class="btn">view profile</a>
+            </div>
+</section>
+</header>
+
+<div class="side-bar">
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+   
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+   </div>
+
+     <nav class="navbar">
+      <a href="home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+
+      <div class="nav-item dropdown">
+    <a href="#" class="dropdown-toggle">
+      <i class="fas fa-tasks"></i>
+      <span>Mock Tests</span>
+      <i class="fas fa-chevron-down"></i>
+    </a>
+    <div class="dropdown-menu">
+      <a href="mocktest1.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 1</span>
+      </a>
+      <a href="mocktest2.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 2</span>
+      </a>
+      <a href="mocktest3.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 3</span>
+      </a>
+    </div>
+  </div>
+
+      <a href="feedback.html"><i class="fas fa-comments"></i><span>Feedback</span></a>
+            <a href="exam.html"><i class="fas fa-file-alt"></i><span>Exams</span></a>
+
+      <a href="certification.html"><i class="fas fa-certificate"></i><span>Certificate</span></a>
+      <a href="status.html"><i class="fas fa-check-circle"></i><span>Status</span></a>
+      <a href="billing.html"><i class="fas fa-receipt"></i><span>Billing</span></a>
+   </nav>
+</div>
+
+<section class="billing-container">
+  <h2 class="section-title">Upgrade Your Courses</h2>
+  <p>Select a course to upgrade and proceed with payment.</p>
+  <form id="upgrade-form">
+    <div class="courses-list">
+      <div class="course-upgrade-card">
+        <div class="course-thumb-bg ai-bg">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="course-info">
+          <input type="radio" name="course" id="ai" value="Artificial Intelligence" required>
+          <label for="ai">
+            <strong>Artificial Intelligence</strong>
+            <span>₹2999</span>
+          </label>
+        </div>
+      </div>
+      <div class="course-upgrade-card">
+        <div class="course-thumb-bg ml-bg">
+          <i class="fas fa-brain"></i>
+        </div>
+        <div class="course-info">
+          <input type="radio" name="course" id="ml" value="Machine Learning">
+          <label for="ml">
+            <strong>Machine Learning</strong>
+            <span>₹3499</span>
+          </label>
+        </div>
+      </div>
+      <div class="course-upgrade-card">
+        <div class="course-thumb-bg bigdata-bg">
+          <i class="fas fa-database"></i>
+        </div>
+        <div class="course-info">
+          <input type="radio" name="course" id="bigdata" value="Big Data">
+          <label for="bigdata">
+            <strong>Big Data</strong>
+            <span>₹2799</span>
+          </label>
+        </div>
+      </div>
+      <div class="course-upgrade-card">
+        <div class="course-thumb-bg dl-bg">
+          <i class="fas fa-project-diagram"></i>
+        </div>
+        <div class="course-info">
+          <input type="radio" name="course" id="dl" value="Deep Learning">
+          <label for="dl">
+            <strong>Deep Learning</strong>
+            <span>₹3999</span>
+          </label>
+        </div>
+      </div>
+      <div class="course-upgrade-card">
+        <div class="course-thumb-bg ds-bg">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <div class="course-info">
+          <input type="radio" name="course" id="ds" value="Data Science">
+          <label for="ds">
+            <strong>Data Science</strong>
+            <span>₹3199</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="course-upgrade-card">
+        <div class="course-thumb-bg cyber-bg">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <div class="course-info">
+          <input type="radio" name="course" id="cyber" value="Cyber Security">
+          <label for="cyber">
+            <strong>Cyber Security</strong>
+            <span>₹9599</span>
+          </label>
+        </div>
+      </div>
+
+    <div class="course-upgrade-card">
+        <div class="course-thumb-bg network-bg">
+          <i class="fas fa-network-wired"></i>
+        </div>
+        <div class="course-info">
+          <input type="radio" name="course" id="CN" value="Computer Network Security">
+          <label for="CN">
+            <strong>Computer Network Security</strong>
+            <span>₹1569</span>
+          </label>
+        </div>
+      </div>
+
+
+
+      <div class="course-upgrade-card">
+        <div class="course-thumb-bg os-bg">
+          <i class="fas fa-desktop"></i>
+        </div>
+        <div class="course-info">
+          <input type="radio" name="course" id="os" value="Operating Systems">
+          <label for="os">
+            <strong>Operating Systems</strong>
+            <span>₹1999</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn">Upgrade Now</button>
+  </form>
+
+</section>
+
+<script src="js/script.js"></script>
+<script src="js/billing.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Support | Teacher Portal</title>
+    <link rel="stylesheet" href="../css/support.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <div class="side-nav">
+        <div class="nav-header">
+            <i class="fas fa-user-circle"></i>
+            <span>Teacher Portal</span>
+        </div>
+        <nav>
+            <a href="home.html"><i class="fas fa-home"></i> Home</a>
+            <a href="assignment.html"><i class="fas fa-tasks"></i> Assignment</a>
+            <a href="attendance.html"><i class="fas fa-user-check"></i> Attendance</a>
+            <a href="questions.html"><i class="fas fa-question-circle"></i> Questions</a>
+            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+            <a href="help.html"><i class="fas fa-info-circle"></i> Help</a>
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            <a href="reports.html"><i class="fas fa-chart-bar"></i> Reports</a>
+            <a href="notifications.html"><i class="fas fa-bell"></i> Notifications</a>
+            <a href="calendar.html"><i class="fas fa-calendar-alt"></i> Calendar</a>
+            <a href="resources.html"><i class="fas fa-book"></i> Resources</a>
+            <a href="feedback.html"><i class="fas fa-comments"></i> Feedback</a>
+            <a href="proctor.html" ><i class="fas fa-user-shield"></i> Proctor</a>
+            <a href="support.html"><i class="fas fa-hands-helping"></i> Support</a>
+            <a href="teacher-login.html" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </div>
+
+    <div class="support-container">
+        <h1><i class="fas fa-hands-helping"></i> Support Center</h1>
+
+        <div class="support-grid">
+            <div class="quick-help">
+                <h2>Quick Help</h2>
+                <div class="search-box">
+                    <input type="text" placeholder="Search help articles...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="common-issues">
+                    <h3>Common Issues</h3>
+                    <ul>
+                        <li>
+                            <a href="#"><i class="fas fa-question-circle"></i> How to grade assignments?</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-question-circle"></i> Managing student attendance</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-question-circle"></i> Uploading course materials</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ticket-section">
+                <h2>Create Support Ticket</h2>
+                <form id="ticketForm">
+                    <div class="form-group">
+                        <label>Issue Type</label>
+                        <select required>
+                            <option value="">Select issue type</option>
+                            <option value="technical">Technical Issue</option>
+                            <option value="account">Account Access</option>
+                            <option value="feature">Feature Request</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <select required>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea rows="4" required placeholder="Describe your issue..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Attachments</label>
+                        <input type="file" multiple>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Ticket</button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <h2>Contact Us</h2>
+                <div class="contact-methods">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone Support</h3>
+                            <p>+1 (555) 123-4567</p>
+                            <span>Mon-Fri, 9:00 AM - 5:00 PM</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email Support</h3>
+                            <p>support@education.com</p>
+                            <span>24/7 Response</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-comments"></i>
+                        <div>
+                            <h3>Live Chat</h3>
+                            <button class="chat-btn">Start Chat</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/support.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+
+
+.attendance-container {
+    margin-left: 250px;
+    padding: 2rem;
+}
+
+.attendance-container h1 {
+    color: #6366f1;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.date-selector {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.date-selector input[type="date"],
+.date-selector select {
+    padding: 0.8rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    min-width: 200px;
+}
+
+.date-selector select:required:invalid {
+    color: #6b7280;
+}
+
+.attendance-grid {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+    background: #f8fafc;
+    color: #374151;
+    font-weight: 600;
+}
+
+.status-select {
+    padding: 0.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    width: 100px;
+}
+
+.status-select option[value="present"] {
+    color: #059669;
+}
+
+.status-select option[value="absent"] {
+    color: #dc2626;
+}
+
+.status-select option[value="late"] {
+    color: #d97706;
+}
+
+.attendance-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.summary-card {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-5px);
+}
+
+.summary-card i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.summary-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.summary-card p {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.save-btn {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.save-btn:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .attendance-container {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .date-selector {
+        flex-direction: column;
+    }
+
+    .attendance-summary {
+        grid-template-columns: 1fr;
+    }
+}

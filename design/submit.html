@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Education Portal - Test Submission</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/submit.css">
+    <link rel="stylesheet" href="css/search.css"> 
+</head>
+
+<header class="header">
+   <section class="flex">
+      <a href="home.html" class="logo">Online Education Portal</a>
+
+      <form action="search.html" method="get" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="user-btn" class="fas fa-user"></div>
+         <div id="logout-btn" class="fas fa-sign-out-alt" title="Logout"></div>
+      </div>
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+         <a href="profile.html" class="btn">view profile</a>
+            </div>
+</section>
+</header>
+
+<div class="side-bar">
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+   
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+   </div>
+
+    <nav class="navbar">
+      <a href="home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+      
+      <div class="nav-item dropdown">
+         <a href="#" class="dropdown-toggle">
+            <i class="fas fa-tasks"></i>
+            <span>Mock Tests</span>
+            <i class="fas fa-chevron-down"></i>
+         </a>
+         <div class="dropdown-menu">
+            <a href="mocktest1.html" class="dropdown-item">
+               <i class="fas fa-file-alt"></i>
+               <span>Mock Test 1</span>
+            </a>
+            <a href="mocktest2.html" class="dropdown-item">
+               <i class="fas fa-file-alt"></i>
+               <span>Mock Test 2</span>
+            </a>
+            <a href="mocktest3.html" class="dropdown-item">
+               <i class="fas fa-file-alt"></i>
+               <span>Mock Test 3</span>
+            </a>
+         </div>
+      </div>
+      <a href="feedback.html"><i class="fas fa-comments"></i><span>Feedback</span></a>
+            <a href="exam.html"><i class="fas fa-file-alt"></i><span>Exams</span></a>
+
+      <a href="certification.html"><i class="fas fa-certificate"></i><span>Certificate</span></a>
+      <a href="status.html"><i class="fas fa-check-circle"></i><span>Status</span></a>
+      <a href="billing.html"><i class="fas fa-receipt"></i><span>Billing</span></a>
+   </nav>
+</div>
+
+
+<body class="dark-mode">
+    <div class="submit-container">
+        <form id="result-form" action="https://formspree.io/f/xovdrpqg" method="POST">
+            <div class="result-card">
+                <div class="result-header">
+                    <i class="fas fa-check-circle"></i>
+                    <h2>Test Submitted Successfully!</h2>
+                </div>
+                
+                <div class="result-details">
+                    <div class="score-section">
+                        <h3>Your Score</h3>
+                        <div class="score" id="final-score">
+                            <span id="score-value">0</span>
+                            <span class="total">/20</span>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <i class="fas fa-check"></i>
+                            <span>Correct</span>
+                            <strong id="correct-count">0</strong>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-times"></i>
+                            <span>Wrong</span>
+                            <strong id="wrong-count">0</strong>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-minus-circle"></i>
+                            <span>Skipped</span>
+                            <strong id="skipped-count">0</strong>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Time Taken</span>
+                            <strong id="time-taken">00:00</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <input type="hidden" name="score" id="input-score" value="0">
+                <input type="hidden" name="correct" id="input-correct" value="0">
+                <input type="hidden" name="wrong" id="input-wrong" value="0">
+                <input type="hidden" name="skipped" id="input-skipped" value="0">
+                <input type="hidden" name="time_taken" id="input-time" value="00:00">
+
+                <div class="action-buttons">
+                    <button type="submit" class="btn submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Result
+                    </button>
+                    <a href="mocktest1.html" class="btn retry-btn">
+                        <i class="fas fa-redo"></i>
+                        Retry Test
+                    </a>
+                    <a href="home.html" class="btn home-btn">
+                        <i class="fas fa-home"></i>
+                        Back to Home
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/submit.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/search.js"></script>          
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get values from localStorage or set defaults
+            const score = localStorage.getItem('score') || 0;
+            const correct = localStorage.getItem('correct') || 0;
+            const wrong = localStorage.getItem('wrong') || 0;
+            const skipped = localStorage.getItem('skipped') || 0;
+            const time = localStorage.getItem('time_taken') || "00:00";
+            const total = parseInt(correct) + parseInt(wrong) + parseInt(skipped);
+
+            // Update the DOM
+            document.getElementById('score-value').textContent = score;
+            document.querySelector('.score .total').textContent = '/' + total;
+            document.getElementById('correct-count').textContent = correct;
+            document.getElementById('wrong-count').textContent = wrong;
+            document.getElementById('skipped-count').textContent = skipped;
+            document.getElementById('time-taken').textContent = time;
+
+            // Update hidden inputs for form submission
+            document.getElementById('input-score').value = score;
+            document.getElementById('input-correct').value = correct;
+            document.getElementById('input-wrong').value = wrong;
+            document.getElementById('input-skipped').value = skipped;
+            document.getElementById('input-time').value = time;
+        });
+
+        // Example: after test is completed
+        localStorage.setItem('score', score); // e.g. 15
+        localStorage.setItem('correct', correct); // e.g. 15
+        localStorage.setItem('wrong', wrong); // e.g. 3
+        localStorage.setItem('skipped', skipped); // e.g. 2
+        localStorage.setItem('time_taken', timeTaken); // e.g. "12:34"
+        window.location.href = "submit.html";
+    </script>
+</body>
+</html>

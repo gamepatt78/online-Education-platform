@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exam Monitor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { background: #181c24; color: #fff; font-family: Arial, sans-serif; }
+    .log { border-bottom: 1px solid #333; padding: 1rem; }
+    .event { font-weight: bold; color: #ffb347; }
+    .timestamp { color: #aaa; font-size: 0.9em; }
+  </style>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-peer@9.11.1/simplepeer.min.js"></script>
+</head>
+<body>
+  <h2>Live Exam Activity Monitor</h2>
+  <div id="logs"></div>
+  <video id="remote" autoplay playsinline style="max-width:400px;display:block;margin:2rem auto;"></video>
+  <!-- Face monitor UI (local camera preview and status) -->
+  <div id="face-monitor" style="max-width:640px;margin:1rem auto;text-align:center;">
+    <div style="position:relative;display:inline-block;">
+      <video id="localVideo" autoplay playsinline muted style="width:320px;height:240px;border-radius:8px;background:#000"></video>
+      <canvas id="overlay" width="320" height="240" style="position:absolute;left:0;top:0;pointer-events:none"></canvas>
+    </div>
+    <div id="fm-status" style="color:#fff;margin-top:8px;">Status: <strong id="fm-state">Initializing...</strong></div>
+    <div style="margin-top:8px;"><button id="fm-start">Start Monitoring</button> <button id="fm-stop">Stop</button></div>
+  </div>
+  <script>
+function fetchLogs() {
+    fetch('http://localhost:5000/api/logs')
+      .then(res => res.json())
+      .then(logs => {
+        const logsDiv = document.getElementById('logs');
+        logsDiv.innerHTML = '';
+        if (logs.length === 0) {
+          logsDiv.innerHTML = '<div style="color:#aaa;text-align:center;margin-top:2rem;">No logs found.</div>';
+        }
+        logs.forEach(log => {
+          logsDiv.innerHTML += `
+            <div class="log">
+              <span class="event">${log.event}</span> - 
+              <span>${log.details}</span>
+              <div class="timestamp">${log.timestamp}</div>
+              <div>Student: ${log.student}</div>
+              ${log.image ? `<img src="${log.image}" style="max-width:100%;margin-top:8px;border-radius:8px;">` : ''}
+            </div>
+          `;
+        });
+      });
+}
+// Fetch logs every 5 seconds for live updates
+setInterval(fetchLogs, 5000);
+fetchLogs();
+
+let peer;
+let ws;
+
+function startMonitor() {
+    ws = new WebSocket('ws://localhost:9000');
+    ws.onopen = () => {
+        peer = new SimplePeer({ initiator: false, trickle: false });
+        peer.on('signal', data => ws.send(JSON.stringify({ type: 'signal', data })));
+        peer.on('stream', stream => {
+            document.getElementById('remote').srcObject = stream;
+        });
+        ws.onmessage = msg => {
+            const message = JSON.parse(msg.data);
+            if (message.type === 'signal') peer.signal(message.data);
+        };
+    };
+}
+
+document.addEventListener('DOMContentLoaded', startMonitor);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_detection/face_detection.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="js/face-monitor.js"></script>
+</body>
+</html>

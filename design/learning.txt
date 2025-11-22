@@ -1,0 +1,3 @@
+next js ,react , node
+
+ml - cv , nlp - higging face llama , deepseek  custom training 

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resources | Teacher Portal</title>
+    <link rel="stylesheet" href="../css/resources.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="side-nav">
+        <!-- ...existing side navigation code... -->
+    </div>
+
+    <div class="resources-container">
+        <h1><i class="fas fa-book"></i> Teaching Resources</h1>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search resources..." id="resourceSearch">
+            <button id="uploadBtn" class="upload-btn">
+                <i class="fas fa-upload"></i> Upload Resource
+            </button>
+        </div>
+
+        <div class="resources-grid">
+            <div class="resource-category">
+                <h2><i class="fas fa-file-pdf"></i> Course Materials</h2>
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <div class="resource-info">
+                            <h3>Programming Basics PDF</h3>
+                            <p>Last updated: July 15, 2025</p>
+                        </div>
+                        <div class="resource-actions">
+                            <button class="download-btn"><i class="fas fa-download"></i></button>
+                            <button class="share-btn"><i class="fas fa-share"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-category">
+                <h2><i class="fas fa-video"></i> Video Lectures</h2>
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <i class="fas fa-video"></i>
+                        <div class="resource-info">
+                            <h3>Database Design Fundamentals</h3>
+                            <p>Duration: 45 minutes</p>
+                        </div>
+                        <div class="resource-actions">
+                            <button class="play-btn"><i class="fas fa-play"></i></button>
+                            <button class="share-btn"><i class="fas fa-share"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-category">
+                <h2><i class="fas fa-tasks"></i> Assessment Tools</h2>
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <i class="fas fa-file-alt"></i>
+                        <div class="resource-info">
+                            <h3>Quiz Template</h3>
+                            <p>Format: DOCX</p>
+                        </div>
+                        <div class="resource-actions">
+                            <button class="download-btn"><i class="fas fa-download"></i></button>
+                            <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <h2>Upload New Resource</h2>
+            <form id="uploadForm">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select required>
+                        <option value="course">Course Materials</option>
+                        <option value="video">Video Lectures</option>
+                        <option value="assessment">Assessment Tools</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>File</label>
+                    <input type="file" required>
+                </div>
+                <div class="modal-buttons">
+                    <button type="submit" class="save-btn">Upload</button>
+                    <button type="button" class="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/resources.js"></script>
+</body>
+</html>

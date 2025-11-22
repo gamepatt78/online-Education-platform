@@ -1,0 +1,5 @@
+localStorage.setItem('score', score);
+localStorage.setItem('correct', correct);
+localStorage.setItem('wrong', wrong);
+localStorage.setItem('skipped', skipped);
+localStorage.setItem('time_taken', timeTaken);

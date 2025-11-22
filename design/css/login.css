@@ -1,0 +1,24 @@
+.submit-btn {
+  position: relative;
+}
+
+.submit-btn.loading {
+  opacity: 0.8;
+  cursor: wait;
+}
+
+.submit-btn.loading::after {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-left: 0.5em;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

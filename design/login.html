@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Online Education Portal</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- custom css file links -->
+   <link rel="stylesheet" href="css/auth.css">
+   <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+<div class="auth-container">
+  <div class="auth-logo">
+    <h1>Online Education Portal</h1>
+    <p>Learn anytime, anywhere</p>
+  </div>
+      <h2 class="auth-title">Login to Your Account</h2>
+      
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Password</label>
+      <div class="password-field">
+          <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+          <i class="fas fa-eye password-toggle" id="password-toggle"></i>
+        </div>
+        </div>
+        
+    <div class="remember-me">
+      <input type="checkbox" id="remember" name="remember">
+      <label for="remember">Remember me</label>
+        </div>
+        
+    <div class="forgot-password">
+      <a href="forgot-password.html">Forgot Password?</a>
+      </div>
+    
+    <button type="submit" class="submit-btn">Login</button>
+  </form>
+  
+  <div class="form-footer">
+    Don't have an account? <a href="register.html">Register Now</a>
+    </div>
+  </div>
+
+<script src="js/login.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

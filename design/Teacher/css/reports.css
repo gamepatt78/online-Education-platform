@@ -1,0 +1,124 @@
+.reports-container {
+    margin-left: 250px;
+    padding: 2rem;
+}
+
+.reports-container h1 {
+    color: #6366f1;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.date-filter {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.date-filter select,
+.date-filter input {
+    padding: 0.8rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.generate-btn {
+    background: #6366f1;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.reports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.report-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.report-card.wide {
+    grid-column: 1 / -1;
+}
+
+.report-card h3 {
+    color: #374151;
+    margin-bottom: 1.5rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1rem;
+    background: #f3f4f6;
+    border-radius: 8px;
+}
+
+.stat-item span {
+    display: block;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+}
+
+.stat-item strong {
+    font-size: 1.5rem;
+    color: #6366f1;
+}
+
+.export-section {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.export-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid #6366f1;
+    border-radius: 8px;
+    background: #fff;
+    color: #6366f1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.export-btn:hover {
+    background: #6366f1;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .reports-container {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .date-filter {
+        flex-direction: column;
+    }
+
+    .export-section {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,334 @@
+body {
+    font-family: 'Segoe UI', 'Times New Roman', Times, serif, sans-serif;
+    background: #f4f7fb;
+    margin: 0;
+}
+
+
+.assignments-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.assignments-container h1 {
+    color: #6366f1;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.subject-card {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.subject-card:hover {
+    transform: translateY(-5px);
+}
+
+.subject-card h3 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.subject-card p {
+    margin: 0.5rem 0;
+    opacity: 0.9;
+}
+/* Sidebar styles */
+.side-nav {
+    width: 250px;
+    background: white;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    border-right: 1px solid #e5e7eb;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-header {
+    background: #6366f1;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.nav-header i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.nav-header span {
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.side-nav nav {
+    padding: 1rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-nav nav a {
+    padding: 0.75rem 1.5rem;
+    color: #4b5563;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.side-nav nav a i {
+    width: 20px;
+    text-align: center;
+}
+
+.side-nav nav a:hover {
+    background: #f3f4f6;
+    color: #6366f1;
+}
+
+.side-nav nav a.logout {
+    margin-top: auto;
+    color: #dc2626;
+    border-top: 1px solid #e5e7eb;
+}
+
+
+/* Table Styles */
+.student-marks {
+    overflow-x: auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+    background: #f3f4f6;
+    color: #374151;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+tr:hover {
+    background: #f8fafc;
+}
+
+td input {
+    width: 70px;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    text-align: center;
+}
+
+td input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.total {
+    font-weight: 600;
+    color: #6366f1;
+}
+
+.save-btn {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+    margin-top: 1rem;
+    width: 200px;
+}
+
+.save-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Assignment Details Styles */
+.assignment-details {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.assignments-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.assignment-card {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.assignment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.due-date {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.submission-status {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.submitted {
+    color: #16a34a;
+    font-weight: 500;
+}
+
+.pending {
+    color: #dc2626;
+    font-weight: 500;
+}
+
+/* Create Assignment Styles */
+.create-assignment {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.assignment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #1f2937;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.create-btn {
+    background: #2563eb;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.create-btn:hover {
+    background: #1d4ed8;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .assignments-container {
+        padding: 1rem;
+    }
+
+    .subjects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    th, td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    td input {
+        width: 50px;
+        padding: 0.4rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .assignments-list {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,254 @@
+/* Billing Page Styles */
+/* This file contains styles specific to the billing.html page */
+
+/* Variables for dark theme */
+:root {
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --card-hover: rgba(255, 255, 255, 0.1);
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --primary-gradient: linear-gradient(135deg, #6366f1, #8b5cf6);
+    --info: #3b82f6;
+    --progress-low: #ef4444;
+    --progress-medium: #f59e0b;
+    --progress-high: #10b981;
+    --progress-complete: #06b6d4;
+}
+
+/* General dark background and text */
+body {
+  background: #181c24;
+  color: #f1f1f1;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Main Container */
+.billing-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  background: #23283a;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+  padding: 36px 28px 28px 28px;
+}
+
+/* Section Headings */
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.billing-container p {
+  text-align: center;
+  color: #b0b3c2;
+  margin-bottom: 28px;
+}
+
+/* Courses List */
+.courses-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+}
+
+/* Course Upgrade Card */
+.course-upgrade-card {
+  background: #23283a;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 260px;
+  min-height: 320px;
+  padding: 0 0 24px 0;
+  transition: box-shadow 0.2s, border 0.2s;
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.course-upgrade-card:hover,
+.course-upgrade-card input[type="radio"]:checked + label {
+  border: 2px solid #27ae60;
+  box-shadow: 0 8px 32px rgba(39,174,96,0.18);
+}
+
+/* Thumb/Icon area */
+.course-thumb-bg {
+  width: 100%;
+  height: 160px;
+  border-radius: 16px 16px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4.5rem;
+  margin-bottom: 18px;
+  color: #fff;
+}
+
+/* Unique backgrounds for each course */
+.ai-bg { background: #e74c3c; }
+.ml-bg { background: #2980b9; }
+.bigdata-bg { background: #8e44ad; }
+.dl-bg { background: #16a085; }
+.ds-bg { background: #f39c12; }
+.cyber-bg { background: #6c3483; }
+.network-bg { background: #2874a6; }
+.os-bg { background: #b9770e; }
+
+/* Course info */
+.course-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 8px;
+}
+
+.course-info input[type="radio"] {
+  margin-right: 10px;
+  accent-color: #27ae60;
+  width: 20px;
+  height: 20px;
+  margin-bottom: 12px;
+}
+
+.course-info label {
+  cursor: pointer;
+  color: #f1f1f1;
+  font-size: 1.08rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.course-info strong {
+  font-size: 1.15rem;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.course-info span {
+  color: #27ae60;
+  font-weight: 700;
+  font-size: 1.08rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: linear-gradient(90deg,#27ae60 60%,#219150 100%);
+  color: #fff !important;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 34px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 32px auto 0 auto;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(39,174,96,0.13);
+  text-decoration: none;
+  text-align: center;
+}
+.btn:hover {
+  background: linear-gradient(90deg,#219150 60%,#27ae60 100%);
+  box-shadow: 0 4px 16px rgba(39,174,96,0.23);
+}
+
+/* Payment success message */
+#payment-success {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #27ae60 !important;
+  margin-top: 18px;
+}
+
+.upgrade-gateway {
+  max-width: 400px;
+  margin: 60px auto 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px 24px 28px 24px;
+  text-align: center;
+}
+
+.upgrade-gateway h2 {
+  margin-bottom: 18px;
+  font-size: 2rem;
+  color: #2d3a4b;
+}
+
+#course-summary p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  color: #444;
+}
+
+#proceed-payment.btn {
+  margin-top: 24px;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  background: #4f8cff;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s;
+  display: inline-block;
+}
+
+#proceed-payment.btn:hover {
+  background: #2563eb;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1100px) {
+  .courses-list {
+    gap: 18px;
+  }
+  .course-upgrade-card {
+    width: 95vw;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+@media (max-width: 700px) {
+  .courses-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .course-upgrade-card {
+    width: 98vw;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .billing-container {
+    padding: 12px 2vw;
+  }
+  .section-title {
+    font-size: 1.3rem;
+  }
+}

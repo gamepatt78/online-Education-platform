@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Update Profile | Online Education Portal</title>
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/search.css">
+   <link rel="stylesheet" href="css/update-profile.css">
+</head>
+<body>
+
+<header class="header">
+   <section class="flex">
+      <a href="home.html" class="logo">Online Education Portal</a>
+
+      <form action="search.html" method="get" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+  <div class="icons">
+          <div id="menu-btn" class="fas fa-bars"></div>
+
+         <div id="user-btn" class="fas fa-user"></div>
+         <div id="logout-btn" class="fas fa-sign-out-alt" title="Logout"></div>
+      </div>
+
+        <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+         <a href="profile.html" class="btn">view profile</a>
+            </div>
+   </section>
+</header>
+
+<div class="side-bar">
+   <div id="close-btn"><i class="fas fa-times"></i></div>
+
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">  Student 1</h3>
+      <p class="role">student</p>
+   </div>
+  <nav class="navbar">
+      <a href="home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+      
+      <div class="nav-item dropdown">
+         <a href="#" class="dropdown-toggle">
+            <i class="fas fa-tasks"></i>
+            <span>Mock Tests</span>
+            <i class="fas fa-chevron-down"></i>
+         </a>
+         <div class="dropdown-menu">
+            <a href="mocktest1.html" class="dropdown-item">
+               <i class="fas fa-file-alt"></i>
+               <span>Mock Test 1</span>
+            </a>
+            <a href="mocktest2.html" class="dropdown-item">
+               <i class="fas fa-file-alt"></i>
+               <span>Mock Test 2</span>
+            </a>
+            <a href="mocktest3.html" class="dropdown-item">
+               <i class="fas fa-file-alt"></i>
+               <span>Mock Test 3</span>
+            </a>
+         </div>
+      </div>
+      <a href="feedback.html"><i class="fas fa-comments"></i><span>Feedback</span></a>
+            <a href="exam.html"><i class="fas fa-file-alt"></i><span>Exams</span></a>
+
+      <a href="certification.html"><i class="fas fa-certificate"></i><span>Certificate</span></a>
+      <a href="status.html"><i class="fas fa-check-circle"></i><span>Status</span></a>
+      <a href="billing.html"><i class="fas fa-receipt"></i><span>Billing</span></a>
+   </nav>
+</div>
+<section class="update-container">
+   <h1 class="heading">Update Profile</h1>
+   
+   <div class="profile-img-section">
+      <img src="images/pic-1.jpg" alt="profile" class="profile-img">
+      <button class="change-photo-btn">Change Photo</button>
+      <input type="file" id="profile-upload" hidden>
+   </div>
+
+   <div class="profile-form-grid">
+      <div class="form-column">
+         <div class="input-group">
+            <label><i class="fas fa-user"></i> First Name</label>
+            <input type="text" placeholder="Enter first name">
+         </div>
+         
+         <div class="input-group">
+            <label><i class="fas fa-user"></i> Middle Name</label>
+            <input type="text" placeholder="Enter middle name">
+         </div>
+         
+         <div class="input-group">
+            <label><i class="fas fa-user"></i> Last Name</label>
+            <input type="text" placeholder="Enter last name">
+         </div>
+
+         <div class="input-group">
+            <label><i class="fas fa-calendar"></i> Date of Birth</label>
+            <input type="date">
+         </div>
+      </div>
+
+      <div class="form-column">
+         <div class="input-group">
+            <label><i class="fas fa-envelope"></i> Email</label>
+            <input type="email" placeholder="Enter email">
+         </div>
+
+         <div class="input-group">
+            <label><i class="fas fa-phone"></i> Phone Number</label>
+            <input type="tel" placeholder="Enter phone number">
+         </div>
+      </div>
+
+     
+      </div>
+   
+
+   <div class="button-group">
+      <button type="submit" class="update-btn">UPDATE PROFILE</button>
+      <button type="button" class="cancel-btn">CANCEL</button>
+   </div>
+</section>
+
+<script src="js/script.js"></script>
+<script src="js/search.js"></script>
+<script src="js/update-profile.js"></script>
+</body>
+</html>
+
