@@ -120,7 +120,7 @@ git clone https://github.com/yourusername/online-education-platform.git
 
 4️⃣ **Access Frontend:**
 
-  * Open `index.html` in your browser.
+  * Open `Dashboard.html` in your browser.
 
 -----
 
