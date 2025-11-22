@@ -1,8 +1,10 @@
-Here is the **full and finalized `README.md`** file, incorporating all your content, the improved vertical project structure, the new Project Status, and clear details about the backend and database integration.
+That's a great idea\! Combining the comprehensive `README.md` content with the new **Docker setup** instructions will provide a complete, professional, and easy-to-use guide for your project.
 
------
+Here is the fully updated `README.md`, incorporating the Flask/Python backend details, the `requirements.txt`, the `Dockerfile`, and the `docker-compose.yml` instructions into the **How to Run** section.
 
-```markdown
+## 📝 Updated `README.md` (Dockerized)
+
+````markdown
 # online-Education-platform
 
 ## 📘 Online Education Platform
@@ -13,30 +15,33 @@ Here is the **full and finalized `README.md`** file, incorporating all your cont
 
 ## 🚀 Features
 
-✅ **Course-based modules** (organized video lessons)
-✅ **YouTube video integration**
-✅ **Mock tests** with Multiple Choice Questions (MCQs)
-✅ **Scoring & points system** for performance tracking
-✅ **Final exam** with a countdown timer and auto-submit
-✅ **Webcam monitoring** (for integrity during exams)
-✅ **Persistent data storage (MySQL)** 🔄
-✅ **Fully responsive design**
+* ✅ **Course-based modules** (organized video lessons)
+* ✅ **YouTube video integration**
+* ✅ **Mock tests** with Multiple Choice Questions (MCQs)
+* ✅ **Scoring & points system** for performance tracking
+* ✅ **Final exam** with a countdown timer and auto-submit
+* ✅ **Webcam monitoring** (for integrity during exams)
+* ✅ **Persistent data storage (MySQL)** 🔄
+* ✅ **Fully responsive design**
 
 ---
 
 ## ✨ Project Status
 
-The project is currently in the **Alpha/Proof-of-Concept** stage. All major frontend HTML pages for core features are structured and available. The backend logic is present (currently using Python/SQLite locally) but requires refactoring to fully utilize the **MySQL** structure defined in `db/schema.sql`.
+The project is currently in the **Alpha/Proof-of-Concept** stage. The frontend UI is largely complete. The backend logic exists (currently using Python/SQLite locally) but requires refactoring to fully utilize the **MySQL** structure defined in `db/schema.sql`.
 
 | Component | Status | Notes |
 | :--- | :--- | :--- |
 | **Frontend UI** | **Complete** | All HTML pages, CSS, and basic JavaScript interactions are in place. |
-| **Backend API** | **In Development** | Initial logic exists (`app.py`, `monitor_server.py`), focused on local data handling. |
+| **Backend API (Flask)** | **In Development** | Initial logic exists, focused on local data handling. |
 | **Database Integration** | **Planned** | Ready for full migration and connection to external MySQL instance. |
 | **Exam Module** | **Functional POC** | Mock tests and timer logic are active but pending final API integration. |
 
 ---
 
+## 📂 Project Structure
+
+```text
 online-education-platform/
 │
 ├── index.html
@@ -45,98 +50,84 @@ online-education-platform/
 ├── watch-video.html
 │
 ├── server/
-│   ├── config/ 
-│   │   └── (Database credentials, security keys)
-│   └── api/
-│       └── (Core backend logic: Endpoints, controllers)
+│   ├── app.py (Main Flask App)
+│   ├── Dockerfile (Builds the Flask container)
+│   ├── requirements.txt (Python dependencies)
+│   └── api/
+│       └── (Core backend logic: Endpoints, controllers)
 │
 ├── css/
-│   └── style.css
+│   └── style.css
 │
 ├── js/
-│   └── script.js 
+│   └── script.js 
 │
 ├── db/
-│   └── schema.sql (MySQL database setup scripts)
+│   └── schema.sql (MySQL database setup scripts)
 │
-├── images/
-│
-└── videos/
-
----
-
-## 🎥 Video Integration
-
-Supports embedding videos directly from YouTube:
-
-```html
-<iframe width="560" height="315"
-  src="[https://www.youtube.com/embed/x9bTBcron78](https://www.youtube.com/embed/x9bTBcron78)"
-  frameborder="0"
-  allowfullscreen></iframe>
+├── .env (Database credentials for Docker Compose)
+├── docker-compose.yml (Defines App and DB services)
+└── images/
 ````
-
------
-
-## 📝 Mock Test Format
-
-Questions are stored in a structured format for easy parsing by the client-side JavaScript:
-
-```js
-{
-  id: 1,
-  question: "What does HTML stand for?",
-  options: ["HyperText Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language"],
-  correct: 0,
-  points: 5
-}
-```
-
------
-
-## 🧪 Final Exam Module
-
-Key features of the secure final exam module:
-
-  * Timer auto-submit
-  * Result display
-  * Webcam monitoring
 
 -----
 
 ## 🔧 Technologies Used
 
-  * HTML5
-  * CSS3
-  * JavaScript
+  * HTML5, CSS3, JavaScript
+  * **Python/Flask** (Backend API)
   * **MySQL** (Backend Database) 💾
-  * **[Server Language/Framework, e.g., Python/Flask]** (Required for connecting to MySQL and serving APIs)
+  * **Docker** & **Docker Compose** (Containerization)
   * YouTube Embed API (optional)
 
 -----
 
-## 🛠️ How to Run
+## 🛠️ How to Run (Docker Compose)
+
+The fastest way to get the entire application (Flask backend and MySQL database) running is by using Docker Compose.
+
+### Prerequisites
+
+  * **Docker** and **Docker Compose** must be installed on your system.
+  * **Git** for cloning the repository.
 
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone [https://github.com/yourusername/online-education-platform.git](https://github.com/yourusername/online-education-platform.git)
+git clone [https://github.com/gamepatt78/online-education-platform.git](https://github.com/gamepatt78/online-education-platform.git)
+cd online-education-platform
 ```
 
-### 2️⃣ Set up the Database
+### 2️⃣ Configure Credentials
 
-  * Install **MySQL** or use a cloud-hosted instance.
-  * Execute the schema file (`db/schema.sql`) to create the necessary tables.
+Create a file named **`.env`** in the root directory (`online-education-platform/`) and add your database credentials. These values will be used by both the Flask app and the MySQL container.
 
-### 3️⃣ Configure Backend
+```text
+# .env (Example content - Fill with your own strong values)
+# --- Database Credentials ---
+MYSQL_DATABASE=education_platform
+MYSQL_USER=flask_user
+MYSQL_PASSWORD=your_db_password
+MYSQL_ROOT_PASSWORD=your_root_password
 
-  * Navigate to the `server/` directory.
-  * Configure your database connection string/credentials (e.g., in a `.env` file or `server/config/db.config.[ext]`).
-  * Run the server using the appropriate command (e.g., `npm start` or `python app.py`).
+# --- App Connection (Uses the service name 'db') ---
+DB_HOST=db
+DB_PORT=3306 
+```
+
+### 3️⃣ Start the Services
+
+Run the following command in the root directory. This command will build the Flask image, pull the MySQL image, set up the network, execute the schema (`db/schema.sql`), and start both containers.
+
+```bash
+docker compose up --build -d
+```
 
 ### 4️⃣ Access Frontend
 
-  * Open **`index.html`** or **`dashboard.html`** in your browser, or access the provided server port URL (e.g., `http://localhost:5000`).
+The Flask application is accessible on port **`8000`** on your local machine.
+
+  * Access the server URL: **`http://localhost:8000/`** (or the path defined in your Flask routing)
 
 -----
 
@@ -151,8 +142,13 @@ git clone [https://github.com/yourusername/online-education-platform.git](https:
 
 ## 🤝 Contributing
 
-Pull requests are welcome. For major changes, open an issue first to discuss what you would like to change.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 -----
 
-Would you like to generate a simple **`.env` file template** to accompany the `README.md` and guide users on configuring their database credentials?
+## ⚖️ License
+
+Distributed under the MIT License. See `LICENSE.md` for more information.
+
+```
+```
