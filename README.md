@@ -37,36 +37,31 @@ The project is currently in the **Alpha/Proof-of-Concept** stage. All major fron
 
 ---
 
-## 📂 Project Structure
-
-This directory structure organizes the application into distinct frontend, backend, and database layers for clarity and scalability.
-
-```
-
 online-education-platform/
+│
 ├── index.html
 ├── courses.html
-├── watch-video.html
 ├── submit-exam.html
+├── watch-video.html
 │
 ├── server/
-│   ├── config/ (Database credentials, environment variables, security keys)
-│   └── api/ (The core backend logic: API endpoints, controllers, routing)
+│   ├── config/ 
+│   │   └── (Database credentials, security keys)
+│   └── api/
+│       └── (Core backend logic: Endpoints, controllers)
 │
 ├── css/
 │   └── style.css
 │
 ├── js/
-│   └── script.js (All frontend interactivity and client-side logic)
+│   └── script.js 
 │
 ├── db/
-│   └── schema.sql (SQL scripts for setting up the MySQL database)
+│   └── schema.sql (MySQL database setup scripts)
 │
 ├── images/
 │
 └── videos/
-
-````
 
 ---
 
