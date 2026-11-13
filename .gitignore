@@ -27,6 +27,7 @@ env/
 *.sqlite3
 
 # Temporary Runtime Data & Camera Captures
+server/data/*.json
 design/monitor_events/images/*.jpg
 design/monitor_events/images/*.png
 *.tmp

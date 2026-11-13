@@ -64,6 +64,16 @@ The migration requires a reachable PostgreSQL server and an existing database. D
 
 If startup or migration reports `Invalid URL`, correct `DATABASE_URL` to a valid PostgreSQL connection URL, or blank it when using local JSON fallback. The migration command requires PostgreSQL and will not work in fallback mode.
 
+### Reset the administrator password
+
+If you cannot sign in to the Admin Portal, run this from the project root in an interactive PowerShell terminal:
+
+```powershell
+node server\scripts\reset-admin-password.js
+```
+
+Enter a new password of 12–72 bytes twice when prompted; input is hidden. The script resets the single active admin account in the connected PostgreSQL database when available, otherwise it updates the local JSON store. It does not display or save the password in plaintext. Never paste the new password into chat or commit it to Git.
+
 ## Optional legacy Python site
 
 `design/app.py` is a separate legacy site on port **5002**, not the primary application server. Run it only if you specifically need that site:
