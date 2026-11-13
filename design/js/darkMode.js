@@ -1,6 +1,1 @@
-document.addEventListener('DOMContentLoaded', () => {
-    document.body.classList.add('dark');
-    
-    const toggles = document.querySelectorAll('.theme-toggle, #toggle-btn');
-    toggles.forEach(toggle => toggle.remove());
-});
+(function(){var s=document.createElement("script");s.src="/student/js/shared/darkMode.js";document.head.appendChild(s);})();

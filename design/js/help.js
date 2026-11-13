@@ -1,8 +1,1 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const supportBtn = document.querySelector('.support-btn');
-    if (supportBtn) {
-        supportBtn.addEventListener('click', () => {
-            window.location.href = 'support-btn.html';
-        });
-    }
-});
+(function(){var s=document.createElement("script");s.src="/teacher/js/help.js";document.head.appendChild(s);})();

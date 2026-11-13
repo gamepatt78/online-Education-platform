@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     showWelcomeMessage();
 
     function checkAuthentication() {
-        if (!localStorage.getItem('teacherLoggedIn') && !sessionStorage.getItem('teacherLoggedIn')) {
+        const token = localStorage.getItem('teacher_token') || sessionStorage.getItem('teacher_token');
+        if (!token || (!localStorage.getItem('teacherLoggedIn') && !sessionStorage.getItem('teacherLoggedIn'))) {
             window.location.href = 'teacher-login.html';
             return;
         }
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Close menu when clicking outside on mobile
         document.addEventListener('click', function(e) {
             if (window.innerWidth <= 768 && 
+                sideNav && menuBtn &&
                 !sideNav.contains(e.target) && 
                 !menuBtn.contains(e.target)) {
                 sideNav.classList.remove('active');
@@ -69,8 +71,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function clearAuthStorage() {
         localStorage.removeItem('teacherLoggedIn');
         localStorage.removeItem('teacherEmail');
+        localStorage.removeItem('teacher_token');
         sessionStorage.removeItem('teacherLoggedIn');
         sessionStorage.removeItem('teacherEmail');
+        sessionStorage.removeItem('teacher_token');
     }
 
     function showWelcomeMessage() {

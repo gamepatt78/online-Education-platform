@@ -1,5 +1,1 @@
-// This file can be used for future interactive help features.
-// For now, it just logs page load.
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Navigation Guide loaded');
-});
+(function(){var s=document.createElement("script");s.src="/teacher/js/navigation-guide.js";document.head.appendChild(s);})();

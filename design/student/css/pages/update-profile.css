@@ -1,0 +1,163 @@
+.update-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: var(--bg-card, #fff);
+  color: var(--text-main, #0f172a);
+  padding: 32px 24px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-md, 0 2px 16px rgba(0,0,0,0.08));
+  border: 1px solid var(--border-light, #e2e8f0);
+}
+.profile-img-section {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+.photo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.camera-btn {
+  padding: 8px 18px;
+  background: var(--primary, #4f46e5);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+.camera-btn:hover {
+  background: var(--primary-hover, #4338ca);
+}
+.camera-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.camera-panel {
+  margin: 0 0 24px;
+  padding: 16px;
+  border: 1px solid var(--border-light, #e2e8f0);
+  border-radius: 8px;
+  background: var(--bg-subtle, #f8fafc);
+}
+.camera-panel video {
+  display: block;
+  width: min(100%, 480px);
+  max-height: 360px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  background: #0f172a;
+  object-fit: cover;
+}
+.camera-panel[hidden] {
+  display: none;
+}
+.profile-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-light, #e2e8f0);
+}
+.change-photo-btn {
+  padding: 8px 18px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.photo-help,
+.input-group small {
+  display: block;
+  margin-top: 6px;
+  color: var(--text-secondary, #475569);
+  font-size: 1.25rem;
+}
+.profile-form-grid {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.form-column {
+  flex: 1;
+}
+.input-group {
+  margin-bottom: 18px;
+}
+.input-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: var(--text-main, #0f172a);
+}
+.input-group input,
+.input-group select {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-light, #cbd5e1);
+  border-radius: 6px;
+  background: var(--bg-card, #fff);
+  color: var(--text-main, #0f172a);
+  font: inherit;
+}
+.input-group input:focus,
+.input-group select:focus {
+  outline: 2px solid var(--primary, #4f46e5);
+  outline-offset: 1px;
+}
+.input-group input[readonly] {
+  background: var(--bg-subtle, #f8fafc);
+}
+.button-group {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+}
+.update-btn {
+  background: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  font: inherit;
+  font-weight: 600;
+}
+.cancel-btn {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-subtle, #f8fafc);
+  color: var(--text-main, #0f172a);
+  border: 1px solid var(--border-light, #e2e8f0);
+  padding: 10px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.profile-message {
+  min-height: 1.6em;
+  margin-bottom: 12px;
+  color: var(--text-secondary, #475569);
+}
+.profile-message.error {
+  color: #b91c1c;
+}
+.profile-message.success {
+  color: #047857;
+}
+@media (max-width: 640px) {
+  .update-container {
+    margin: 20px 12px;
+    padding: 24px 16px;
+  }
+  .profile-form-grid {
+    flex-direction: column;
+    gap: 0;
+  }
+}

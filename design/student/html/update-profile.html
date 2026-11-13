@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Update Profile | Online Education Portal</title>
+
+   <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+
+   <link rel="stylesheet" href="/student/css/layouts/style.css">
+   <link rel="stylesheet" href="/student/css/components/search.css">
+   <link rel="stylesheet" href="/student/css/pages/update-profile.css">
+</head>
+<body>
+
+<header class="header">
+   <section class="flex">
+      <a href="/student/html/home.html" class="logo">Online Education Portal</a>
+
+      <form action="/student/html/search.html" method="get" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+  <div class="icons">
+          <div id="menu-btn" class="fas fa-bars"></div>
+
+         <div id="user-btn" class="fas fa-user"></div>
+         <div id="logout-btn" class="fas fa-sign-out-alt" title="Logout"></div>
+      </div>
+
+        <div class="profile">
+      <img src="/assets/images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student</h3>
+      <p class="role">student</p>
+         <a href="/student/html/profile.html" class="btn">view profile</a>
+            </div>
+   </section>
+</header>
+
+<div class="side-bar">
+   <div id="close-btn"><i class="fas fa-times"></i></div>
+
+   <div class="profile">
+      <img src="/assets/images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student</h3>
+      <p class="role">student</p>
+   </div>
+  <nav class="navbar">
+      <a href="/student/html/home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="/student/html/courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+
+      <div class="nav-item dropdown">
+         <a href="#" class="dropdown-toggle">
+            <i class="fas fa-tasks"></i>
+            <span>Mock Tests</span>
+            <i class="fas fa-chevron-down"></i>
+         </a>
+         <div class="dropdown-menu">
+            <a href="/student/html/mocktest1.html" class="dropdown-item">
+               <i class="fas fa-file-alt"></i>
+               <span>Mock Test 1</span>
+            </a>
+            <a href="/student/html/mocktest2.html" class="dropdown-item">
+               <i class="fas fa-file-alt"></i>
+               <span>Mock Test 2</span>
+            </a>
+            <a href="/student/html/mocktest3.html" class="dropdown-item">
+               <i class="fas fa-file-alt"></i>
+               <span>Mock Test 3</span>
+            </a>
+         </div>
+      </div>
+      <a href="/student/html/feedback.html"><i class="fas fa-comments"></i><span>Feedback</span></a>
+            <a href="/student/html/exam.html"><i class="fas fa-file-alt"></i><span>Exams</span></a>
+
+      <a href="/student/html/Certification.html"><i class="fas fa-certificate"></i><span>Certificate</span></a>
+      <a href="/student/html/status.html"><i class="fas fa-check-circle"></i><span>Status</span></a>
+      <a href="/student/html/billing.html"><i class="fas fa-receipt"></i><span>Billing</span></a>
+   </nav>
+</div>
+<section class="update-container">
+   <h1 class="heading">Update Profile</h1>
+   <form id="profile-form">
+      <div class="profile-img-section">
+         <img src="/assets/images/pic-1.jpg" alt="Profile" class="profile-img">
+         <div class="photo-controls">
+            <div class="photo-actions">
+               <button type="button" class="change-photo-btn">Upload Photo</button>
+               <button type="button" id="start-camera-btn" class="camera-btn">Use Camera</button>
+            </div>
+            <input type="file" id="profile-upload" accept="image/*" hidden>
+            <p class="photo-help">Upload an image up to 1 MB or take a live camera photo.</p>
+         </div>
+      </div>
+      <div id="profile-camera-panel" class="camera-panel" hidden>
+         <video id="profile-camera" autoplay playsinline muted aria-label="Live profile camera preview"></video>
+         <div class="photo-actions">
+            <button type="button" id="capture-photo-btn" class="camera-btn" disabled>Capture Photo</button>
+            <button type="button" id="stop-camera-btn" class="cancel-btn">Close Camera</button>
+         </div>
+      </div>
+
+      <div class="profile-form-grid">
+         <div class="form-column">
+            <div class="input-group">
+               <label for="profile-name"><i class="fas fa-user"></i> Full Name</label>
+               <input type="text" id="profile-name" name="name" maxlength="60" autocomplete="name" required>
+            </div>
+            <div class="input-group">
+               <label for="profile-dob"><i class="fas fa-calendar"></i> Date of Birth</label>
+               <input type="date" id="profile-dob" name="dob" required>
+            </div>
+            <div class="input-group">
+               <label for="profile-designation"><i class="fas fa-graduation-cap"></i> Designation / Course</label>
+               <input type="text" id="profile-designation" name="designation" maxlength="100" required>
+            </div>
+         </div>
+
+         <div class="form-column">
+            <div class="input-group">
+               <label for="profile-email"><i class="fas fa-envelope"></i> Email</label>
+               <input type="email" id="profile-email" name="email" readonly aria-describedby="email-help">
+               <small id="email-help">Email is tied to your login and cannot be changed here.</small>
+            </div>
+            <div class="input-group">
+               <label for="profile-phone"><i class="fas fa-phone"></i> Phone Number</label>
+               <input type="tel" id="profile-phone" name="phone" inputmode="numeric" pattern="[6-9][0-9]{9}" maxlength="10" autocomplete="tel" required>
+            </div>
+         </div>
+      </div>
+
+      <p id="profile-message" class="profile-message" role="status" aria-live="polite"></p>
+      <div class="button-group">
+         <button type="submit" class="update-btn">Save Changes</button>
+         <a href="/student/html/profile.html" class="cancel-btn">Cancel</a>
+      </div>
+   </form>
+</section>
+
+<script src="/student/js/shared/script.js"></script>
+<script src="/student/js/shared/search.js"></script>
+<script src="/student/js/pages/update-profile.js"></script>
+</body>
+</html>

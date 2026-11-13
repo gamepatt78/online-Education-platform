@@ -109,12 +109,19 @@ document.addEventListener('DOMContentLoaded', function() {
         events.sort((a, b) => new Date(a.date) - new Date(b.date))
              .forEach(event => {
                  const eventElement = document.createElement('div');
-                 eventElement.className = `event-item ${event.type}`;
-                 eventElement.innerHTML = `
-                     <h4>${event.title}</h4>
-                     <p>${new Date(event.date).toLocaleDateString()}</p>
-                     <p>${event.time}</p>
-                 `;
+                 const eventType = typeof event.type === 'string' && /^[a-z0-9_-]{1,30}$/i.test(event.type)
+                     ? event.type
+                     : 'event';
+                 eventElement.classList.add('event-item', eventType);
+
+                 const title = document.createElement('h4');
+                 title.textContent = String(event.title || '');
+                 const date = document.createElement('p');
+                 date.textContent = new Date(event.date).toLocaleDateString();
+                 const time = document.createElement('p');
+                 time.textContent = String(event.time || '');
+
+                 eventElement.append(title, date, time);
                  eventList.appendChild(eventElement);
              });
     }

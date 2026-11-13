@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Online Education Portal - Status</title>
+
+
+   <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+
+
+   <link rel="stylesheet" href="/student/css/layouts/style.css">
+   <link rel="stylesheet" href="/student/css/pages/status.css">
+    <link rel="stylesheet" href="/student/css/components/search.css">
+</head>
+<body>
+
+<header class="header">
+   <section class="flex">
+      <a href="/student/html/home.html" class="logo">Online Education Portal</a>
+
+      <form action="/student/html/search.html" method="get" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="user-btn" class="fas fa-user"></div>
+         <div id="logout-btn" class="fas fa-sign-out-alt" title="Logout"></div>
+      </div>
+   <div class="profile">
+      <img src="/assets/images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+         <a href="/student/html/profile.html" class="btn">view profile</a>
+            </div>
+</section>
+</header>
+
+<div class="side-bar">
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+
+   <div class="profile">
+      <img src="/assets/images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+   </div>
+
+     <nav class="navbar">
+      <a href="/student/html/home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="/student/html/courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+
+      <div class="nav-item dropdown">
+    <a href="#" class="dropdown-toggle">
+      <i class="fas fa-tasks"></i>
+      <span>Mock Tests</span>
+      <i class="fas fa-chevron-down"></i>
+    </a>
+    <div class="dropdown-menu">
+      <a href="/student/html/mocktest1.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 1</span>
+      </a>
+      <a href="/student/html/mocktest2.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 2</span>
+      </a>
+      <a href="/student/html/mocktest3.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 3</span>
+      </a>
+    </div>
+  </div>
+
+      <a href="/student/html/feedback.html"><i class="fas fa-comments"></i><span>Feedback</span></a>
+            <a href="/student/html/exam.html"><i class="fas fa-file-alt"></i><span>Exams</span></a>
+
+      <a href="/student/html/Certification.html"><i class="fas fa-certificate"></i><span>Certificate</span></a>
+      <a href="/student/html/status.html"><i class="fas fa-check-circle"></i><span>Status</span></a>
+      <a href="/student/html/billing.html"><i class="fas fa-receipt"></i><span>Billing</span></a>
+   </nav>
+</div>
+
+<!-- Main Content -->
+<section class="status-container">
+  <h2 class="section-title">Course Status Overview</h2>
+
+  <!-- Status Summary -->
+  <div class="status-summary">
+    <div class="summary-card">
+      <div class="card-icon">
+        <i class="fas fa-book-open"></i>
+      </div>
+      <div class="card-info">
+        <h3>Total Courses</h3>
+        <span class="card-value" data-status-count="total">—</span>
+      </div>
+    </div>
+
+    <div class="summary-card">
+      <div class="card-icon complete">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <div class="card-info">
+        <h3>Completed</h3>
+        <span class="card-value" data-status-count="completed">—</span>
+      </div>
+    </div>
+
+
+    <div class="summary-card">
+      <div class="card-icon pending">
+        <i class="fas fa-clock"></i>
+      </div>
+      <div class="card-info">
+        <h3>Not Started</h3>
+        <span class="card-value" data-status-count="not-started">—</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Course Progress -->
+  <div class="course-progress">
+    <h3 class="section-title">Course Progress Details</h3>
+    <p id="status-message" class="status-message-text" role="status" aria-live="polite"></p>
+
+    <table class="progress-table">
+      <thead>
+        <tr>
+          <th>Course Name</th>
+          <th>Progress</th>
+          <th>Completion</th>
+          <th>Status</th>
+          <th>Certificate</th>
+        </tr>
+      </thead>
+      <tbody id="status-courses-body">
+        <tr><td colspan="5">Loading your courses…</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Recent Activity -->
+  <div class="recent-activity">
+    <h3 class="section-title">Recent Activity</h3>
+
+    <div class="activity-timeline" id="status-activity">
+      <p>Your course activity will appear here.</p>
+    </div>
+  </div>
+</section>
+
+<!-- custom js file link  -->
+<script src="/student/js/shared/script.js"></script>
+<script src="/student/js/shared/search.js"></script>
+<script src="/student/js/pages/status.js"></script>
+
+
+</body>
+</html>

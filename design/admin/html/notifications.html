@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Announcements | LMS Admin</title>
+  <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+  <aside class="admin-sidebar">
+    <div class="admin-brand">
+      <i class="fas fa-graduation-cap"></i>
+      <span>LMS SuperAdmin</span>
+    </div>
+    <ul class="admin-nav">
+      <li><a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+      <li><a href="students.html"><i class="fas fa-user-graduate"></i> Students</a></li>
+      <li><a href="teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+      <li><a href="courses.html"><i class="fas fa-book-open"></i> Courses</a></li>
+      <li><a href="categories.html"><i class="fas fa-tags"></i> Categories</a></li>
+      <li><a href="enrollments.html"><i class="fas fa-user-check"></i> Enrollments</a></li>
+      <li><a href="assignments.html"><i class="fas fa-tasks"></i> Assignments</a></li>
+      <li><a href="reports.html"><i class="fas fa-chart-pie"></i> Reports</a></li>
+      <li><a href="notifications.html" class="active"><i class="fas fa-bell"></i> Notifications</a></li>
+      <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+    </ul>
+    <div class="admin-sidebar-footer">
+      <button id="admin-logout-btn" class="logout-btn">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <header class="admin-header">
+      <h1>Platform Broadcasts & Announcements</h1>
+      <div class="admin-user-profile">
+        <div class="admin-avatar"><i class="fas fa-user-shield"></i></div>
+        <div>
+          <div style="font-weight: 700;">Administrator</div>
+          <div style="font-size: 0.8rem; color: var(--admin-text-muted);">admin@edu.com</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="admin-content">
+      <div class="form-card">
+        <h3 style="margin-bottom: 16px;"><i class="fas fa-bullhorn"></i> Broadcast New Announcement</h3>
+        <form id="announcement-form" style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px;">
+          <div class="form-group">
+            <label>Announcement Headline</label>
+            <input type="text" id="note-title" class="form-control" placeholder="Headline..." required>
+          </div>
+          <div class="form-group">
+            <label>Target Audience</label>
+            <select id="note-target" class="form-control">
+              <option value="all">Everyone (All Students & Faculty)</option>
+              <option value="student">Students Only</option>
+              <option value="teacher">Faculty Only</option>
+            </select>
+          </div>
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label>Announcement Content</label>
+            <textarea id="note-message" class="form-control" rows="2" placeholder="Message details..." required></textarea>
+          </div>
+          <div style="grid-column: 1 / -1;">
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Broadcast</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="table-container">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Headline</th>
+              <th>Message</th>
+              <th>Audience</th>
+              <th>Timestamp</th>
+            </tr>
+          </thead>
+          <tbody id="notifications-table-body">
+            <tr><td colspan="5" style="text-align: center;">Loading broadcast history...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/common.js"></script>
+  <script>
+    async function loadNotifications() {
+      const res = await adminFetch('/notifications');
+      const tbody = document.getElementById('notifications-table-body');
+      if (res.success && res.data) {
+        if (!res.data.length) {
+          tbody.innerHTML = '<tr><td colspan="5" style="text-align: center;">No notifications sent yet.</td></tr>';
+          return;
+        }
+        tbody.innerHTML = res.data.map(n => `
+          <tr>
+            <td>#${escapeHTML(n.id)}</td>
+            <td style="font-weight: 600;">${escapeHTML(n.title)}</td>
+            <td>${escapeHTML(n.message)}</td>
+            <td><span class="badge badge-info">${escapeHTML(n.target)}</span></td>
+            <td>${escapeHTML(new Date(n.timestamp).toLocaleDateString())}</td>
+          </tr>
+        `).join('');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadNotifications();
+      const form = document.getElementById('announcement-form');
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const title = document.getElementById('note-title').value;
+          const target = document.getElementById('note-target').value;
+          const message = document.getElementById('note-message').value;
+          const res = await adminFetch('/notifications', {
+            method: 'POST',
+            body: JSON.stringify({ title, target, message })
+          });
+          if (res.success) {
+            form.reset();
+            loadNotifications();
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

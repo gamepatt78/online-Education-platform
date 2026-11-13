@@ -2,148 +2,143 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>online-education platform</title>
-    <link rel="stylesheet" href="css/dashbord.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        /* Hero/banner with Unsplash background */
-        .hero {
-            background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            color: #ffffff;
-            padding: 64px 20px;
-            text-align: center;
-            border-radius: 8px;
-            margin: 16px auto;
-            max-width: 1100px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-        }
-        .hero h2 { font-size: 32px; margin: 0 0 8px; }
-        .hero p { font-size: 16px; margin: 0; opacity: 0.95; }
-
-        .features {
-            display: flex;
-            gap: 18px;
-            max-width: 1100px;
-            margin: 18px auto;
-            padding: 0 12px;
-            align-items: stretch;
-        }
-        .feature-card {
-            flex: 1;
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-            display: flex;
-            flex-direction: column;
-        }
-        .feature-hero {
-            height: 160px;
-            background-size: cover;
-            background-position: center;
-        }
-        .feature-body { padding: 14px; }
-        .feature-body h3 { margin: 0 0 8px; }
-        .feature-body ul { margin: 8px 0 0 18px; }
-        @media (max-width:800px){ .features{flex-direction:column;} }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Learn practical skills with guided courses, practice, and support for students and teachers.">
+    <meta name="theme-color" content="#f7f8fc">
+    <title>Online Education Platform</title>
+    <link rel="stylesheet" href="/css/dashbord.css">
+    <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
 </head>
 <body>
-    <div class="dashboard-header">
-        <h1> Online Education Dashboard</h1>
-    </div>
-    <!-- Hero / Banner -->
-    <div class="hero" role="banner">
-        <h2>Welcome to the Online Education Platform</h2>
-        <p>Learn at your own pace — courses, assessments and resources for students and teachers.</p>
-    </div>
-    <div class="login-buttons">
-        <a href="login.html" class="login-btn student-login">
-            <i class="fas fa-user-graduate"></i>
-            Student Login
+    <header class="site-header">
+        <a class="brand" href="/dashbord.html" aria-label="Learnspace home">
+            <span class="brand-mark" aria-hidden="true"><i class="fas fa-graduation-cap"></i></span>
+            <span>learnspace</span>
         </a>
-        <a href="Teacher/htmlfiles/teacher-login.html" class="login-btn teacher-login">
-            <i class="fas fa-chalkboard-teacher"></i>
-            Teacher Login
-        </a>
-    </div>
+        <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="primary-nav" aria-expanded="false">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+            <a href="#learning">How it works</a>
+            <a href="#courses">Explore courses</a>
+            <a class="nav-login" href="/student/html/login.html">Student sign in</a>
+            <a class="button button-primary nav-cta" href="/student/html/register.html">Get started <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        </nav>
+    </header>
 
-    <!-- Features: Students & Teachers -->
-    <section class="features" aria-label="Students and Teachers">
-        <article class="feature-card" id="students">
-            <div class="feature-hero" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1400&q=80');" aria-hidden="true"></div>
-            <div class="feature-body">
-                <h3>For Students</h3>
-                <p>Designed to help learners of all levels — our student experience focuses on clear learning paths, hands-on projects, and measurable outcomes.</p>
-                <strong>Benefits:</strong>
-                <ul>
-                    <li>Structured courses with step-by-step modules</li>
-                    <li>Interactive quizzes, assignments and instant feedback</li>
-                    <li>Progress tracking and certificate on completion</li>
-                    <li>Access to community forums and study resources</li>
-                </ul>
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> A learning space for what comes next</p>
+                <h1 id="hero-title">Make room for <span>what you can learn.</span></h1>
+                <p class="hero-description">Build new skills with focused lessons, practical exercises, and tools that make learning easier to keep up with.</p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="/student/html/register.html">Start learning <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    <a class="button button-secondary" href="#courses"><i class="fas fa-play" aria-hidden="true"></i> Explore courses</a>
+                </div>
+                <div class="hero-note">
+                    <span class="avatar-stack" aria-hidden="true"><i class="fas fa-user"></i><i class="fas fa-book-open"></i><i class="fas fa-lightbulb"></i></span>
+                    <span>For curious learners and the people who teach them</span>
+                </div>
             </div>
-        </article>
+            <div class="hero-visual" role="img" aria-label="Learn, practice, and grow at your own pace">
+                <div class="visual-orbit orbit-one"></div>
+                <div class="visual-orbit orbit-two"></div>
+                <div class="visual-card visual-card-main">
+                    <div class="visual-card-top">
+                        <span class="visual-icon"><i class="fas fa-book-open" aria-hidden="true"></i></span>
+                        <span class="visual-pill">YOUR LEARNING SPACE</span>
+                    </div>
+                    <p class="visual-kicker">A little progress, often</p>
+                    <h2>Learn at your own pace.</h2>
+                    <div class="visual-path">
+                        <span class="path-step path-step-done"><i class="fas fa-check" aria-hidden="true"></i></span>
+                        <span class="path-line"></span>
+                        <span class="path-step path-step-current"><i class="fas fa-play" aria-hidden="true"></i></span>
+                        <span class="path-line"></span>
+                        <span class="path-step"><i class="fas fa-star" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="path-labels"><span>Learn</span><span>Practice</span><span>Grow</span></div>
+                </div>
+                <div class="floating-note note-top"><span class="note-icon note-purple"><i class="fas fa-lightbulb" aria-hidden="true"></i></span><span><strong>Stay curious</strong><small>One lesson at a time</small></span></div>
+                <div class="floating-note note-bottom"><span class="note-icon note-green"><i class="fas fa-check" aria-hidden="true"></i></span><span><strong>Keep moving</strong><small>Progress that feels yours</small></span></div>
+                <div class="visual-spark spark-one" aria-hidden="true">✦</div>
+                <div class="visual-spark spark-two" aria-hidden="true">✳</div>
+            </div>
+        </section>
 
-        <article class="feature-card" id="teachers">
-            <div class="feature-hero" style="background-image: url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1400&q=80');" aria-hidden="true"></div>
-            <div class="feature-body">
-                <h3>For Teachers</h3>
-                <p>Tools and workflows for educators to create, manage and assess content — saving time while improving learning outcomes.</p>
-                <strong>Benefits:</strong>
-                <ul>
-                    <li>Simple content authoring and course management</li>
-                    <li>Built-in grading tools and attendance tracking</li>
-                    <li>Analytics to monitor student engagement and performance</li>
-                    <li>Integrations for assignments, quizzes and certificates</li>
-                </ul>
+        <section class="trust-strip" aria-label="Platform highlights">
+            <span><i class="fas fa-compass" aria-hidden="true"></i> Find your path</span>
+            <span><i class="fas fa-layer-group" aria-hidden="true"></i> Learn in small steps</span>
+            <span><i class="fas fa-chart-line" aria-hidden="true"></i> Build lasting skills</span>
+        </section>
+
+        <section class="learning-section section-wrap" id="learning" aria-labelledby="learning-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">A better way to learn</p>
+                    <h2 id="learning-title">Designed around your next step.</h2>
+                </div>
+                <p>Everything you need to stay focused—from your first lesson to a skill you can put to work.</p>
             </div>
-        </article>
-    </section>
-    
-    <section class="courses-section" id="coursesSection" style="display:none;">
-        <h2> Courses Available</h2>
-        <div class="courses-list">
-            <div class="course-card">
-                <div class="course-title">HTML & CSS Fundamentals</div>
-                <div class="course-desc">
-                    Learn the building blocks of web development. Covers HTML5, CSS3, layouts, forms, and responsive design.
-                </div>
-                <div class="course-meta">8 Modules • 40+ Lessons • Beginner Friendly</div>
+            <div class="learning-grid">
+                <article class="learning-card">
+                    <span class="learning-icon icon-lilac"><i class="fas fa-route" aria-hidden="true"></i></span>
+                    <h3>Clear learning paths</h3>
+                    <p>Move through organized lessons that make complex topics feel manageable.</p>
+                    <a href="/student/html/courses.html">Browse courses <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </article>
+                <article class="learning-card">
+                    <span class="learning-icon icon-blue"><i class="fas fa-pen-ruler" aria-hidden="true"></i></span>
+                    <h3>Practice as you go</h3>
+                    <p>Reinforce new concepts with assessments, exercises, and useful feedback.</p>
+                    <a href="/student/html/login.html">Explore student tools <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </article>
+                <article class="learning-card">
+                    <span class="learning-icon icon-mint"><i class="fas fa-chalkboard-user" aria-hidden="true"></i></span>
+                    <h3>Teach with confidence</h3>
+                    <p>Keep teaching resources and classroom workflows easy to find.</p>
+                    <a href="/teacher/htmlfiles/teacher-login.html">Teacher sign in <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </article>
             </div>
-            <div class="course-card">
-                <div class="course-title">JavaScript Essentials</div>
-                <div class="course-desc">
-                    Master the basics of JavaScript, including variables, functions, DOM manipulation, and ES6 features.
+        </section>
+
+        <section class="courses-section section-wrap" id="courses" aria-labelledby="courses-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Start exploring</p>
+                    <h2 id="courses-title">A skill worth learning is waiting.</h2>
                 </div>
-                <div class="course-meta">10 Modules • 50+ Lessons • Interactive Quizzes</div>
+                <a class="text-link" href="/student/html/courses.html">View all courses <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
             </div>
-            <div class="course-card">
-                <div class="course-title">Python Programming</div>
-                <div class="course-desc">
-                    Dive into Python with hands-on projects. Topics include syntax, data structures, OOP, and file handling.
-                </div>
-                <div class="course-meta">12 Modules • 60+ Lessons • Project Based</div>
+            <div class="course-grid">
+                <article class="course-card">
+                    <a class="course-image" href="/student/html/playlist.html" aria-label="Explore the HTML course"><img src="/assets/images/thumb-1.png" alt="" loading="lazy"><span class="course-category">WEB DEVELOPMENT</span></a>
+                    <div class="course-content"><div class="course-meta"><span><i class="fas fa-circle-play" aria-hidden="true"></i> 6 videos</span></div><h3>HTML fundamentals</h3><p>Learn the building blocks behind every web page.</p><a class="course-link" href="/student/html/playlist.html">Explore course <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
+                </article>
+                <article class="course-card">
+                    <a class="course-image image-blue" href="/student/html/playlist1.html" aria-label="Explore the CSS course"><img src="/assets/images/thumb-2.png" alt="" loading="lazy"><span class="course-category">WEB DEVELOPMENT</span></a>
+                    <div class="course-content"><div class="course-meta"><span><i class="fas fa-circle-play" aria-hidden="true"></i> 6 videos</span></div><h3>CSS essentials</h3><p>Style responsive, polished experiences for the web.</p><a class="course-link" href="/student/html/playlist1.html">Explore course <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
+                </article>
+                <article class="course-card">
+                    <a class="course-image image-peach" href="/student/html/playlist2.html" aria-label="Explore the JavaScript course"><img src="/assets/images/thumb-3.png" alt="" loading="lazy"><span class="course-category">PROGRAMMING</span></a>
+                    <div class="course-content"><div class="course-meta"><span><i class="fas fa-circle-play" aria-hidden="true"></i> 6 videos</span></div><h3>JavaScript basics</h3><p>Bring your pages to life with the language of the web.</p><a class="course-link" href="/student/html/playlist2.html">Explore course <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
+                </article>
             </div>
-            <div class="course-card">
-                <div class="course-title">MySQL & Database Design</div>
-                <div class="course-desc">
-                    Understand relational databases, SQL queries, normalization, and database design best practices.
-                </div>
-                <div class="course-meta">7 Modules • 35+ Lessons • Real-world Examples</div>
-                </div>
-            
-            <div class="course-card">
-                <div class="course-title">Full Stack Web Development</div>
-                <div class="course-desc">
-                    Become a full stack developer! Learn front-end, back-end, REST APIs, and deployment strategies.
-                </div>
-                <div class="course-meta">15 Modules • 80+ Lessons • Certificate</div>
-            </div>
-        </div>
-    </section>
-    <script src="js/dashbord.js"></script>
+        </section>
+
+        <section class="role-cta section-wrap" aria-labelledby="role-title">
+            <div><p class="eyebrow">Your next chapter starts here</p><h2 id="role-title">Ready to make a little progress?</h2><p>Choose your space and pick up where your curiosity leads.</p></div>
+            <div class="role-actions"><a class="button button-light" href="/student/html/login.html">Student sign in</a><a class="button button-outline" href="/teacher/htmlfiles/teacher-login.html">Teacher sign in</a></div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <a class="brand" href="/dashbord.html"><span class="brand-mark" aria-hidden="true"><i class="fas fa-graduation-cap"></i></span><span>learnspace</span></a>
+        <p>Curiosity, supported.</p>
+        <div><a href="/student/html/terms.html">Terms</a><a href="/student/html/feedback.html">Feedback</a></div>
+        <span class="copyright">&copy; <span id="current-year"></span> Learnspace</span>
+    </footer>
+    <script src="/js/shared/dashbord.js"></script>
 </body>
 </html>

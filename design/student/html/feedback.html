@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Feedback - Online Education Portal</title>
+   <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+
+   <link rel="stylesheet" href="/student/css/layouts/style.css">
+   <link rel="stylesheet" href="/student/css/pages/feedback.css">
+   <link rel="stylesheet" href="/student/css/components/search.css">
+   <link rel="stylesheet" href="/student/css/components/feedback-popup.css">
+</head>
+<body>
+
+<header class="header">
+   <section class="flex">
+      <a href="/student/html/home.html" class="logo">Online Education Portal</a>
+
+      <form action="/student/html/search.html" method="get" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="user-btn" class="fas fa-user"></div>
+         <div id="logout-btn" class="fas fa-sign-out-alt" title="Logout"></div>
+
+      </div>
+   <div class="profile">
+      <img src="/assets/images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+         <a href="/student/html/profile.html" class="btn">view profile</a>
+            </div>
+</section>
+</header>
+
+<div class="side-bar">
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+
+   <div class="profile">
+      <img src="/assets/images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+   </div>
+
+     <nav class="navbar">
+      <a href="/student/html/home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="/student/html/courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+
+      <div class="nav-item dropdown">
+    <a href="#" class="dropdown-toggle">
+      <i class="fas fa-tasks"></i>
+      <span>Mock Tests</span>
+      <i class="fas fa-chevron-down"></i>
+    </a>
+    <div class="dropdown-menu">
+      <a href="/student/html/mocktest1.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 1</span>
+      </a>
+      <a href="/student/html/mocktest2.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 2</span>
+      </a>
+      <a href="/student/html/mocktest3.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 3</span>
+      </a>
+    </div>
+  </div>
+
+      <a href="/student/html/feedback.html"><i class="fas fa-comments"></i><span>Feedback</span></a>
+            <a href="/student/html/exam.html"><i class="fas fa-file-alt"></i><span>Exams</span></a>
+
+      <a href="/student/html/Certification.html"><i class="fas fa-certificate"></i><span>Certificate</span></a>
+      <a href="/student/html/status.html"><i class="fas fa-check-circle"></i><span>Status</span></a>
+      <a href="/student/html/billing.html"><i class="fas fa-receipt"></i><span>Billing</span></a>
+   </nav>
+</div>
+<section class="feedback-container">
+  <div class="feedback-form">
+    <h2 class="form-title">We Value Your Feedback</h2>
+    <form id="feedbackForm" action="/api/feedback" method="POST">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" class="form-control" name="name" placeholder="Your Name" maxlength="100" required readonly>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" name="email" placeholder="Your Email" maxlength="254" required readonly>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" class="form-control" name="subject" placeholder="What is your feedback about?" maxlength="120" required>
+      </div>
+      <div class="form-group">
+        <label for="rating">Rating</label>
+        <select id="rating" class="form-control" name="rating" required>
+          <option value="">-- Select rating --</option>
+          <option value="5">Excellent</option>
+          <option value="4">Very Good</option>
+          <option value="3">Good</option>
+          <option value="2">Fair</option>
+          <option value="1">Poor</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="feedback">Your Feedback</label>
+        <textarea id="feedback" class="form-control" name="feedback" maxlength="2000" placeholder="Please share your thoughts, suggestions, or concerns..." required></textarea>
+      </div>
+      <div class="submit-btn-container">
+        <button type="submit" class="submit-btn">Submit</button>
+      </div>
+      <p id="feedback-status" class="feedback-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<div id="popupModal" class="popup-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="feedback-success-title">
+    <div class="popup-content">
+        <button type="button" class="close-btn" id="closePopupBtn" aria-label="Close confirmation">&times;</button>
+        <h2 id="feedback-success-title">Thank You!</h2>
+        <p>Your feedback has been submitted successfully. We appreciate your input!</p>
+    </div>
+</div>
+
+<script src="/student/js/pages/feedback-popup.js"></script>
+<script src="/student/js/shared/script.js"></script>
+</body>
+</html>

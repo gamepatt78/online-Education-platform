@@ -1,89 +1,162 @@
+:root {
+    color-scheme: light;
+    --teacher-brand: #5953e8;
+    --teacher-text: #1c2537;
+    --teacher-muted: #687386;
+    --teacher-border: #e2e6ef;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    padding: 0;
+    display: grid;
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-                url('/images/78.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    place-items: center;
+    margin: 0;
+    padding: 2rem;
+    color: var(--teacher-text);
+    background:
+        radial-gradient(ellipse at 82% 4%, rgba(227, 225, 255, 0.72), transparent 33rem),
+        #f6f7fb;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .login-container {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    backdrop-filter: blur(8px);
-    position: relative;
-    z-index: 1;
-    margin: 5rem auto;
+    width: min(100%, 430px);
+    padding: clamp(2.4rem, 5vw, 3.6rem);
+    border: 1px solid var(--teacher-border);
+    border-radius: 2rem;
+    background: #fff;
+    box-shadow: 0 20px 55px rgba(26, 36, 64, 0.09);
 }
+
 .login-container h2 {
-    color: #2c3e50;
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2rem;
+    margin: 0 0 2.4rem;
+    color: var(--teacher-text);
+    font-size: 2.4rem;
+    letter-spacing: -0.07rem;
+    text-align: left;
 }
+
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem;
 }
+
 .form-group label {
     display: block;
-    margin-bottom: 0.5rem;
-    color: #4a5568;
-    font-weight: 500;
+    margin-bottom: 0.7rem;
+    color: #364155;
+    font-size: 1.35rem;
+    font-weight: 650;
 }
+
 .form-group input {
     width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
+    min-height: 4.6rem;
+    padding: 1.1rem 1.3rem;
+    border: 1px solid var(--teacher-border);
+    border-radius: 1rem;
+    color: var(--teacher-text);
+    background: #fff;
+    font: inherit;
 }
+
 .form-group input:focus {
-    border-color: #6366f1;
+    border-color: #9b96f3;
     outline: none;
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 0 0 3px rgba(89, 83, 232, 0.12);
 }
-button {
-    width: 100%;
-    padding: 0.75rem;
-    background: #6366f1;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
+
+.password-input {
+    position: relative;
+}
+
+.password-input input {
+    padding-right: 4.5rem;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 1.4rem;
+    color: #687386;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 1rem;
+    transform: translateY(-50%);
 }
-button:hover {
-    background: #4f46e5;
+
+.form-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0.5rem 0 1.5rem;
+    color: var(--teacher-muted);
+    font-size: 1.25rem;
 }
-p {
-    text-align: center;
-    margin-top: 1rem;
-    color: #4a5568;
+
+.form-options label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
 }
-a {
-    color: #6366f1;
+
+.form-options input[type="checkbox"] {
+    width: 1.6rem;
+    height: 1.6rem;
+    accent-color: var(--teacher-brand);
+}
+
+.form-options a,
+.login-container > p a {
+    color: #4c45d3;
+    font-weight: 650;
     text-decoration: none;
-    transition: color 0.3s ease;
 }
-a:hover {
-    color: #4f46e5;
+
+.login-container button {
+    width: 100%;
+    min-height: 4.6rem;
+    margin-top: 0.5rem;
+    border: 0;
+    border-radius: 1rem;
+    color: #fff;
+    background: var(--teacher-brand);
+    font: inherit;
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
+
+.login-container button:hover {
+    background: #4740cf;
+    box-shadow: 0 8px 18px rgba(85, 77, 232, 0.18);
+    transform: translateY(-1px);
+}
+
+.login-container > p {
+    margin: 1.8rem 0 0;
+    color: var(--teacher-muted);
+    font-size: 1.3rem;
+    text-align: center;
+}
+
 @media (max-width: 480px) {
+    body {
+        padding: 1.2rem;
+    }
+
     .login-container {
-        margin: 1rem;
-        padding: 1.5rem;
+        padding: 2.2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
     }
 }

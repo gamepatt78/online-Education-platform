@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Online Education Portal - Billing & Payments</title>
+   <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+   <link rel="stylesheet" href="/student/css/layouts/style.css">
+   <link rel="stylesheet" href="/student/css/pages/billing.css">
+</head>
+<body class="billing-page">
+<header class="header">
+   <section class="flex">
+      <a href="/student/html/home.html" class="logo">Online Education Portal</a>
+
+      <form action="/student/html/search.html" method="get" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="user-btn" class="fas fa-user"></div>
+         <div id="logout-btn" class="fas fa-sign-out-alt" title="Logout"></div>
+
+         </div>
+
+   <div class="profile">
+      <img src="/assets/images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+         <a href="/student/html/profile.html" class="btn">view profile</a>
+            </div>
+</section>
+</header>
+
+<div class="side-bar">
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+
+   <div class="profile">
+      <img src="/assets/images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+   </div>
+
+     <nav class="navbar">
+      <a href="/student/html/home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="/student/html/courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+
+      <div class="nav-item dropdown">
+    <a href="#" class="dropdown-toggle">
+      <i class="fas fa-tasks"></i>
+      <span>Mock Tests</span>
+      <i class="fas fa-chevron-down"></i>
+    </a>
+    <div class="dropdown-menu">
+      <a href="/student/html/mocktest1.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 1</span>
+      </a>
+      <a href="/student/html/mocktest2.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 2</span>
+      </a>
+      <a href="/student/html/mocktest3.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 3</span>
+      </a>
+    </div>
+  </div>
+
+      <a href="/student/html/feedback.html"><i class="fas fa-comments"></i><span>Feedback</span></a>
+            <a href="/student/html/exam.html"><i class="fas fa-file-alt"></i><span>Exams</span></a>
+
+      <a href="/student/html/Certification.html"><i class="fas fa-certificate"></i><span>Certificate</span></a>
+      <a href="/student/html/status.html"><i class="fas fa-check-circle"></i><span>Status</span></a>
+      <a href="/student/html/billing.html"><i class="fas fa-receipt"></i><span>Billing</span></a>
+   </nav>
+</div>
+
+<main class="billing-container">
+  <header class="billing-intro">
+    <div>
+      <p class="billing-eyebrow"><i class="fas fa-receipt" aria-hidden="true"></i> PAYMENT CENTER</p>
+      <h1>Billing &amp; payments</h1>
+      <p>Review your account’s billing information and payment history. Payment details are never collected on this page.</p>
+    </div>
+    <div class="billing-status" id="billing-provider-status" role="status" aria-live="polite">
+      <span class="billing-status-icon"><i class="fas fa-lock" aria-hidden="true"></i></span>
+      <span>
+        <small>PAYMENT PROVIDER</small>
+        <strong id="billing-status-title">Checking availability</strong>
+        <small id="billing-status-copy">Loading your billing information…</small>
+      </span>
+    </div>
+  </header>
+
+  <div class="billing-alert" id="billing-payment-notice" role="alert" hidden></div>
+
+  <section class="billing-state" id="billing-loading" role="status">
+    <span class="billing-spinner" aria-hidden="true"></span>
+    <p>Loading your billing information…</p>
+  </section>
+
+  <section class="billing-state billing-error" id="billing-error" role="alert" hidden>
+    <span class="history-empty-icon"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i></span>
+    <div>
+      <h2>Billing information couldn’t be loaded</h2>
+      <p id="billing-error-message">Please try again.</p>
+      <button class="billing-retry-button" id="billing-retry" type="button">Try again</button>
+    </div>
+  </section>
+
+  <div id="billing-content" hidden>
+    <section class="billing-summary-grid" aria-label="Billing summary">
+      <article class="summary-card">
+        <span class="summary-icon fee-icon"><i class="fas fa-file-invoice-dollar" aria-hidden="true"></i></span>
+        <div><p>Total fees</p><strong id="summary-total-fees">Not available</strong><small>Fee data isn’t configured</small></div>
+      </article>
+      <article class="summary-card">
+        <span class="summary-icon paid-icon"><i class="fas fa-check-circle" aria-hidden="true"></i></span>
+        <div><p>Amount paid</p><strong id="summary-amount-paid">Not available</strong><small id="summary-paid-note">Based on recorded payments</small></div>
+      </article>
+      <article class="summary-card">
+        <span class="summary-icon due-icon"><i class="fas fa-balance-scale" aria-hidden="true"></i></span>
+        <div><p>Outstanding balance</p><strong id="summary-outstanding">Not available</strong><small>Fee data isn’t configured</small></div>
+      </article>
+      <article class="summary-card">
+        <span class="summary-icon date-icon"><i class="fas fa-calendar-alt" aria-hidden="true"></i></span>
+        <div><p>Next payment due</p><strong id="summary-next-due">Not scheduled</strong><small>Installment schedules aren’t configured</small></div>
+      </article>
+    </section>
+
+  <div class="billing-grid">
+    <section class="billing-panel" aria-labelledby="payment-options-title">
+      <div class="billing-panel-heading">
+        <div>
+          <p class="billing-eyebrow">PAYMENT OPTIONS</p>
+          <h2 id="payment-options-title">Compare payment methods</h2>
+          <p>These are informational comparisons only. No method is saved and no payment can be made here.</p>
+        </div>
+        <span class="billing-heading-icon" aria-hidden="true"><i class="fas fa-wallet"></i></span>
+      </div>
+
+      <div class="method-list" role="group" aria-label="Compare payment methods">
+        <button class="method-option is-selected" type="button" data-method="upi" aria-pressed="true">
+          <span class="method-icon upi-icon" aria-hidden="true">UPI</span>
+          <span class="method-copy"><strong>UPI</strong><small>Instant payments through your UPI app</small></span>
+          <span class="method-tag">Recommended</span>
+          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        </button>
+        <button class="method-option" type="button" data-method="card" aria-pressed="false">
+          <span class="method-icon card-icon" aria-hidden="true"><i class="far fa-credit-card"></i></span>
+          <span class="method-copy"><strong>Credit or debit card</strong><small>Useful for recurring or international payments</small></span>
+          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        </button>
+        <button class="method-option" type="button" data-method="netbanking" aria-pressed="false">
+          <span class="method-icon bank-icon" aria-hidden="true"><i class="fas fa-university"></i></span>
+          <span class="method-copy"><strong>Net banking</strong><small>Pay directly through your bank</small></span>
+          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        </button>
+        <button class="method-option" type="button" data-method="wallet" aria-pressed="false">
+          <span class="method-icon wallet-icon" aria-hidden="true"><i class="fas fa-mobile-alt"></i></span>
+          <span class="method-copy"><strong>Digital wallet</strong><small>Convenient when your wallet is supported</small></span>
+          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="method-guidance" role="status" aria-live="polite">
+        <span class="guidance-icon"><i class="fas fa-lightbulb" aria-hidden="true"></i></span>
+        <div>
+          <p class="billing-eyebrow" id="method-guidance-label">BEST FOR MOST ONE-TIME PAYMENTS IN INDIA</p>
+          <h3 id="method-guidance-title">UPI is the simplest starting point</h3>
+          <p id="method-guidance-copy">It is quick and familiar for many students. Use a provider's secure checkout when payments are enabled.</p>
+        </div>
+      </div>
+
+      <p class="provider-notice">Never enter card, UPI, or banking details on this page.</p>
+    </section>
+
+    <aside class="billing-panel upgrade-panel" aria-labelledby="upgrade-title">
+      <div class="upgrade-icon" aria-hidden="true"><i class="fas fa-graduation-cap"></i></div>
+      <p class="billing-eyebrow">COURSE UPGRADES</p>
+      <h2 id="upgrade-title">Find your next course</h2>
+      <p>Paid plans and prices are not configured yet, so upgrades cannot be purchased here. Browse the catalog to find courses you can explore.</p>
+      <a class="billing-primary-link" href="/student/html/courses.html">
+        Browse courses <i class="fas fa-arrow-right" aria-hidden="true"></i>
+      </a>
+      <div class="upgrade-note">
+        <i class="fas fa-info-circle" aria-hidden="true"></i>
+        <span>Checkout will stay disabled until course pricing and a payment provider are set up.</span>
+      </div>
+    </aside>
+  </div>
+
+    <div class="billing-details-grid">
+      <section class="billing-panel" aria-labelledby="billing-profile-title">
+        <div class="billing-panel-heading">
+          <div><p class="billing-eyebrow">ACCOUNT</p><h2 id="billing-profile-title">Billing profile</h2></div>
+          <span class="billing-heading-icon" aria-hidden="true"><i class="fas fa-user"></i></span>
+        </div>
+        <dl class="billing-profile-list">
+          <div><dt>Student ID</dt><dd id="billing-student-id">—</dd></div>
+          <div><dt>Name</dt><dd id="billing-student-name">—</dd></div>
+          <div><dt>Email</dt><dd id="billing-student-email">—</dd></div>
+        </dl>
+        <div class="registered-courses">
+          <h3>Registered courses</h3>
+          <ul id="billing-registered-courses"><li class="muted-text">Loading…</li></ul>
+        </div>
+      </section>
+
+      <section class="billing-panel" aria-labelledby="fee-breakdown-title">
+        <div class="billing-panel-heading">
+          <div><p class="billing-eyebrow">FEES</p><h2 id="fee-breakdown-title">Fee breakdown</h2></div>
+          <span class="billing-heading-icon" aria-hidden="true"><i class="fas fa-list-alt"></i></span>
+        </div>
+        <div class="billing-empty" id="fee-breakdown-empty">
+          <i class="fas fa-info-circle" aria-hidden="true"></i>
+          <p>Fee details aren’t available because fee management hasn’t been configured.</p>
+        </div>
+        <div class="billing-table-wrap" id="fee-breakdown-table-wrap" hidden>
+          <table class="billing-table">
+            <thead><tr><th scope="col">Fee</th><th scope="col">Course</th><th scope="col">Amount</th><th scope="col">Status</th></tr></thead>
+            <tbody id="fee-breakdown-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <section class="billing-panel billing-history" aria-labelledby="billing-history-title">
+      <div class="billing-panel-heading">
+        <div><p class="billing-eyebrow">ACCOUNT ACTIVITY</p><h2 id="billing-history-title">Payment history</h2></div>
+        <span class="billing-heading-icon" aria-hidden="true"><i class="fas fa-file-invoice"></i></span>
+      </div>
+      <div class="billing-filters" aria-label="Filter payment history">
+        <label>Search payments<input id="transaction-search" type="search" placeholder="Transaction, course, or method"></label>
+        <label>Status
+          <select id="transaction-status">
+            <option value="all">All statuses</option><option value="paid">Paid</option>
+            <option value="pending">Pending</option><option value="failed">Failed</option><option value="refunded">Refunded</option>
+          </select>
+        </label>
+        <label>From<input id="transaction-date-from" type="date"></label>
+        <label>To<input id="transaction-date-to" type="date"></label>
+        <label>Sort
+          <select id="transaction-sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option></select>
+        </label>
+      </div>
+      <div class="billing-empty" id="transaction-empty">
+        <i class="fas fa-receipt" aria-hidden="true"></i>
+        <p>No payment transactions are recorded for this account.</p>
+      </div>
+      <div class="billing-table-wrap" id="transaction-table-wrap" hidden>
+        <table class="billing-table">
+          <thead><tr><th scope="col">Date</th><th scope="col">Transaction</th><th scope="col">Description</th><th scope="col">Method</th><th scope="col">Amount</th><th scope="col">Status</th><th scope="col"><span class="visually-hidden">Details</span></th></tr></thead>
+          <tbody id="transaction-table-body"></tbody>
+        </table>
+      </div>
+      <div class="billing-pagination" id="transaction-pagination" hidden>
+        <span id="transaction-page-label" aria-live="polite"></span>
+        <div><button id="transaction-prev" type="button" aria-label="Previous page">Previous</button><button id="transaction-next" type="button" aria-label="Next page">Next</button></div>
+      </div>
+      <p class="billing-help-text">Receipts aren’t available because the system does not yet store receipt documents.</p>
+    </section>
+
+    <div class="billing-details-grid">
+      <section class="billing-panel" aria-labelledby="invoices-title">
+        <div class="billing-panel-heading">
+          <div><p class="billing-eyebrow">DOCUMENTS</p><h2 id="invoices-title">Invoices &amp; receipts</h2></div>
+          <span class="billing-heading-icon" aria-hidden="true"><i class="fas fa-file-download"></i></span>
+        </div>
+        <div class="billing-empty" id="invoice-empty">
+          <i class="fas fa-file-invoice" aria-hidden="true"></i>
+          <p>No invoices are available. Invoice management hasn’t been configured.</p>
+        </div>
+        <ul class="billing-record-list" id="invoice-list" hidden></ul>
+      </section>
+
+      <section class="billing-panel" aria-labelledby="installments-title">
+        <div class="billing-panel-heading">
+          <div><p class="billing-eyebrow">SCHEDULE</p><h2 id="installments-title">Installments</h2></div>
+          <span class="billing-heading-icon" aria-hidden="true"><i class="fas fa-calendar-check"></i></span>
+        </div>
+        <div class="billing-empty" id="installment-empty">
+          <i class="fas fa-calendar-times" aria-hidden="true"></i>
+          <p>No installment schedule is available for this account.</p>
+        </div>
+        <ul class="billing-record-list" id="installment-list" hidden></ul>
+      </section>
+    </div>
+
+    <section class="billing-panel recommendation-panel" aria-labelledby="recommendation-title">
+      <p class="billing-eyebrow">PAYMENT GUIDANCE</p>
+      <h2 id="recommendation-title">Which method is better?</h2>
+      <p><strong>For a one-time course payment in India, UPI is often the simplest choice.</strong> A card may suit recurring or international payments, and net banking is a useful alternative. Availability and terms depend on the provider.</p>
+    </section>
+  </div>
+</main>
+
+<script src="/student/js/shared/script.js"></script>
+<script src="/student/js/pages/billing.js"></script>
+</body>
+</html>

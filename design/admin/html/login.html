@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrator Login | Online Education LMS</title>
+  <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f172a;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .login-box {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .brand-head {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .brand-head i {
+      font-size: 2.5rem;
+      color: #0284c7;
+      margin-bottom: 12px;
+    }
+    .brand-head h2 {
+      font-size: 1.5rem;
+      color: #0f172a;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <div class="brand-head">
+      <i class="fas fa-shield-alt"></i>
+      <h2>SuperAdmin Portal</h2>
+      <p style="color: #64748b; font-size: 0.9rem; margin-top: 4px;">Institutional Access Control</p>
+    </div>
+
+    <form id="admin-login-form">
+      <div class="form-group">
+        <label>Admin Email</label>
+        <input type="email" id="login-email" class="form-control" placeholder="Administrator email" required>
+      </div>
+      <div class="form-group">
+        <label>Secure Password</label>
+        <input type="password" id="login-password" class="form-control" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; justify-content: center; font-size: 1rem;">
+        <i class="fas fa-lock"></i> Authenticate as Admin
+      </button>
+    </form>
+    <div id="login-error" style="color: #ef4444; font-size: 0.85rem; margin-top: 14px; text-align: center; display: none;"></div>
+  </div>
+
+  <script>
+    document.getElementById('admin-login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+      const errBox = document.getElementById('login-error');
+      errBox.style.display = 'none';
+
+      try {
+        const res = await fetch('/api/admin/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+        if (data.success && data.token) {
+          localStorage.setItem('admin_token', data.token);
+          localStorage.setItem('admin_user', JSON.stringify(data.user));
+          window.location.href = 'dashboard.html';
+        } else {
+          errBox.innerText = data.message || 'Authentication failed.';
+          errBox.style.display = 'block';
+        }
+      } catch (err) {
+        errBox.innerText = 'Unable to connect to authentication server.';
+        errBox.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

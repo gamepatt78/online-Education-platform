@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account - Online Education Portal</title>
+
+  <!-- Font Awesome icons -->
+  <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+  <!-- Modern Design System -->
+  <link rel="stylesheet" href="/student/css/base/theme.css">
+  <link rel="stylesheet" href="/student/css/layouts/style.css">
+
+  <style>
+    body {
+      background: radial-gradient(circle at 50% 0%, rgba(79, 70, 229, 0.08) 0%, transparent 60%), var(--bg-page);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.6rem;
+    }
+
+    .register-card {
+      width: 100%;
+      max-width: 600px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 3.6rem 3.2rem;
+      box-shadow: var(--shadow-xl);
+      position: relative;
+    }
+
+    .register-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      border-top-left-radius: var(--radius-xl);
+      border-top-right-radius: var(--radius-xl);
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+
+    .card-header {
+      text-align: center;
+      margin-bottom: 2.8rem;
+    }
+
+    .badge-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--primary-subtle);
+      color: var(--primary);
+      border-radius: var(--radius-md);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .card-header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.6rem;
+    }
+
+    .card-header p {
+      color: var(--text-secondary);
+      font-size: 1.4rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.6rem;
+    }
+
+    @media (max-width: 600px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .register-card {
+        padding: 2.6rem 1.8rem;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 1.8rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.6rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 1.1rem 1.4rem;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      font-size: 1.4rem;
+      background: var(--bg-card);
+      color: var(--text-main);
+      transition: all var(--transition-fast);
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-glow);
+    }
+
+    .terms-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      font-size: 1.35rem;
+      color: var(--text-secondary);
+    }
+
+    .quick-links {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .quick-links a {
+      flex: 1;
+      padding: 1rem;
+      text-align: center;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text-main);
+      background: var(--bg-subtle);
+      transition: all var(--transition-fast);
+    }
+
+    .quick-links a:hover {
+      background: var(--primary-subtle);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1.3rem;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 1.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
+    .submit-btn:hover {
+      background: var(--primary-hover);
+      box-shadow: 0 4px 12px var(--primary-glow);
+    }
+
+    .footer-note {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 1.4rem;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body class="register-page">
+
+<div class="register-card">
+  <div class="card-header">
+    <div class="badge-icon">
+      <i class="fas fa-user-plus"></i>
+    </div>
+    <h1>Create Student Account</h1>
+    <p>Join thousands of learners on Online Education</p>
+  </div>
+
+  <form id="registerForm" action="/register" method="post">
+    <div class="grid-2">
+      <div class="form-group">
+        <label for="fullname">Full Name *</label>
+        <input type="text" id="fullname" name="name" placeholder="John Doe" required maxlength="60" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" placeholder="john@example.com" required maxlength="60" class="form-control">
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="form-group">
+        <label for="phone">Phone Number *</label>
+        <input type="tel" id="phone" name="phone" placeholder="9876543210" required minlength="10" maxlength="10" pattern="[6-9][0-9]{9}" inputmode="numeric" autocomplete="tel-national" title="Enter a 10-digit Indian mobile number starting with 6, 7, 8, or 9." aria-describedby="phoneHint" class="form-control">
+        <small id="phoneHint">Enter a 10-digit Indian mobile number starting with 6, 7, 8, or 9.</small>
+      </div>
+      <div class="form-group">
+        <label for="dob">Date of Birth *</label>
+        <input type="date" id="dob" name="dob" class="form-control" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="designation">Designation / Education Level *</label>
+      <input type="text" id="designation" name="designation" placeholder="Undergraduate Student, High School, etc." required maxlength="60" class="form-control">
+    </div>
+
+    <div class="grid-2">
+      <div class="form-group">
+        <label for="password">Password *</label>
+        <input type="password" id="password" name="password" required minlength="8" maxlength="72" autocomplete="new-password" class="form-control">
+        <small>Use at least 8 characters.</small>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password *</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required autocomplete="new-password" class="form-control">
+      </div>
+    </div>
+
+    <div class="quick-links">
+      <a href="/student/html/payment.html" target="_blank"><i class="fas fa-credit-card"></i> Payment Plans</a>
+      <a href="/student/html/admission.html"><i class="fas fa-user-graduate"></i> Admission Form</a>
+    </div>
+
+    <div class="terms-box">
+      <input type="checkbox" name="terms" id="terms" required checked>
+      <label for="terms">I agree to the <a href="/student/html/terms.html" target="_blank">Terms of Service</a> & Privacy Policy</label>
+    </div>
+
+    <button type="submit" class="submit-btn" id="regSubmitBtn">
+      <span>Complete Registration</span>
+      <i class="fas fa-check"></i>
+    </button>
+  </form>
+
+  <div class="footer-note">
+    Already registered? <a href="/student/html/login.html"><strong>Sign in here</strong></a>
+  </div>
+</div>
+
+<script src="/student/js/shared/script.js"></script>
+<script>
+  const registerForm = document.getElementById('registerForm');
+  const phoneInput = document.getElementById('phone');
+  const dobInput = document.getElementById('dob');
+  const submitButton = document.getElementById('regSubmitBtn');
+  const passwordInput = document.getElementById('password');
+  const confirmPasswordInput = document.getElementById('confirmPassword');
+
+  const today = new Date();
+  dobInput.max = [
+    today.getFullYear(),
+    String(today.getMonth() + 1).padStart(2, '0'),
+    String(today.getDate()).padStart(2, '0')
+  ].join('-');
+
+  phoneInput.addEventListener('input', function() {
+    this.value = this.value.replace(/\D/g, '').slice(0, 10);
+  });
+
+  function validatePasswords() {
+    confirmPasswordInput.setCustomValidity(
+      confirmPasswordInput.value && confirmPasswordInput.value !== passwordInput.value
+        ? 'Passwords do not match.'
+        : ''
+    );
+  }
+
+  passwordInput.addEventListener('input', validatePasswords);
+  confirmPasswordInput.addEventListener('input', validatePasswords);
+
+  registerForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    validatePasswords();
+    if (!registerForm.reportValidity()) return;
+
+    submitButton.disabled = true;
+    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+
+    const data = {
+      name: document.getElementById('fullname').value,
+      email: document.getElementById('email').value,
+      phone: phoneInput.value,
+      dob: dobInput.value,
+      designation: document.getElementById('designation').value,
+      password: passwordInput.value,
+      confirmPassword: confirmPasswordInput.value
+    };
+
+    try {
+      const res = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const result = await res.json();
+
+      if (!res.ok || !result.success) {
+        alert(result.message || 'Registration failed. Please check your details and try again.');
+        return;
+      }
+
+      alert(result.message || 'Registration completed successfully!');
+      window.location.href = '/student/html/login.html';
+    } catch (err) {
+      console.error('Registration request failed:', err);
+      alert('Could not reach the server. Please try again.');
+    } finally {
+      submitButton.disabled = false;
+      submitButton.innerHTML = '<span>Complete Registration</span><i class="fas fa-check"></i>';
+    }
+  });
+</script>
+</body>
+</html>

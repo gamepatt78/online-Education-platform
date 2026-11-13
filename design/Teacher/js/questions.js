@@ -52,43 +52,84 @@ document.addEventListener('DOMContentLoaded', function() {
         showNotification('Question added successfully!');
     });
 
-    // Display questions
-    function displayQuestions() {
+    function renderQuestions(questions) {
         questionsList.innerHTML = '';
         
-        questionBank.forEach(q => {
-            const questionCard = `
-                <div class="question-card" data-id="${q.id}">
-                    <div class="question-header">
-                        <span class="subject-badge">${q.subject}</span>
-                        <span class="difficulty-badge ${q.difficulty}">${q.difficulty}</span>
-                    </div>
-                    <div class="question-content">
-                        <p class="question-text">${q.question}</p>
-                        <div class="answers-list">
-                            ${q.answers.map((answer, index) => `
-                                <div class="answer ${index === q.correctAnswer ? 'correct' : ''}">
-                                    ${String.fromCharCode(65 + index)}. ${answer}
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                    <div class="question-footer">
-                        <span class="topic-tag">${q.topic}</span>
-                        <div class="question-actions">
-                            <button onclick="editQuestion(${q.id})" class="edit-btn">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                            <button onclick="deleteQuestion(${q.id})" class="delete-btn">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            questionsList.insertAdjacentHTML('beforeend', questionCard);
+        questions.forEach(q => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            const id = Number(q.id);
+            if (Number.isSafeInteger(id) && id > 0) card.dataset.id = String(id);
+
+            const header = document.createElement('div');
+            header.className = 'question-header';
+            const subject = document.createElement('span');
+            subject.className = 'subject-badge';
+            subject.textContent = String(q.subject || '');
+            const difficulty = document.createElement('span');
+            const difficultyValue = String(q.difficulty || '');
+            const difficultyClass = ['easy', 'medium', 'hard'].includes(difficultyValue.toLowerCase())
+                ? difficultyValue.toLowerCase()
+                : '';
+            difficulty.className = `difficulty-badge${difficultyClass ? ` ${difficultyClass}` : ''}`;
+            difficulty.textContent = difficultyValue;
+            header.append(subject, difficulty);
+
+            const content = document.createElement('div');
+            content.className = 'question-content';
+            const questionText = document.createElement('p');
+            questionText.className = 'question-text';
+            questionText.textContent = String(q.question || '');
+            const answers = document.createElement('div');
+            answers.className = 'answers-list';
+            (Array.isArray(q.answers) ? q.answers : []).forEach((answer, index) => {
+                const answerElement = document.createElement('div');
+                answerElement.className = `answer${index === Number(q.correctAnswer) ? ' correct' : ''}`;
+                answerElement.textContent = `${String.fromCharCode(65 + index)}. ${String(answer || '')}`;
+                answers.appendChild(answerElement);
+            });
+            content.append(questionText, answers);
+
+            const footer = document.createElement('div');
+            footer.className = 'question-footer';
+            const topic = document.createElement('span');
+            topic.className = 'topic-tag';
+            topic.textContent = String(q.topic || '');
+            const actions = document.createElement('div');
+            actions.className = 'question-actions';
+            ['edit', 'delete'].forEach(action => {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = `${action}-btn`;
+                button.dataset.action = action;
+                button.setAttribute('aria-label', `${action} question`);
+                const icon = document.createElement('i');
+                icon.className = `fas fa-${action === 'edit' ? 'edit' : 'trash'}`;
+                button.appendChild(icon);
+                actions.appendChild(button);
+            });
+            footer.append(topic, actions);
+
+            card.append(header, content, footer);
+            questionsList.appendChild(card);
         });
     }
+
+    function displayQuestions() {
+        renderQuestions(questionBank);
+    }
+
+    questionsList.addEventListener('click', event => {
+        if (!(event.target instanceof Element)) return;
+        const button = event.target.closest('button[data-action]');
+        const card = button && button.closest('.question-card');
+        const id = card ? Number(card.dataset.id) : NaN;
+        if (!button || !Number.isSafeInteger(id) || id < 1) return;
+        if (button.dataset.action === 'delete') window.deleteQuestion(id);
+        if (button.dataset.action === 'edit' && typeof window.editQuestion === 'function') {
+            window.editQuestion(id);
+        }
+    });
 
     // Filter questions
     const subjectFilter = document.getElementById('subjectFilter');
@@ -104,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return subjectMatch && difficultyMatch;
         });
 
-        displayFilteredQuestions(filteredQuestions);
+        renderQuestions(filteredQuestions);
     }
 
     subjectFilter.addEventListener('change', filterQuestions);

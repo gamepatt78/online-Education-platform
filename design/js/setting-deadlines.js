@@ -1,4 +1,1 @@
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Setting Deadlines Help loaded');
-});
-// This file is for setting deadlines help functionality.
+(function(){var s=document.createElement("script");s.src="/teacher/js/setting-deadlines.js";document.head.appendChild(s);})();

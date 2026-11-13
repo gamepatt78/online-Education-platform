@@ -1,8 +1,1 @@
-document.addEventListener('DOMContentLoaded', function() {
-    fetch('components/sidebar.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('sidebar-container').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading sidebar:', error));
-});
+(function(){var s=document.createElement("script");s.src="/student/js/shared/loadSidebar.js";document.head.appendChild(s);})();

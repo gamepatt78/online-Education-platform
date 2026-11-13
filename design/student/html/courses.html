@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Online Education Portal - Courses</title>
+
+   <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+
+   <link rel="stylesheet" href="/student/css/layouts/style.css">
+   <link rel="stylesheet" href="/student/css/pages/course.css">
+      <link rel="stylesheet" href="/student/css/components/search.css">
+
+
+</head>
+<body>
+
+<header class="header">
+   <section class="flex">
+      <a href="/student/html/home.html" class="logo">Online Education Portal</a>
+
+      <form action="/student/html/search.html" method="get" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search" aria-label="Search courses"></button>
+      </form>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="user-btn" class="fas fa-user"></div>
+         <div id="logout-btn" class="fas fa-sign-out-alt" title="Logout"></div>
+      </div>
+   <div class="profile">
+      <img src="/assets/images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+         <a href="/student/html/profile.html" class="btn">view profile</a>
+            </div>
+</section>
+</header>
+
+<div class="side-bar">
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+
+   <div class="profile">
+      <img src="/assets/images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+   </div>
+
+     <nav class="navbar">
+      <a href="/student/html/home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="/student/html/courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+
+      <div class="nav-item dropdown">
+    <a href="#" class="dropdown-toggle">
+      <i class="fas fa-tasks"></i>
+      <span>Mock Tests</span>
+      <i class="fas fa-chevron-down"></i>
+    </a>
+    <div class="dropdown-menu">
+      <a href="/student/html/mocktest1.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 1</span>
+      </a>
+      <a href="/student/html/mocktest2.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 2</span>
+      </a>
+      <a href="/student/html/mocktest3.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 3</span>
+      </a>
+    </div>
+  </div>
+
+      <a href="/student/html/feedback.html"><i class="fas fa-comments"></i><span>Feedback</span></a>
+            <a href="/student/html/exam.html"><i class="fas fa-file-alt"></i><span>Exams</span></a>
+
+      <a href="/student/html/Certification.html"><i class="fas fa-certificate"></i><span>Certificate</span></a>
+      <a href="/student/html/status.html"><i class="fas fa-check-circle"></i><span>Status</span></a>
+      <a href="/student/html/billing.html"><i class="fas fa-receipt"></i><span>Billing</span></a>
+   </nav>
+</div>
+
+
+<section class="courses">
+   <h1 class="heading">Our Courses</h1>
+
+   <div class="course-filters" aria-label="Course filters">
+      <label for="course-search">Search courses</label>
+      <input id="course-search" type="search" placeholder="Search by course title">
+      <label for="course-category">Category</label>
+      <select id="course-category"><option value="">All categories</option></select>
+      <label for="course-progress">Progress</label>
+      <select id="course-progress">
+         <option value="">All courses</option>
+         <option value="not-started">Not started</option>
+         <option value="in-progress">In progress</option>
+         <option value="completed">Completed</option>
+      </select>
+      <label for="course-sort">Sort by</label>
+      <select id="course-sort">
+         <option value="title">Course title</option>
+         <option value="recent">Recently enrolled</option>
+      </select>
+   </div>
+   <p id="courses-message" class="course-status-message" role="status" aria-live="polite">Loading courses…</p>
+   <div id="courses-grid" class="box-container"></div>
+</section>
+
+<!-- custom js file link  -->
+<script src="/student/js/shared/script.js"></script>
+<script src="/student/js/pages/courses.js"></script>
+
+</body>
+</html>

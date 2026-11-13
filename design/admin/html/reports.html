@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive LMS Reports | LMS Admin</title>
+  <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+  <aside class="admin-sidebar">
+    <div class="admin-brand">
+      <i class="fas fa-graduation-cap"></i>
+      <span>LMS SuperAdmin</span>
+    </div>
+    <ul class="admin-nav">
+      <li><a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+      <li><a href="students.html"><i class="fas fa-user-graduate"></i> Students</a></li>
+      <li><a href="teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+      <li><a href="courses.html"><i class="fas fa-book-open"></i> Courses</a></li>
+      <li><a href="categories.html"><i class="fas fa-tags"></i> Categories</a></li>
+      <li><a href="enrollments.html"><i class="fas fa-user-check"></i> Enrollments</a></li>
+      <li><a href="assignments.html"><i class="fas fa-tasks"></i> Assignments</a></li>
+      <li><a href="reports.html" class="active"><i class="fas fa-chart-pie"></i> Reports</a></li>
+      <li><a href="notifications.html"><i class="fas fa-bell"></i> Notifications</a></li>
+      <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+    </ul>
+    <div class="admin-sidebar-footer">
+      <button id="admin-logout-btn" class="logout-btn">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <header class="admin-header">
+      <h1>Executive Analytics & Audit Reports</h1>
+      <div class="admin-user-profile">
+        <div class="admin-avatar"><i class="fas fa-user-shield"></i></div>
+        <div>
+          <div style="font-weight: 700;">Administrator</div>
+          <div style="font-size: 0.8rem; color: var(--admin-text-muted);">admin@edu.com</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="admin-content">
+      <div class="card-grid">
+        <div class="stat-card">
+          <div class="info">
+            <h3>Registered Students</h3>
+            <p id="rep-students">--</p>
+          </div>
+          <div class="icon-box icon-blue"><i class="fas fa-users"></i></div>
+        </div>
+        <div class="stat-card">
+          <div class="info">
+            <h3>Faculty Members</h3>
+            <p id="rep-teachers">--</p>
+          </div>
+          <div class="icon-box icon-purple"><i class="fas fa-user-tie"></i></div>
+        </div>
+        <div class="stat-card">
+          <div class="info">
+            <h3>Student Admissions</h3>
+            <p id="rep-admissions">--</p>
+          </div>
+          <div class="icon-box icon-green"><i class="fas fa-id-card"></i></div>
+        </div>
+        <div class="stat-card">
+          <div class="info">
+            <h3>Avg Satisfaction</h3>
+            <p id="rep-rating">5.0 / 5</p>
+          </div>
+          <div class="icon-box icon-amber"><i class="fas fa-star"></i></div>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <div style="padding: 20px; font-weight: 700; border-bottom: 1px solid var(--admin-border);">
+          <span>Platform Audit Summary</span>
+        </div>
+        <div style="padding: 24px; line-height: 1.8;">
+          <p><strong>Database Architecture:</strong> PostgreSQL 18 with local JSON fault-tolerant redundancy layer.</p>
+          <p><strong>Authentication System:</strong> High-entropy BCrypt password encryption (Cost 10) & JWT token session enforcement.</p>
+          <p><strong>Proctoring & Exam Safety:</strong> Client-side OpenCV/Face-API snapshot dispatching with server-side validation.</p>
+          <p><strong>Security Level:</strong> Multi-tiered role-based access control protecting Student, Teacher, and Administrative directories.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/reports.js"></script>
+</body>
+</html>

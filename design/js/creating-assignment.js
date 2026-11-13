@@ -1,3 +1,1 @@
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Creating Assignment Help loaded');
-});
+(function(){var s=document.createElement("script");s.src="/teacher/js/creating-assignment.js";document.head.appendChild(s);})();

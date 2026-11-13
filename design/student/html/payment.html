@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Review your education plan and payment method.">
+  <title>Checkout | Online Education</title>
+  <link rel="stylesheet" href="/student/css/base/theme.css">
+  <link rel="stylesheet" href="/student/css/pages/payment.css">
+</head>
+<body class="payment-page">
+  <div class="checkout-shell">
+    <header class="checkout-header">
+      <a class="brand" href="/student/html/home.html" aria-label="Online Education home">
+        <span class="brand-mark" aria-hidden="true">OE</span>
+        <span>Online Education</span>
+      </a>
+      <div class="checkout-header-meta">
+        <span class="demo-badge"><span aria-hidden="true"></span> Demo mode</span>
+        <a class="back-link" href="/student/html/billing.html">
+          <span aria-hidden="true">←</span> Back to plans
+        </a>
+      </div>
+    </header>
+
+    <nav class="checkout-progress" aria-label="Checkout progress">
+      <div class="progress-step is-complete">
+        <span class="step-number" aria-hidden="true">✓</span>
+        <span>Plan</span>
+      </div>
+      <span class="progress-line is-complete" aria-hidden="true"></span>
+      <div class="progress-step is-current" aria-current="step">
+        <span class="step-number">2</span>
+        <span>Payment</span>
+      </div>
+      <span class="progress-line" aria-hidden="true"></span>
+      <div class="progress-step">
+        <span class="step-number">3</span>
+        <span>Confirmation</span>
+      </div>
+    </nav>
+
+    <main>
+      <div class="checkout-intro">
+        <p class="eyebrow">CHECKOUT</p>
+        <h1>Payments are not available</h1>
+        <p>No payment provider or plans are configured for this portal.</p>
+      </div>
+
+      <div class="checkout-grid">
+        <section class="payment-panel" aria-labelledby="payment-heading">
+          <div class="panel-heading">
+            <div>
+              <h2 id="payment-heading">Payment method</h2>
+              <p>Choose your preferred way to pay.</p>
+            </div>
+            <span class="panel-heading-icon" aria-hidden="true">₹</span>
+          </div>
+
+          <div class="method-list" id="method-options" role="group" aria-label="Payment methods">
+            <button class="method-option is-selected" type="button" data-method="upi" aria-pressed="true" disabled>
+              <span class="method-icon upi-icon" aria-hidden="true">UPI</span>
+              <span class="method-copy"><strong>UPI</strong><small>Google Pay, PhonePe, Paytm</small></span>
+              <span class="method-tag">Popular</span>
+              <span class="method-radio" aria-hidden="true"></span>
+            </button>
+            <button class="method-option" type="button" data-method="card" aria-pressed="false" disabled>
+              <span class="method-icon card-icon" aria-hidden="true">CARD</span>
+              <span class="method-copy"><strong>Credit or debit card</strong><small>Visa, Mastercard, RuPay</small></span>
+              <span class="method-radio" aria-hidden="true"></span>
+            </button>
+            <button class="method-option" type="button" data-method="netbanking" aria-pressed="false" disabled>
+              <span class="method-icon bank-icon" aria-hidden="true">BANK</span>
+              <span class="method-copy"><strong>Net banking</strong><small>Pay directly through your bank</small></span>
+              <span class="method-radio" aria-hidden="true"></span>
+            </button>
+            <button class="method-option" type="button" data-method="wallet" aria-pressed="false" disabled>
+              <span class="method-icon wallet-icon" aria-hidden="true">PAY</span>
+              <span class="method-copy"><strong>Wallets</strong><small>Use a supported digital wallet</small></span>
+              <span class="method-radio" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <div class="method-details" id="method-details" aria-live="polite">
+            <span class="details-icon" aria-hidden="true">UPI</span>
+            <div>
+              <strong>Checkout not configured</strong>
+              <p>No payment method can be selected and this page will not collect payment details.</p>
+            </div>
+          </div>
+
+          <div class="demo-notice" role="note">
+            <span class="notice-icon" aria-hidden="true">i</span>
+            <p><strong>Demo checkout.</strong> No payment provider is connected. This page will not collect payment details or charge you.</p>
+          </div>
+
+          <button class="continue-button" id="continue-button" type="button" disabled>
+            <span>Checkout not configured</span>
+          </button>
+          <p class="payment-footnote">
+            <span aria-hidden="true">✓</span>
+            Payment details should only be entered on a provider's verified checkout.
+          </p>
+          <div class="checkout-message" id="checkout-message" role="status" aria-live="polite" hidden></div>
+        </section>
+
+        <aside class="order-panel" aria-labelledby="order-heading">
+          <div class="order-heading">
+            <h2 id="order-heading">Order summary</h2>
+            <span class="order-edit" aria-hidden="true">ORDER</span>
+          </div>
+
+          <div class="order-item">
+            <div class="course-art" aria-hidden="true">EDU</div>
+            <div class="course-info">
+              <span class="course-label">YOUR PLAN</span>
+              <h3 id="order-course">No plan selected</h3>
+              <p>Billing is not configured.</p>
+            </div>
+          </div>
+
+          <div class="order-divider"></div>
+          <div class="price-row"><span>Subtotal</span><strong id="order-subtotal">Not configured</strong></div>
+          <div class="price-row price-note"><span>Taxes</span><span>Not configured</span></div>
+          <div class="order-divider"></div>
+          <div class="total-row"><span>Total</span><strong id="order-total">Not configured</strong></div>
+        </aside>
+      </div>
+
+      <footer class="checkout-footer">
+        <span>Questions? <a href="/student/html/feedback.html">Contact student support</a></span>
+        <span><span aria-hidden="true">i</span> No payment service is connected</span>
+      </footer>
+    </main>
+  </div>
+
+</body>
+</html>

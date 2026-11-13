@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Student E-Learning Portal - Video Playlist</title>
+
+   <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+
+   <link rel="stylesheet" href="/student/css/layouts/style.css">
+   <link rel="stylesheet" href="/student/css/pages/playlist.css">
+   <link rel="stylesheet" href="/student/css/pages/playlist-modern.css">
+   <link rel="stylesheet" href="/student/css/components/search.css">
+
+
+</head>
+<body>
+
+<header class="header">
+   <section class="flex">
+      <a href="/student/html/home.html" class="logo">Online Education Portal</a>
+
+      <form action="/student/html/search.html" method="get" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="user-btn" class="fas fa-user"></div>
+         <div id="logout-btn" class="fas fa-sign-out-alt" title="Logout"></div>
+      </div>
+   <div class="profile">
+      <img src="/assets/images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+         <a href="/student/html/profile.html" class="btn">view profile</a>
+            </div>
+</section>
+</header>
+
+<div class="side-bar">
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+
+   <div class="profile">
+      <img src="/assets/images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+   </div>
+
+     <nav class="navbar">
+      <a href="/student/html/home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="/student/html/courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+
+      <div class="nav-item dropdown">
+    <a href="#" class="dropdown-toggle">
+      <i class="fas fa-tasks"></i>
+      <span>Mock Tests</span>
+      <i class="fas fa-chevron-down"></i>
+    </a>
+    <div class="dropdown-menu">
+      <a href="/student/html/mocktest1.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 1</span>
+      </a>
+      <a href="/student/html/mocktest2.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 2</span>
+      </a>
+      <a href="/student/html/mocktest3.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 3</span>
+      </a>
+    </div>
+  </div>
+
+      <a href="/student/html/feedback.html"><i class="fas fa-comments"></i><span>Feedback</span></a>
+            <a href="/student/html/exam.html"><i class="fas fa-file-alt"></i><span>Exams</span></a>
+
+      <a href="/student/html/Certification.html"><i class="fas fa-certificate"></i><span>Certificate</span></a>
+      <a href="/student/html/status.html"><i class="fas fa-check-circle"></i><span>Status</span></a>
+      <a href="/student/html/billing.html"><i class="fas fa-receipt"></i><span>Billing</span></a>
+   </nav>
+</div>
+
+
+<main class="learning-page">
+   <section class="playlist-details" aria-labelledby="playlist-title">
+      <p class="playlist-eyebrow"><i class="fas fa-compass" aria-hidden="true"></i> YOUR LEARNING PATH</p>
+      <h1 class="heading" id="playlist-title">HTML foundations</h1>
+
+      <div class="row">
+         <div class="thumb">
+            <img src="/assets/images/thumb-1.png" alt="HTML course cover">
+            <span><i class="fas fa-play-circle" aria-hidden="true"></i> 6 lessons</span>
+         </div>
+         <div class="details">
+            <p class="playlist-kicker">WEB DEVELOPMENT</p>
+            <h2>Complete HTML tutorial</h2>
+            <p class="playlist-description">Build a strong foundation in HTML, the language that gives every web page its structure. Follow the lessons in order or jump to the topic you need.</p>
+
+            <div class="playlist-metrics" aria-label="Course details">
+               <div><i class="fas fa-layer-group" aria-hidden="true"></i><span><strong>6</strong><small>video lessons</small></span></div>
+               <div><i class="fas fa-signal" aria-hidden="true"></i><span><strong>Self-paced</strong><small>learn anytime</small></span></div>
+               <div><i class="fas fa-laptop-code" aria-hidden="true"></i><span><strong>HTML</strong><small>web basics</small></span></div>
+            </div>
+
+            <div class="playlist-actions">
+               <a class="playlist-primary-link" href="/student/html/watch-video.html?lesson=1"><i class="fas fa-play" aria-hidden="true"></i> Start learning</a>
+               <a class="playlist-secondary-link" href="#playlist-videos">Browse lessons <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section class="playlist-videos" id="playlist-videos" aria-labelledby="lessons-title">
+      <div class="playlist-section-heading">
+         <div>
+            <p class="playlist-eyebrow">COURSE CONTENT</p>
+            <h2 class="heading" id="lessons-title">Your watch list</h2>
+         </div>
+         <span class="lesson-count">6 lessons <i class="fas fa-list-ul" aria-hidden="true"></i></span>
+      </div>
+
+      <div class="box-container">
+         <a class="box" href="/student/html/watch-video.html?lesson=1" aria-label="Watch lesson 1: Complete HTML tutorial, part 1">
+            <img src="/assets/images/post-1-1.png" alt="" loading="lazy">
+            <span class="lesson-number">01</span>
+            <span class="lesson-play-icon"><i class="fas fa-play" aria-hidden="true"></i></span>
+            <span class="lesson-card-copy"><span class="lesson-part">LESSON 01</span><strong>Complete HTML tutorial (Part 01)</strong><span class="lesson-open">Start lesson <i class="fas fa-arrow-right" aria-hidden="true"></i></span></span>
+         </a>
+         <a class="box" href="/student/html/watch-video.html?lesson=2" aria-label="Watch lesson 2: Complete HTML tutorial, part 2">
+            <img src="/assets/images/post-1-2.png" alt="" loading="lazy">
+            <span class="lesson-number">02</span>
+            <span class="lesson-play-icon"><i class="fas fa-play" aria-hidden="true"></i></span>
+            <span class="lesson-card-copy"><span class="lesson-part">LESSON 02</span><strong>Complete HTML tutorial (Part 02)</strong><span class="lesson-open">Start lesson <i class="fas fa-arrow-right" aria-hidden="true"></i></span></span>
+         </a>
+         <a class="box" href="/student/html/watch-video.html?lesson=3" aria-label="Watch lesson 3: Complete HTML tutorial, part 3">
+            <img src="/assets/images/post-1-3.png" alt="" loading="lazy">
+            <span class="lesson-number">03</span>
+            <span class="lesson-play-icon"><i class="fas fa-play" aria-hidden="true"></i></span>
+            <span class="lesson-card-copy"><span class="lesson-part">LESSON 03</span><strong>Complete HTML tutorial (Part 03)</strong><span class="lesson-open">Start lesson <i class="fas fa-arrow-right" aria-hidden="true"></i></span></span>
+         </a>
+         <a class="box" href="/student/html/watch-video.html?lesson=4" aria-label="Watch lesson 4: Complete HTML tutorial, part 4">
+            <img src="/assets/images/post-1-4.png" alt="" loading="lazy">
+            <span class="lesson-number">04</span>
+            <span class="lesson-play-icon"><i class="fas fa-play" aria-hidden="true"></i></span>
+            <span class="lesson-card-copy"><span class="lesson-part">LESSON 04</span><strong>Complete HTML tutorial (Part 04)</strong><span class="lesson-open">Start lesson <i class="fas fa-arrow-right" aria-hidden="true"></i></span></span>
+         </a>
+         <a class="box" href="/student/html/watch-video.html?lesson=5" aria-label="Watch lesson 5: Complete HTML tutorial, part 5">
+            <img src="/assets/images/post-1-5.png" alt="" loading="lazy">
+            <span class="lesson-number">05</span>
+            <span class="lesson-play-icon"><i class="fas fa-play" aria-hidden="true"></i></span>
+            <span class="lesson-card-copy"><span class="lesson-part">LESSON 05</span><strong>Complete HTML tutorial (Part 05)</strong><span class="lesson-open">Start lesson <i class="fas fa-arrow-right" aria-hidden="true"></i></span></span>
+         </a>
+         <a class="box" href="/student/html/watch-video.html?lesson=6" aria-label="Watch lesson 6: Complete HTML tutorial, part 6">
+            <img src="/assets/images/post-1-6.png" alt="" loading="lazy">
+            <span class="lesson-number">06</span>
+            <span class="lesson-play-icon"><i class="fas fa-play" aria-hidden="true"></i></span>
+            <span class="lesson-card-copy"><span class="lesson-part">LESSON 06</span><strong>Complete HTML tutorial (Part 06)</strong><span class="lesson-open">Start lesson <i class="fas fa-arrow-right" aria-hidden="true"></i></span></span>
+         </a>
+      </div>
+   </section>
+</main>
+
+<script src="/student/js/shared/script.js"></script>
+<script src="/student/js/shared/search.js"></script>
+</body>
+</html>

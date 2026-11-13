@@ -1,7 +1,1 @@
-// Modern placeholder for future proctoring interactivity
-document.addEventListener('DOMContentLoaded', () => {
-    // Example: Highlight flagged students
-    document.querySelectorAll('.status-flagged').forEach(el => {
-        el.parentElement.parentElement.style.background = '#fff3f3';
-    });
-});
+(function(){var s=document.createElement("script");s.src="/teacher/js/proctor.js";document.head.appendChild(s);})();

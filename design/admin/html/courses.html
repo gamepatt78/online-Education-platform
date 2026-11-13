@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Catalog Management | LMS Admin</title>
+  <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+  <aside class="admin-sidebar">
+    <div class="admin-brand">
+      <i class="fas fa-graduation-cap"></i>
+      <span>LMS SuperAdmin</span>
+    </div>
+    <ul class="admin-nav">
+      <li><a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+      <li><a href="students.html"><i class="fas fa-user-graduate"></i> Students</a></li>
+      <li><a href="teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+      <li><a href="courses.html" class="active"><i class="fas fa-book-open"></i> Courses</a></li>
+      <li><a href="categories.html"><i class="fas fa-tags"></i> Categories</a></li>
+      <li><a href="enrollments.html"><i class="fas fa-user-check"></i> Enrollments</a></li>
+      <li><a href="assignments.html"><i class="fas fa-tasks"></i> Assignments</a></li>
+      <li><a href="reports.html"><i class="fas fa-chart-pie"></i> Reports</a></li>
+      <li><a href="notifications.html"><i class="fas fa-bell"></i> Notifications</a></li>
+      <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+    </ul>
+    <div class="admin-sidebar-footer">
+      <button id="admin-logout-btn" class="logout-btn">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <header class="admin-header">
+      <h1>Curriculum & Course Management</h1>
+      <div class="admin-user-profile">
+        <div class="admin-avatar"><i class="fas fa-user-shield"></i></div>
+        <div>
+          <div style="font-weight: 700;">Administrator</div>
+          <div style="font-size: 0.8rem; color: var(--admin-text-muted);">admin@edu.com</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="admin-content">
+      <!-- Create Course Form -->
+      <div class="form-card">
+        <h3 style="margin-bottom: 16px;"><i class="fas fa-plus-circle"></i> Create New Academic Course</h3>
+        <form id="create-course-form" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+          <div class="form-group">
+            <label>Course Title</label>
+            <input type="text" id="course-title" class="form-control" placeholder="e.g. Master React & Node.js" required>
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <select id="course-category" class="form-control" required>
+              <option value="Development">Development</option>
+              <option value="Data Science & AI">Data Science & AI</option>
+              <option value="Design">Design</option>
+              <option value="Business">Business</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Difficulty Level</label>
+            <select id="course-level" class="form-control">
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Instructor</label>
+            <input type="text" id="course-instructor" class="form-control" placeholder="Instructor name">
+          </div>
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label>Course Description</label>
+            <textarea id="course-desc" class="form-control" rows="2" placeholder="Syllabus and overview..."></textarea>
+          </div>
+          <div style="grid-column: 1 / -1;">
+            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Publish Course to Platform</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Courses Directory Table -->
+      <div class="table-container">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Course Title</th>
+              <th>Category</th>
+              <th>Instructor</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="courses-table-body">
+            <tr><td colspan="6" style="text-align: center;">Loading course catalog...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/courses.js"></script>
+</body>
+</html>

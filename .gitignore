@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+package-lock.json.bak
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+*.log
+npm-debug.log*
+
+# Python & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+*.db
+*.sqlite3
+
+# Temporary Runtime Data & Camera Captures
+design/monitor_events/images/*.jpg
+design/monitor_events/images/*.png
+*.tmp
+PROJECT_FILE_LIST.txt
+PROJECT_FOLDER_LIST.txt

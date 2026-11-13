@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Online Education LMS</title>
+  <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <aside class="admin-sidebar">
+    <div class="admin-brand">
+      <i class="fas fa-graduation-cap"></i>
+      <span>LMS SuperAdmin</span>
+    </div>
+    <ul class="admin-nav">
+      <li><a href="dashboard.html" class="active"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+      <li><a href="students.html"><i class="fas fa-user-graduate"></i> Students</a></li>
+      <li><a href="teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+      <li><a href="courses.html"><i class="fas fa-book-open"></i> Courses</a></li>
+      <li><a href="categories.html"><i class="fas fa-tags"></i> Categories</a></li>
+      <li><a href="enrollments.html"><i class="fas fa-user-check"></i> Enrollments</a></li>
+      <li><a href="assignments.html"><i class="fas fa-tasks"></i> Assignments</a></li>
+      <li><a href="reports.html"><i class="fas fa-chart-pie"></i> Reports</a></li>
+      <li><a href="notifications.html"><i class="fas fa-bell"></i> Notifications</a></li>
+      <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+    </ul>
+    <div class="admin-sidebar-footer">
+      <button id="admin-logout-btn" class="logout-btn">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="admin-main">
+    <header class="admin-header">
+      <h1>Executive LMS Dashboard</h1>
+      <div class="admin-user-profile">
+        <div class="admin-avatar"><i class="fas fa-user-shield"></i></div>
+        <div>
+          <div style="font-weight: 700;">Administrator</div>
+          <div style="font-size: 0.8rem; color: var(--admin-text-muted);">admin@edu.com</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="admin-content">
+      <!-- Metric Cards Grid -->
+      <div class="card-grid">
+        <div class="stat-card">
+          <div class="info">
+            <h3>Total Students</h3>
+            <p id="stat-students">--</p>
+          </div>
+          <div class="icon-box icon-blue"><i class="fas fa-user-graduate"></i></div>
+        </div>
+        <div class="stat-card">
+          <div class="info">
+            <h3>Total Teachers</h3>
+            <p id="stat-teachers">--</p>
+          </div>
+          <div class="icon-box icon-purple"><i class="fas fa-chalkboard-teacher"></i></div>
+        </div>
+        <div class="stat-card">
+          <div class="info">
+            <h3>Active Courses</h3>
+            <p id="stat-courses">--</p>
+          </div>
+          <div class="icon-box icon-green"><i class="fas fa-book"></i></div>
+        </div>
+        <div class="stat-card">
+          <div class="info">
+            <h3>Total Enrollments</h3>
+            <p id="stat-enrollments">--</p>
+          </div>
+          <div class="icon-box icon-amber"><i class="fas fa-certificate"></i></div>
+        </div>
+      </div>
+
+      <!-- Quick Action Panel & Recent Lists -->
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+        <div class="table-container">
+          <div style="padding: 20px; font-weight: 700; border-bottom: 1px solid var(--admin-border); display: flex; justify-content: space-between; align-items: center;">
+            <span>Recent Courses Pending Approval & Active</span>
+            <a href="courses.html" class="btn btn-primary btn-sm">Manage All Courses</a>
+          </div>
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Course Title</th>
+                <th>Category</th>
+                <th>Instructor</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="recent-courses-table">
+              <tr><td colspan="4" style="text-align: center; color: var(--admin-text-muted);">Loading courses...</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-container">
+          <div style="padding: 20px; font-weight: 700; border-bottom: 1px solid var(--admin-border);">
+            <span>System Health & Status</span>
+          </div>
+          <div style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span>Database Engine:</span>
+              <span class="badge badge-success">PostgreSQL 18</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span>LMS REST APIs:</span>
+              <span class="badge badge-success">Operational</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span>Role Authorization:</span>
+              <span class="badge badge-info">Active</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span>AI Proctoring Service:</span>
+              <span class="badge badge-success">Monitoring Active</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

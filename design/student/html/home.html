@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Online Education Portal</title>
+
+   <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+
+   <link rel="stylesheet" href="/student/css/layouts/style.css">
+   <link rel="stylesheet" href="/student/css/pages/home.css">
+   <link rel="stylesheet" href="/student/css/components/search.css">
+</head>
+<body>
+
+<header class="header">
+   <section class="flex">
+      <a href="/student/html/home.html" class="logo">Online Education Portal</a>
+
+      <form action="/student/html/search.html" method="get" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="user-btn" class="fas fa-user"></div>
+         <div id="logout-btn" class="fas fa-sign-out-alt" title="Logout"></div>
+
+         </div>
+
+   <div class="profile">
+      <img src="/assets/images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+         <a href="/student/html/profile.html" class="btn">view profile</a>
+            </div>
+</section>
+</header>
+
+<div class="side-bar">
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+
+   <div class="profile">
+      <img src="/assets/images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Student 1</h3>
+      <p class="role">student</p>
+   </div>
+
+     <nav class="navbar">
+      <a href="/student/html/home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="/student/html/courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+
+      <div class="nav-item dropdown">
+    <a href="#" class="dropdown-toggle">
+      <i class="fas fa-tasks"></i>
+      <span>Mock Tests</span>
+      <i class="fas fa-chevron-down"></i>
+    </a>
+    <div class="dropdown-menu">
+      <a href="/student/html/mocktest1.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 1</span>
+      </a>
+      <a href="/student/html/mocktest2.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 2</span>
+      </a>
+      <a href="/student/html/mocktest3.html" class="dropdown-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Mock Test 3</span>
+      </a>
+    </div>
+  </div>
+
+      <a href="/student/html/feedback.html"><i class="fas fa-comments"></i><span>Feedback</span></a>
+            <a href="/student/html/exam.html"><i class="fas fa-file-alt"></i><span>Exams</span></a>
+
+      <a href="/student/html/Certification.html"><i class="fas fa-certificate"></i><span>Certificate</span></a>
+      <a href="/student/html/status.html"><i class="fas fa-check-circle"></i><span>Status</span></a>
+      <a href="/student/html/billing.html"><i class="fas fa-receipt"></i><span>Billing</span></a>
+   </nav>
+</div>
+
+<section class="dashboard-container">
+  <section class="home-hero" aria-labelledby="home-hero-title">
+    <div class="home-hero-copy">
+      <p class="home-hero-eyebrow">
+        <i class="fas fa-sparkles" aria-hidden="true"></i>
+        YOUR LEARNING SPACE
+      </p>
+      <h1 id="home-hero-title">Take the next step in <span>your learning.</span></h1>
+      <p class="home-hero-description">
+        Pick up where you left off, explore a new course, or check your progress—all from one place.
+      </p>
+      <div class="home-hero-actions">
+        <a class="home-hero-primary" href="/student/html/courses.html">
+          Explore courses <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </a>
+        <a class="home-hero-secondary" href="/student/html/status.html">View progress</a>
+      </div>
+    </div>
+
+    <div class="home-hero-art" aria-hidden="true">
+      <div class="home-hero-orbit"></div>
+      <div class="home-hero-course-card">
+        <span class="home-hero-course-icon"><i class="fas fa-graduation-cap"></i></span>
+        <span class="home-hero-course-copy">
+          <span class="home-hero-course-label">YOUR NEXT STEP</span>
+          <strong>Explore a new course</strong>
+          <span>Find a topic that inspires you</span>
+        </span>
+        <span class="home-hero-course-arrow"><i class="fas fa-arrow-right"></i></span>
+      </div>
+      <span class="home-hero-float home-hero-float-top">
+        <i class="fas fa-book-open"></i> Learn at your pace
+      </span>
+      <span class="home-hero-float home-hero-float-bottom">
+        <i class="fas fa-check-circle"></i> Progress you can see
+      </span>
+    </div>
+  </section>
+
+  <div class="dashboard-stats">
+     <a class="stat-card" href="/student/html/courses.html">
+      <div class="stat-icon purple">
+        <i class="fas fa-book"></i>
+      </div>
+       <div class="stat-value" data-dashboard-stat="enrolled_courses_count">—</div>
+      <div class="stat-label">Enrolled Courses</div>
+     </a>
+
+     <div class="stat-card" aria-describedby="learning-hours-note">
+      <div class="stat-icon blue">
+         <i class="fas fa-clock"></i>
+      </div>
+       <div class="stat-value">Not tracked</div>
+       <div class="stat-label">Learning Hours</div>
+       <p id="learning-hours-note" class="stat-note">Lesson time tracking is not available yet.</p>
+    </div>
+
+     <a class="stat-card" href="/student/html/Certification.html">
+      <div class="stat-icon green">
+        <i class="fas fa-certificate"></i>
+      </div>
+       <div class="stat-value" data-dashboard-stat="certificates_earned_count">—</div>
+       <div class="stat-label">Certificates Earned</div>
+     </a>
+
+     <a class="stat-card" href="/student/html/status.html">
+      <div class="stat-icon orange">
+        <i class="fas fa-calendar-check"></i>
+      </div>
+       <div class="stat-value" data-dashboard-stat="pending_activities_count">—</div>
+       <div class="stat-label">Pending Activities</div>
+       <p class="stat-note">Assignments and upcoming quizzes</p>
+     </a>
+  </div>
+   <p id="dashboard-message" class="dashboard-message" role="status" aria-live="polite"></p>
+
+   <section class="continue-learning-section" aria-labelledby="continue-learning-title">
+     <h2 id="continue-learning-title" class="section-title">Continue Learning</h2>
+     <p id="continue-learning-message" class="dashboard-message">Loading your learning progress…</p>
+     <div id="continue-learning-list" class="continue-learning-list"></div>
+   </section>
+
+
+  <section class="courses">
+
+    <h2 class="heading">Browse Courses</h2>
+    <p class="dashboard-message">Explore published courses from the course catalog.</p>
+    <a href="/student/html/courses.html" class="inline-btn">Browse all courses</a>
+   </section>
+
+  <div class="about-section">
+    <h2 class="section-title">About Us</h2>
+    <div class="about-content">
+      <p>Welcome to our Student E-Learning Portal, where we're transforming the way students learn and engage with educational content. Our mission is to provide accessible, high-quality education to students worldwide.</p>
+    </div>
+
+    <div class="feature-cards">
+      <a class="feature-card" href="/student/html/courses.html" aria-label="Interactive Learning: browse available courses">
+        <div class="feature-icon">
+          <i class="fas fa-laptop-code" aria-hidden="true"></i>
+        </div>
+        <h3 class="feature-title">Interactive Learning</h3>
+        <p class="feature-text">Engage with interactive content</p>
+        <span class="feature-action">Explore courses <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+
+      <a class="feature-card" href="/student/html/mentorship.html" aria-label="Expert Mentorship: meet course instructors">
+        <div class="feature-icon">
+          <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
+        </div>
+        <h3 class="feature-title">Expert Mentorship</h3>
+        <p class="feature-text">Learn from industry professionals</p>
+        <span class="feature-action">Meet instructors <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+
+      <a class="feature-card" href="/student/html/feedback.html" aria-label="Active Community: share your feedback">
+        <div class="feature-icon">
+          <i class="fas fa-users" aria-hidden="true"></i>
+        </div>
+        <h3 class="feature-title">Active Community</h3>
+        <p class="feature-text">Join a thriving community</p>
+        <span class="feature-action">Share feedback <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+
+      <a class="feature-card" href="/student/html/playlist.html" aria-label="Flexible Schedule: learn at your own pace">
+        <div class="feature-icon">
+          <i class="fas fa-clock" aria-hidden="true"></i>
+        </div>
+        <h3 class="feature-title">Flexible Schedule</h3>
+        <p class="feature-text">Learn at your own pace</p>
+        <span class="feature-action">Start learning <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="contact-section">
+    <h2 class="section-title">Contact Us</h2>
+
+    <div class="contact-info">
+      <div class="contact-item">
+        <i class="fas fa-envelope" aria-hidden="true"></i>
+        <div class="contact-details">
+          <h3>Email Us</h3>
+          <p>online-education1@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+        <div class="contact-details">
+          <h3>Our Location</h3>
+          <p>207, Sonal Indl Estate, Ramchandra Lane Extn, Mala</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fas fa-phone" aria-hidden="true"></i>
+        <div class="contact-details">
+          <h3>Call Us</h3>
+          <p>+91-8555682459</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="/student/js/shared/script.js"></script>
+<script src="/student/js/shared/search.js"></script>
+<script src="/student/js/pages/home.js"></script>
+
+</body>
+</html>

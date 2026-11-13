@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platform Settings | LMS Admin</title>
+  <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+  <aside class="admin-sidebar">
+    <div class="admin-brand">
+      <i class="fas fa-graduation-cap"></i>
+      <span>LMS SuperAdmin</span>
+    </div>
+    <ul class="admin-nav">
+      <li><a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+      <li><a href="students.html"><i class="fas fa-user-graduate"></i> Students</a></li>
+      <li><a href="teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+      <li><a href="courses.html"><i class="fas fa-book-open"></i> Courses</a></li>
+      <li><a href="categories.html"><i class="fas fa-tags"></i> Categories</a></li>
+      <li><a href="enrollments.html"><i class="fas fa-user-check"></i> Enrollments</a></li>
+      <li><a href="assignments.html"><i class="fas fa-tasks"></i> Assignments</a></li>
+      <li><a href="reports.html"><i class="fas fa-chart-pie"></i> Reports</a></li>
+      <li><a href="notifications.html"><i class="fas fa-bell"></i> Notifications</a></li>
+      <li><a href="settings.html" class="active"><i class="fas fa-cog"></i> Settings</a></li>
+    </ul>
+    <div class="admin-sidebar-footer">
+      <button id="admin-logout-btn" class="logout-btn">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <header class="admin-header">
+      <h1>Platform Configuration & Global Settings</h1>
+      <div class="admin-user-profile">
+        <div class="admin-avatar"><i class="fas fa-user-shield"></i></div>
+        <div>
+          <div style="font-weight: 700;">Administrator</div>
+          <div style="font-size: 0.8rem; color: var(--admin-text-muted);">admin@edu.com</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="admin-content">
+      <div class="form-card" style="max-width: 700px;">
+        <h3 style="margin-bottom: 20px;"><i class="fas fa-sliders-h"></i> System Configuration</h3>
+        <p id="settings-status" role="status" aria-live="polite"></p>
+        <form id="settings-form">
+          <div class="form-group">
+            <label>Institution / Platform Name</label>
+            <input type="text" id="set-name" class="form-control" value="Online Education LMS Platform">
+          </div>
+          <div class="form-group">
+            <label>Support Email Address</label>
+            <input type="email" id="set-email" class="form-control" value="admin@edu.com">
+          </div>
+          <div class="form-group">
+            <label>Default Appearance Mode</label>
+            <input type="text" class="form-control" value="Permanent Light Mode (System Standard)" disabled>
+          </div>
+          <div class="form-group">
+            <label>Open Student Registration</label>
+            <select class="form-control" id="set-reg">
+              <option value="true" selected>Enabled (Allow public registrations)</option>
+              <option value="false">Disabled (Admin invite only)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save Global Settings</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/common.js"></script>
+  <script>
+    const settingsStatus = document.getElementById('settings-status');
+
+    async function loadSettings() {
+      const result = await adminFetch('/settings');
+      if (!result.success) {
+        settingsStatus.textContent = result.message || 'Unable to load settings.';
+        return;
+      }
+      document.getElementById('set-name').value = result.data.platform_name || '';
+      document.getElementById('set-email').value = result.data.support_email || '';
+      document.getElementById('set-reg').value = String(result.data.registration_open);
+    }
+
+    loadSettings();
+    document.getElementById('settings-form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const result = await adminFetch('/settings', {
+        method: 'POST',
+        body: JSON.stringify({
+          platform_name: document.getElementById('set-name').value,
+          support_email: document.getElementById('set-email').value,
+          registration_open: document.getElementById('set-reg').value === 'true'
+        })
+      });
+      settingsStatus.textContent = result.message || (result.success ? 'Settings saved.' : 'Unable to save settings.');
+    });
+  </script>
+</body>
+</html>

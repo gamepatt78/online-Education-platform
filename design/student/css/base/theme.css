@@ -1,0 +1,573 @@
+/* ==========================================================================
+   PREMIUM DESIGN SYSTEM - ONLINE EDUCATION LMS
+   Inspired by: Linear, Stripe, Vercel, Notion, Framer
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  color-scheme: light;
+
+  /* Brand Primary Colors (Modern Indigo / Violet) */
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-active: #3730a3;
+  --primary-subtle: #eef2ff;
+  --primary-glow: rgba(79, 70, 229, 0.18);
+
+  /* Secondary & Accents */
+  --accent: #0ea5e9;
+  --accent-hover: #0284c7;
+  --accent-subtle: #f0f9ff;
+
+  /* Status Semantics */
+  --success: #10b981;
+  --success-subtle: #ecfdf5;
+  --success-border: #a7f3d0;
+  --warning: #f59e0b;
+  --warning-subtle: #fffbeb;
+  --danger: #ef4444;
+  --danger-subtle: #fef2f2;
+  --info: #3b82f6;
+
+  /* Surfaces & Backgrounds - Light */
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --bg-subtle: #f8fafc;
+  --bg-sidebar: #ffffff;
+  --bg-header: rgba(255, 255, 255, 0.88);
+
+  /* Typography Colors */
+  --text-main: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --text-inverse: #ffffff;
+
+  /* Borders & Dividers */
+  --border-light: #e2e8f0;
+  --border-subtle: #f1f5f9;
+  --border-focus: #4f46e5;
+
+  /* Shadows (Refined Elevation) */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.03);
+  --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  --shadow-floating: 0 24px 48px -12px rgba(15, 23, 42, 0.14);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Typography Scale */
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Layout Constants */
+  --sidebar-width: 270px;
+  --header-height: 72px;
+
+  /* Animation & Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ================= Global Reset & Typography ================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: var(--font-family);
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  background-color: var(--bg-page);
+  padding-left: var(--sidebar-width);
+  min-height: 100vh;
+  transition: padding-left var(--transition-normal), background-color var(--transition-normal), color var(--transition-normal);
+  overflow-x: hidden;
+}
+
+body.active {
+  padding-left: 0;
+}
+
+/* Full width pages (auth, admissions, payment, landing) */
+body.no-sidebar,
+body.login-page,
+body.register-page,
+body.admission-page,
+body.payment-page {
+  padding-left: 0 !important;
+}
+
+/* Links */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* Glassmorphism Header */
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--bg-header);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  padding: 0 2.4rem;
+  transition: all var(--transition-normal);
+}
+
+.header .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 1.6rem;
+}
+
+.header .logo {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header .logo span {
+  color: var(--primary);
+}
+
+/* Modern Search Input */
+.header .search-form {
+  position: relative;
+  width: 380px;
+  max-width: 100%;
+}
+
+.header .search-form input {
+  width: 100%;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-full);
+  padding: 1rem 4.4rem 1rem 1.8rem;
+  font-size: 1.4rem;
+  color: var(--text-main);
+  transition: all var(--transition-fast);
+}
+
+.header .search-form input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+  background: var(--bg-card);
+}
+
+.header .search-form button {
+  position: absolute;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0.6rem;
+  border-radius: 50%;
+  transition: color var(--transition-fast);
+}
+
+.header .search-form button:hover {
+  color: var(--primary);
+}
+
+/* Header Icons */
+.header .icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header .icons > div {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  color: var(--text-secondary);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.header .icons > div:hover {
+  background: var(--primary-subtle);
+  color: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+/* User Profile Dropdown Flyout */
+.header .profile {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 2.4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  padding: 2rem;
+  text-align: center;
+  width: 260px;
+  transform: scale(0.95);
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--transition-bounce);
+  z-index: 1000;
+}
+
+.header .profile.active {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.header .profile .image {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.2rem;
+  border: 3px solid var(--primary-subtle);
+}
+
+.header .profile .name {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.header .profile .role {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  text-transform: capitalize;
+  margin-bottom: 1.4rem;
+}
+
+/* Modern Sleek Sidebar */
+.side-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: var(--sidebar-width);
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border-light);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-normal);
+  padding: 2rem 1.6rem;
+  overflow-y: auto;
+}
+
+body.active .side-bar {
+  transform: translateX(-100%);
+}
+
+.side-bar #close-btn {
+  display: none;
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.side-bar .profile {
+  padding: 1.6rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  margin-bottom: 2.4rem;
+}
+
+.side-bar .profile .image {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 2px solid var(--primary);
+}
+
+.side-bar .profile .name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.side-bar .profile .role {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  text-transform: capitalize;
+}
+
+.side-bar .navbar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.side-bar .navbar a {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 1.1rem 1.6rem;
+  border-radius: var(--radius-md);
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.side-bar .navbar a i {
+  font-size: 1.7rem;
+  width: 20px;
+  text-align: center;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+
+.side-bar .navbar a:hover,
+.side-bar .navbar a.active {
+  background: var(--primary-subtle);
+  color: var(--primary);
+}
+
+.side-bar .navbar a:hover i,
+.side-bar .navbar a.active i {
+  color: var(--primary);
+}
+
+/* Modern Card Layouts */
+.card, .box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 2.4rem;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.card:hover, .box:hover {
+  border-color: rgba(79, 70, 229, 0.3);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* Premium Buttons */
+.btn, .inline-btn, .delete-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1.1rem 2.2rem;
+  border-radius: var(--radius-md);
+  font-size: 1.45rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn, .inline-btn {
+  background: var(--primary);
+  color: #ffffff !important;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:hover, .inline-btn:hover {
+  background: var(--primary-hover);
+  box-shadow: 0 4px 12px var(--primary-glow);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-main) !important;
+  border: 1px solid var(--border-light);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-subtle);
+  border-color: var(--text-muted);
+}
+
+.delete-btn {
+  background: var(--danger-subtle);
+  color: var(--danger) !important;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.delete-btn:hover {
+  background: var(--danger);
+  color: #ffffff !important;
+}
+
+/* Modern Form Controls */
+.form-control, input.box, select.box, textarea.box {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.6rem;
+  font-size: 1.45rem;
+  color: var(--text-main);
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.form-control:focus, input.box:focus, select.box:focus, textarea.box:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+/* Modern Auth Card Layout */
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.6rem;
+  background: radial-gradient(circle at 50% 0%, rgba(79, 70, 229, 0.08) 0%, transparent 60%), var(--bg-page);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 4rem 3.6rem;
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.auth-card .auth-header {
+  text-align: center;
+  margin-bottom: 3.2rem;
+}
+
+.auth-card .auth-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: var(--primary-subtle);
+  color: var(--primary);
+  border-radius: var(--radius-md);
+  font-size: 2.2rem;
+  margin-bottom: 1.6rem;
+}
+
+.auth-card h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.6rem;
+}
+
+.auth-card p.subtitle {
+  font-size: 1.45rem;
+  color: var(--text-secondary);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1280px) {
+  :root {
+    --sidebar-width: 250px;
+  }
+}
+
+@media (max-width: 991px) {
+  body {
+    padding-left: 0 !important;
+  }
+  .side-bar {
+    transform: translateX(-100%);
+  }
+  body.active .side-bar {
+    transform: translateX(0);
+    box-shadow: var(--shadow-floating);
+  }
+  .side-bar #close-btn {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .header .search-form {
+    display: none;
+  }
+  .header {
+    padding: 0 1.6rem;
+  }
+  .auth-card {
+    padding: 3rem 2rem;
+  }
+}

@@ -1,0 +1,262 @@
+.mentorship-page {
+  width: min(120rem, 100%);
+  margin: 0 auto;
+  padding: clamp(1.6rem, 3vw, 2.8rem);
+}
+
+.mentorship-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.6rem;
+  color: #5953e8;
+  font-size: 1.3rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.mentorship-back:hover {
+  color: #3730a3;
+}
+
+.mentorship-hero {
+  position: relative;
+  display: flex;
+  min-height: 23rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: clamp(2.4rem, 4vw, 4rem);
+  overflow: hidden;
+  border-radius: 2rem;
+  background: linear-gradient(115deg, #171b38 0%, #3430a8 58%, #615cf1 100%);
+  box-shadow: 0 1.4rem 3.4rem rgba(51, 46, 160, 0.16);
+  color: #fff;
+}
+
+.mentorship-hero::after {
+  position: absolute;
+  top: -15rem;
+  right: -5rem;
+  width: 34rem;
+  height: 34rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3rem rgba(255, 255, 255, 0.035), 0 0 0 6rem rgba(255, 255, 255, 0.025);
+  content: "";
+}
+
+.mentorship-hero > div:first-child {
+  position: relative;
+  z-index: 1;
+  max-width: 62rem;
+}
+
+.mentorship-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0 0 1.2rem;
+  color: #d8d6ff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.12rem;
+}
+
+.mentorship-eyebrow i {
+  color: #f0abfc;
+}
+
+.mentorship-hero h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2.8rem, 4vw, 4.2rem);
+  letter-spacing: -0.06rem;
+  line-height: 1.12;
+}
+
+.mentorship-hero > div:first-child > p:last-child {
+  max-width: 58ch;
+  margin: 1.4rem 0 0;
+  color: rgba(241, 245, 249, 0.82);
+  font-size: 1.5rem;
+  line-height: 1.7;
+}
+
+.mentorship-hero-icon {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 12rem;
+  height: 12rem;
+  flex: 0 0 12rem;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 3rem;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 5rem;
+  transform: rotate(4deg);
+}
+
+.mentorship-directory {
+  margin-top: 2.4rem;
+  padding: clamp(1.8rem, 3vw, 2.8rem);
+  border: 1px solid #e5e8f0;
+  border-radius: 2rem;
+  background: #fff;
+  box-shadow: 0 1rem 2.5rem rgba(15, 23, 42, 0.045);
+}
+
+.mentorship-directory-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.mentorship-directory-heading h2 {
+  margin: 0;
+  color: #1e293b;
+  font-size: 2.3rem;
+}
+
+.mentorship-directory-heading p {
+  margin: 0.5rem 0 0;
+  color: #64748b;
+  font-size: 1.3rem;
+}
+
+.mentorship-count {
+  flex: 0 0 auto;
+  padding: 0.8rem 1.1rem;
+  border-radius: 99rem;
+  background: #f1f0ff;
+  color: #4f46e5;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.mentorship-message {
+  margin: 1.8rem 0 0;
+  color: #64748b;
+  font-size: 1.35rem;
+}
+
+.mentorship-message:empty {
+  display: none;
+}
+
+.mentorship-message a {
+  margin-left: 0.5rem;
+  color: #4f46e5;
+  font-weight: 700;
+}
+
+.mentorship-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr));
+  gap: 1.5rem;
+  margin-top: 1.8rem;
+}
+
+.instructor-card {
+  min-width: 0;
+  padding: 1.8rem;
+  border: 1px solid #e5e8f0;
+  border-radius: 1.6rem;
+  background: #fbfcff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.instructor-card:hover {
+  transform: translateY(-2px);
+  border-color: #c4b5fd;
+  background: #fff;
+  box-shadow: 0 1rem 2.4rem rgba(79, 70, 229, 0.09);
+}
+
+.instructor-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.instructor-avatar {
+  display: grid;
+  width: 4.8rem;
+  height: 4.8rem;
+  flex: 0 0 4.8rem;
+  place-items: center;
+  border-radius: 1.4rem;
+  background: #ede9fe;
+  color: #5b52df;
+  font-size: 1.9rem;
+}
+
+.instructor-card-heading h3 {
+  overflow-wrap: anywhere;
+  margin: 0;
+  color: #1e293b;
+  font-size: 1.55rem;
+}
+
+.instructor-card-heading p {
+  margin: 0.4rem 0 0;
+  color: #64748b;
+  font-size: 1.2rem;
+}
+
+.instructor-course-list {
+  display: grid;
+  gap: 0.8rem;
+  margin: 1.6rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.instructor-course-list a {
+  display: flex;
+  min-height: 4.2rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid #e8eaf2;
+  border-radius: 1rem;
+  background: #fff;
+  color: #334155;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.instructor-course-list a:hover {
+  border-color: #c4b5fd;
+  color: #4f46e5;
+}
+
+.instructor-course-list a:focus-visible,
+.mentorship-back:focus-visible {
+  outline: 3px solid #6d4aff;
+  outline-offset: 3px;
+}
+
+.instructor-course-list a i {
+  flex: 0 0 auto;
+  color: #6d5efc;
+}
+
+@media (max-width: 600px) {
+  .mentorship-hero {
+    min-height: auto;
+  }
+
+  .mentorship-hero-icon {
+    display: none;
+  }
+
+  .mentorship-directory-heading {
+    flex-direction: column;
+  }
+}
