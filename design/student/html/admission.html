@@ -2,129 +2,157 @@
 <html lang="en">
 <head>
    <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Admission - Student E Learning</title>
-   <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
+   <meta name="theme-color" content="#f6f8fc">
+   <title>Student Admission | Online Education</title>
    <link rel="stylesheet" href="/student/css/layouts/style.css">
    <link rel="stylesheet" href="/student/css/pages/admission.css">
 </head>
-<body>
-   <nav class="auth-nav">
-      <div class="auth-buttons">
-         <button class="auth-btn login-btn">
-            <i class="fas fa-sign-in-alt"></i> Login
-         </button>
-         <button class="auth-btn register-btn">
-            <i class="fas fa-user-plus"></i> Register
-         </button>
+<body class="admission-page no-sidebar">
+   <header class="admission-header">
+      <a class="brand" href="/" aria-label="Online Education home">
+         <span class="brand-mark" aria-hidden="true">OE</span>
+         <span class="brand-name">Online Education</span>
+      </a>
+      <nav class="auth-actions" aria-label="Account">
+         <button class="auth-btn login-btn" type="button">Sign in</button>
+         <button class="auth-btn register-btn" type="button">Create account</button>
+      </nav>
+   </header>
+
+   <main class="admission-shell">
+      <div class="page-intro">
+         <p class="eyebrow">STUDENT ADMISSION</p>
+         <h1>Take the next step in your education.</h1>
+         <p class="intro-copy">Share a few details about yourself and your academic background to submit an application.</p>
       </div>
-   </nav>
 
-   <section class="admission-container">
-      <div class="admission-form">
-         <h2 class="form-title">Student E Learning</h2>
-         
+      <div class="admission-card">
+         <div class="card-heading">
+            <div>
+               <h2>Application details</h2>
+               <p>Fields marked <span aria-hidden="true">*</span> are required.</p>
+            </div>
+         </div>
+
          <form id="admissionForm" action="/submit-admission" method="POST">
-
-            <div class="form-section">
-               <h3>Personal Information</h3>
-
-               <div class="form-group">
-                  <label for="fullName">Full Name</label>
-                  <input type="text" id="fullName" name="fullName" class="form-control" required>
-               </div>
-
-               <div class="form-row">
-                  <div class="form-group">
-                     <label for="dob">Date of Birth</label>
-                     <input type="date" id="dob" name="dob" class="form-control" required>
+            <div class="form-grid">
+               <section class="form-section" aria-labelledby="personalHeading">
+                  <div class="section-heading">
+                     <span class="section-number">01</span>
+                     <div>
+                        <h3 id="personalHeading">Personal information</h3>
+                        <p>Tell us a little about yourself.</p>
+                     </div>
                   </div>
 
                   <div class="form-group">
-                     <label for="gender">Gender</label>
-                     <select id="gender" name="gender" class="form-control" required>
-                        <option value="">Select Gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
+                     <label for="fullName">Full name <span aria-hidden="true">*</span></label>
+                     <input type="text" id="fullName" name="fullName" class="form-control" autocomplete="name" maxlength="150" placeholder="Enter your full name" required>
+                  </div>
+
+                  <div class="field-pair">
+                     <div class="form-group">
+                        <label for="dob">Date of birth <span aria-hidden="true">*</span></label>
+                        <input type="date" id="dob" name="dob" class="form-control" autocomplete="bday" required>
+                     </div>
+                     <div class="form-group">
+                        <label for="gender">Gender <span aria-hidden="true">*</span></label>
+                        <select id="gender" name="gender" class="form-control" required>
+                           <option value="">Select gender</option>
+                           <option value="male">Male</option>
+                           <option value="female">Female</option>
+                           <option value="other">Other</option>
+                        </select>
+                     </div>
+                  </div>
+               </section>
+
+               <section class="form-section" aria-labelledby="academicHeading">
+                  <div class="section-heading">
+                     <span class="section-number">02</span>
+                     <div>
+                        <h3 id="academicHeading">Academic background</h3>
+                        <p>Add your most recent qualification.</p>
+                     </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label for="previousDegree">Previous degree <span aria-hidden="true">*</span></label>
+                     <select id="previousDegree" name="previousDegree" class="form-control" required>
+                        <option value="">Select previous degree</option>
+                        <optgroup label="Bachelor's degrees">
+                           <option value="btech">B.Tech</option>
+                           <option value="be">B.E</option>
+                           <option value="bsc">B.Sc</option>
+                           <option value="bca">BCA</option>
+                           <option value="bcom">B.Com</option>
+                           <option value="ba">BA</option>
+                        </optgroup>
+                        <optgroup label="Master's degrees">
+                           <option value="mtech">M.Tech</option>
+                           <option value="me">M.E</option>
+                           <option value="msc">M.Sc</option>
+                           <option value="mca">MCA</option>
+                           <option value="mcom">M.Com</option>
+                           <option value="ma">MA</option>
+                        </optgroup>
+                        <optgroup label="Other qualifications">
+                           <option value="diploma">Diploma</option>
+                           <option value="phd">Ph.D</option>
+                        </optgroup>
                      </select>
                   </div>
-               </div>
+
+                  <div class="field-pair">
+                     <div class="form-group">
+                        <label for="cgpa">Overall CGPA</label>
+                        <input type="number" id="cgpa" name="cgpa" class="form-control" min="0" max="10" step="0.01" placeholder="e.g. 8.25" aria-describedby="cgpaHint">
+                        <small class="field-hint" id="cgpaHint">Optional · on a 10-point scale</small>
+                     </div>
+                     <div class="form-group">
+                        <label for="yearOfPassing">Year of passing</label>
+                        <input type="month" id="yearOfPassing" name="yearOfPassing" class="form-control" aria-describedby="passingHint">
+                        <small class="field-hint" id="passingHint">Optional</small>
+                     </div>
+                  </div>
+               </section>
+
+               <section class="form-section contact-section" aria-labelledby="contactHeading">
+                  <div class="section-heading">
+                     <span class="section-number">03</span>
+                     <div>
+                        <h3 id="contactHeading">Contact information</h3>
+                        <p>How can we reach you about your application?</p>
+                     </div>
+                  </div>
+
+                  <div class="field-pair">
+                     <div class="form-group">
+                        <label for="email">Email address <span aria-hidden="true">*</span></label>
+                        <input type="email" id="email" name="email" class="form-control" autocomplete="email" maxlength="255" placeholder="you@example.com" required>
+                     </div>
+                     <div class="form-group">
+                        <label for="phone">Phone number <span aria-hidden="true">*</span></label>
+                        <input type="tel" id="phone" name="phone" class="form-control" autocomplete="tel" maxlength="25" placeholder="Enter your phone number" required>
+                     </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label for="address">Address <span aria-hidden="true">*</span></label>
+                     <textarea id="address" name="address" class="form-control" rows="3" autocomplete="street-address" placeholder="Street, city, and postal code" required></textarea>
+                  </div>
+               </section>
             </div>
 
-            <div class="form-section">
-               <h3>Academic Information</h3>
-
-               <div class="form-group">
-                  <label for="previousDegree">Previous Degree</label>
-                  <select id="previousDegree" name="previousDegree" class="form-control" required>
-                     <option value="">Select Previous Degree</option>
-                     <optgroup label="Bachelor's Degrees">
-                        <option value="btech">B.Tech</option>
-                        <option value="be">B.E</option>
-                        <option value="bsc">B.Sc</option>
-                        <option value="bca">BCA</option>
-                        <option value="bcom">B.Com</option>
-                        <option value="ba">BA</option>
-                     </optgroup>
-                     <optgroup label="Master's Degrees">
-                        <option value="mtech">M.Tech</option>
-                        <option value="me">M.E</option>
-                        <option value="msc">M.Sc</option>
-                        <option value="mca">MCA</option>
-                        <option value="mcom">M.Com</option>
-                        <option value="ma">MA</option>
-                     </optgroup>
-                     <optgroup label="Other Qualifications">
-                        <option value="diploma">Diploma</option>
-                        <option value="phd">Ph.D</option>
-                     </optgroup>
-                  </select>
-               </div>
-
-               <div class="form-row">
-                  <div class="form-group">
-                     <label for="cgpa">Overall CGPA</label>
-                     <input type="number" id="cgpa" name="cgpa" class="form-control" min="0" max="10" step="0.01" required 
-                            placeholder="Enter CGPA (0-10)">
-                  </div>
-               </div>
-
-               <div class="form-group">
-                  <label for="yearOfPassing">Year of Passing</label>
-                  <input type="month" id="yearOfPassing" name="yearOfPassing" class="form-control date-input" required>
-               </div>
+            <div class="form-footer">
+               <p>By submitting, you confirm that the information provided is accurate.</p>
+               <button type="submit" class="submit-btn">Submit application <span aria-hidden="true">→</span></button>
             </div>
-
-            <div class="form-section">
-               <h3>Contact Information</h3>
-               <div class="contact-row">
-                  <div class="form-group">
-                     <label for="email">Email Address</label>
-                     <input type="email" id="email" name="email" class="form-control" required>
-                  </div>
-                  <div class="form-group">
-                     <label for="phone">Phone Number</label>
-                     <input type="tel" id="phone" name="phone" class="form-control" required>
-                  </div>
-                  <div class="form-group">
-                     <label for="address">Address</label>
-                     <textarea id="address" name="address" class="form-control" rows="3" required></textarea>
-                  </div>
-               </div>
-            </div>
-
-            <div class="submit-btn-container">
-               <button type="submit" class="submit-btn">Submit Application</button>
-            </div>
-
-            <!-- Status Message Container -->
-            <div id="submissionStatus" class="status-message"></div>
-
+            <div id="submissionStatus" class="status-message" role="status" aria-live="polite" aria-atomic="true"></div>
          </form>
       </div>
-   </section>
+   </main>
 
    <script src="/student/js/shared/script.js"></script>
    <script src="/student/js/pages/admission.js"></script>
