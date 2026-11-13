@@ -11,16 +11,18 @@ process.env.NODE_ENV = 'test';
 process.env.JWT_SECRET = TEST_SECRET;
 process.env.DATA_DIR = TEST_DATA_DIR;
 process.env.CORS_ORIGIN = 'http://localhost:5000,http://127.0.0.1:5000';
+process.env.RENDER_EXTERNAL_URL = 'https://online-education.example.onrender.com';
 
 function writeData(name, data) {
   fs.writeFileSync(path.join(TEST_DATA_DIR, `${name}.json`), JSON.stringify(data, null, 2));
 }
 
-function makeRequest(port, route, method = 'GET', body = null, token = null) {
+function makeRequest(port, route, method = 'GET', body = null, token = null, origin = null) {
   return new Promise((resolve, reject) => {
     const headers = {};
     if (body !== null) headers['Content-Type'] = 'application/json';
     if (token) headers.Authorization = `Bearer ${token}`;
+    if (origin) headers.Origin = origin;
     const req = http.request({
       hostname: '127.0.0.1',
       port,
@@ -32,9 +34,9 @@ function makeRequest(port, route, method = 'GET', body = null, token = null) {
       res.on('data', (chunk) => data += chunk);
       res.on('end', () => {
         try {
-          resolve({ status: res.statusCode, body: JSON.parse(data || '{}'), raw: data });
+          resolve({ status: res.statusCode, body: JSON.parse(data || '{}'), raw: data, headers: res.headers });
         } catch (e) {
-          resolve({ status: res.statusCode, body: {}, raw: data });
+          resolve({ status: res.statusCode, body: {}, raw: data, headers: res.headers });
         }
       });
     });
@@ -100,6 +102,20 @@ async function runTests() {
     const health = await makeRequest(port, '/api/health');
     assert.strictEqual(health.status, 200, 'Health endpoint must return 200');
     assert.strictEqual(health.body.status, 'online', 'Status must be online');
+    const renderFont = await makeRequest(
+      port,
+      '/assets/vendor/fontawesome/webfonts/fa-solid-900.woff2',
+      'GET',
+      null,
+      null,
+      process.env.RENDER_EXTERNAL_URL
+    );
+    assert.strictEqual(renderFont.status, 200, 'Render-origin font requests must be allowed');
+    assert.strictEqual(
+      renderFont.headers['access-control-allow-origin'],
+      process.env.RENDER_EXTERNAL_URL,
+      'Only the configured Render origin should be echoed for the font request'
+    );
 
     console.log('  -> Public static allowlist and private file denial');
     const publicPage = await makeRequest(port, '/student/html/home.html');

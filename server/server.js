@@ -35,10 +35,14 @@ const configuredOrigins = (process.env.CORS_ORIGIN || '')
   .split(',')
   .map(origin => origin.trim())
   .filter(origin => origin && origin !== '*');
+const renderOrigins = [
+  process.env.RENDER_EXTERNAL_URL,
+  process.env.RENDER_EXTERNAL_HOSTNAME && `https://${process.env.RENDER_EXTERNAL_HOSTNAME}`
+].filter(Boolean).map(origin => new URL(origin).origin);
 if ((process.env.CORS_ORIGIN || '').split(',').some(origin => origin.trim() === '*')) {
   console.warn('Ignoring wildcard CORS_ORIGIN; configure explicit origins instead.');
 }
-const allowedOrigins = new Set([...localOrigins, ...configuredOrigins]);
+const allowedOrigins = new Set([...localOrigins, ...configuredOrigins, ...renderOrigins]);
 app.use(cors({
   origin(origin, callback) {
     if (!origin || allowedOrigins.has(origin)) return callback(null, true);
