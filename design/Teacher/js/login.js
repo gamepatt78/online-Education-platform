@@ -4,10 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (togglePassword) togglePassword.addEventListener('click', function() {
         const passwordInput = document.getElementById('loginPassword');
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-        this.classList.toggle('fa-eye');
-        this.classList.toggle('fa-eye-slash');
+        const icon = this.querySelector('i');
+        const isVisible = passwordInput.getAttribute('type') === 'password';
+        passwordInput.setAttribute('type', isVisible ? 'text' : 'password');
+        this.setAttribute('aria-label', isVisible ? 'Hide password' : 'Show password');
+        if (icon) {
+            icon.classList.toggle('fa-eye', !isVisible);
+            icon.classList.toggle('fa-eye-slash', isVisible);
+        }
     });
 
     loginForm.addEventListener('submit', async function(e) {

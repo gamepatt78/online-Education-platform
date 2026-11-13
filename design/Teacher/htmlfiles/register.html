@@ -5,25 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f6f7fb">
     <title>Teacher Registration | Online Education</title>
+    <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/teacher/css/register.css">
 </head>
 <body>
     <main class="register-shell">
         <a class="brand" href="/" aria-label="Online Education home">
-            <span class="brand-mark" aria-hidden="true">OE</span>
+            <span class="brand-mark" aria-hidden="true"><i class="fas fa-graduation-cap"></i></span>
             <span>Online Education</span>
+            <span class="brand-home">Main dashboard <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
         </a>
 
         <section class="register-container" aria-labelledby="pageTitle">
             <header class="card-header">
-                <p class="eyebrow">TEACHER PORTAL</p>
+                <p class="eyebrow"><i class="fas fa-chalkboard-user" aria-hidden="true"></i> TEACHER PORTAL</p>
                 <h1 id="pageTitle">Teacher registration</h1>
                 <p class="intro-copy">Share your details and teaching background.</p>
             </header>
 
             <div class="availability-note" role="note">
-                <strong>Teacher applications require administrator approval.</strong>
-                <span>You can sign in after an administrator activates your account.</span>
+                <i class="fas fa-shield-halved note-icon" aria-hidden="true"></i>
+                <div>
+                    <strong>Teacher applications require administrator approval.</strong>
+                    <span>You can sign in after an administrator activates your account.</span>
+                </div>
             </div>
 
             <form id="registerForm">
@@ -63,7 +68,7 @@
                 <section class="degrees-section" aria-labelledby="degreesHeading">
                     <div class="section-heading">
                         <div>
-                            <h2 id="degreesHeading">Education</h2>
+                            <h2 id="degreesHeading"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Education</h2>
                             <p>Add your previous degree details.</p>
                         </div>
                         <span class="optional-label">Optional</span>
@@ -93,7 +98,7 @@
                 </section>
 
                 <div class="form-actions">
-                    <button type="submit" class="submit-btn">Submit application</button>
+                    <button type="submit" class="submit-btn">Submit application <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
                 </div>
                 <p id="registrationStatus" class="status-message" role="status" aria-live="polite" aria-atomic="true"></p>
             </form>

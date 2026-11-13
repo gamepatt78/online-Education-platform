@@ -47,8 +47,17 @@ body {
     border-radius: 1rem;
     background: var(--teacher-brand);
     color: #fff;
+    font-size: 1.55rem;
+}
+
+.brand-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 0.5rem;
+    color: var(--teacher-brand);
     font-size: 1.15rem;
-    letter-spacing: -0.04em;
+    font-weight: 650;
 }
 
 .register-container {
@@ -71,6 +80,10 @@ body {
     letter-spacing: 0.14em;
 }
 
+.eyebrow i {
+    margin-right: 0.35rem;
+}
+
 .card-header h1 {
     margin: 0;
     color: var(--teacher-text);
@@ -87,8 +100,9 @@ body {
 }
 
 .availability-note {
-    display: grid;
-    gap: 0.35rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
     margin-bottom: 2.4rem;
     padding: 1.4rem 1.6rem;
     border: 1px solid #f3d9a5;
@@ -97,6 +111,16 @@ body {
     color: #80530c;
     font-size: 1.3rem;
     line-height: 1.55;
+}
+
+.note-icon {
+    margin-top: 0.15rem;
+    font-size: 1.5rem;
+}
+
+.availability-note div {
+    display: grid;
+    gap: 0.35rem;
 }
 
 .availability-note strong {
@@ -186,6 +210,11 @@ a:focus-visible {
     color: var(--teacher-text);
     font-size: 1.55rem;
     font-weight: 720;
+}
+
+.section-heading h2 i {
+    margin-right: 0.45rem;
+    color: var(--teacher-brand);
 }
 
 .section-heading p {
@@ -288,6 +317,10 @@ a:focus-visible {
 .submit-btn:hover {
     background: var(--teacher-brand-hover);
     box-shadow: 0 7px 16px rgba(85, 77, 232, 0.18);
+}
+
+.submit-btn i {
+    margin-left: 0.6rem;
 }
 
 .submit-btn:disabled {
