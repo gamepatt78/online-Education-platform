@@ -110,6 +110,7 @@ app.use((req, res, next) => {
   return next();
 });
 app.use(express.static(FRONTEND_DIR, { dotfiles: 'deny', index: false }));
+app.use('/teacher', express.static(path.join(FRONTEND_DIR, 'Teacher'), { dotfiles: 'deny', index: false }));
 
 // Fallback route to home or dashboard
 app.get('/', (req, res) => {

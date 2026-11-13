@@ -1,75 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Teacher Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7fb">
+    <title>Teacher Registration | Online Education</title>
     <link rel="stylesheet" href="/teacher/css/register.css">
-    <link rel="stylesheet" href="/assets/vendor/fontawesome/css/all.min.css">
 </head>
 <body>
-    <div class="register-container">
-        <h2>Teacher Registration</h2>
-        <form id="registerForm" class="horizontal-form">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="regName">Full Name</label>
-                    <input type="text" id="regName" name="name" required 
-                        pattern="[A-Za-z\s]+" title="Please enter a valid name (letters and spaces only)">
-                </div>
-                <div class="form-group">
-                    <label for="regEmail">Email</label>
-                    <input type="email" id="regEmail" name="email" required
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                        title="Please enter a valid email address">
-                    <small class="form-text">Example: name@domain.com</small>
-                </div>
+    <main class="register-shell">
+        <a class="brand" href="/" aria-label="Online Education home">
+            <span class="brand-mark" aria-hidden="true">OE</span>
+            <span>Online Education</span>
+        </a>
+
+        <section class="register-container" aria-labelledby="pageTitle">
+            <header class="card-header">
+                <p class="eyebrow">TEACHER PORTAL</p>
+                <h1 id="pageTitle">Teacher registration</h1>
+                <p class="intro-copy">Share your details and teaching background.</p>
+            </header>
+
+            <div class="availability-note" role="note">
+                <strong>Teacher applications require administrator approval.</strong>
+                <span>You can sign in after an administrator activates your account.</span>
             </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="regPhone">Phone Number</label>
-                    <input type="tel" id="regPhone" name="phone" required
-                        pattern="[0-9]{10}"
-                        title="Please enter a valid 10-digit phone number">
-                    <small class="form-text">Enter 10-digit number without spaces or dashes</small>
-                </div>
-                <div class="form-group">
-                    <label for="regDob">Date of Birth</label>
-                    <input type="date" id="regDob" name="dob" required>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="regDesignation">Current Designation</label>
-                    <input type="text" id="regDesignation" name="designation" required>
-                </div>
-            </div>
-
-            <div class="form-group degrees-section">
-                <label for="regDegrees">Previous Degrees</label>
-                <div id="degreesList">
-                    <div class="degree-entry">
-                        <input type="text" name="degree[]" placeholder="Degree Name" required>
-                        <input type="text" name="university[]" placeholder="University" required>
-                        <input type="number" name="year[]" placeholder="Year" min="1950" max="2025" required>
-                        <button type="button" class="remove-degree" style="display: none;">
-                            <i class="fas fa-minus-circle"></i>
-                        </button>
+            <form id="registerForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="regName">Full name <span aria-hidden="true">*</span></label>
+                        <input type="text" id="regName" name="name" autocomplete="name" maxlength="60" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regEmail">Email address <span aria-hidden="true">*</span></label>
+                        <input type="email" id="regEmail" name="email" autocomplete="email" maxlength="254" placeholder="name@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regPhone">Phone number <span aria-hidden="true">*</span></label>
+                        <input type="tel" id="regPhone" name="phone" autocomplete="tel" inputmode="numeric" maxlength="10" pattern="[6-9][0-9]{9}" title="Enter a 10-digit Indian mobile number starting with 6, 7, 8, or 9." placeholder="10-digit mobile number" aria-describedby="phoneHint" required>
+                        <small class="form-hint" id="phoneHint">Use a 10-digit Indian mobile number.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="regDob">Date of birth <span aria-hidden="true">*</span></label>
+                        <input type="date" id="regDob" name="dob" autocomplete="bday" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="regDesignation">Current designation <span aria-hidden="true">*</span></label>
+                        <input type="text" id="regDesignation" name="designation" maxlength="100" placeholder="e.g. Mathematics Teacher" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword">Create password <span aria-hidden="true">*</span></label>
+                        <input type="password" id="regPassword" name="password" autocomplete="new-password" minlength="8" maxlength="72" required>
+                        <small class="form-hint">Use at least 8 characters.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="regConfirmPassword">Confirm password <span aria-hidden="true">*</span></label>
+                        <input type="password" id="regConfirmPassword" name="confirmPassword" autocomplete="new-password" minlength="8" maxlength="72" required>
                     </div>
                 </div>
-                <button type="button" id="addDegree" class="secondary-btn">
-                    <i class="fas fa-plus"></i> Add Another Degree
-                </button>
-            </div>
-            
-            <div class="form-actions">
-                <button type="submit">Register</button>
-            </div>
-        </form>
-        <p class="login-link">Already have an account? <a href="/teacher/htmlfiles/teacher-login.html">Login</a></p>
-    </div>
+
+                <section class="degrees-section" aria-labelledby="degreesHeading">
+                    <div class="section-heading">
+                        <div>
+                            <h2 id="degreesHeading">Education</h2>
+                            <p>Add your previous degree details.</p>
+                        </div>
+                        <span class="optional-label">Optional</span>
+                    </div>
+
+                    <div id="degreesList">
+                        <div class="degree-entry">
+                            <div class="form-group">
+                                <label class="visually-hidden">Degree name</label>
+                                <input type="text" name="degree[]" placeholder="Degree name" aria-label="Degree name">
+                            </div>
+                            <div class="form-group">
+                                <label class="visually-hidden">University</label>
+                                <input type="text" name="university[]" placeholder="University" aria-label="University">
+                            </div>
+                            <div class="form-group">
+                                <label class="visually-hidden">Year</label>
+                                <input type="number" name="year[]" placeholder="Year" min="1950" aria-label="Year">
+                            </div>
+                            <button type="button" class="remove-degree" aria-label="Remove degree" hidden>Remove</button>
+                        </div>
+                    </div>
+
+                    <button type="button" id="addDegree" class="secondary-btn">
+                        <span aria-hidden="true">+</span> Add another degree
+                    </button>
+                </section>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Submit application</button>
+                </div>
+                <p id="registrationStatus" class="status-message" role="status" aria-live="polite" aria-atomic="true"></p>
+            </form>
+
+            <p class="login-link">Already have an account? <a href="/teacher/htmlfiles/teacher-login.html">Sign in</a></p>
+        </section>
+    </main>
     <script src="/teacher/js/register.js"></script>
 </body>
 </html>

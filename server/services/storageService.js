@@ -75,12 +75,24 @@ const Users = {
 
   async create(user) {
     let createdUser = null;
+    const qualifications = Array.isArray(user.qualifications) ? user.qualifications : [];
+    const isActive = user.is_active !== false;
     if (db.isPostgresConnected()) {
       try {
         const res = await db.query(
-          `INSERT INTO users (name, email, password_hash, phone, dob, designation, role)
-           VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
-          [user.name, user.email, user.password_hash, user.phone, user.dob || null, user.designation || 'Student', user.role || 'student']
+          `INSERT INTO users (name, email, password_hash, phone, dob, designation, role, is_active, qualifications)
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9::jsonb) RETURNING *`,
+          [
+            user.name,
+            user.email,
+            user.password_hash,
+            user.phone,
+            user.dob || null,
+            user.designation || 'Student',
+            user.role || 'student',
+            isActive,
+            JSON.stringify(qualifications)
+          ]
         );
         createdUser = res.rows[0];
       } catch (err) {
@@ -99,6 +111,8 @@ const Users = {
       dob: user.dob,
       designation: user.designation || 'Student',
       role: user.role || 'student',
+      is_active: isActive,
+      qualifications,
       created_at: new Date().toISOString()
     };
     users.push(localUser);

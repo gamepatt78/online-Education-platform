@@ -29,7 +29,7 @@ A web-based learning platform with Student, Teacher, and Admin portals. The prim
 The platform brings together course discovery and learning pages with basic administration workflows:
 
 - **Students** can register and sign in, view a dashboard and course catalog, enroll, manage profile details, submit feedback, view mock-test results, and request a certificate for a completed course.
-- **Teachers** can sign in, manage their courses and assignments, record attendance for enrolled students, and view reports based on saved attendance and assignment data. Gradebook entry and file attachments are not connected.
+- **Teachers** can submit an account application for administrator approval, then sign in to manage their courses and assignments, record attendance for enrolled students, and view reports based on saved attendance and assignment data. Gradebook entry and file attachments are not connected.
 - **Admins** can sign in, inspect summary data, manage course/category records, toggle student and teacher account status, review enrollments, broadcast notifications, and save platform settings.
 
 The project is a learning-platform prototype. Practice exam results are persisted to the signed-in student's account, but scoring remains browser-calculated and unverified. Payment processing, verified grading, and password-reset email delivery are not complete.
@@ -339,6 +339,7 @@ All paths below are mounted by the Express app. Unless noted otherwise, protecte
 | Method and path | Purpose | Auth | Request body |
 |---|---|---|---|
 | `POST /api/auth/register` | Register a student | Public | Required: `name`, `email`, `phone`, `dob`, `password`; optional `confirmPassword`, `designation`. |
+| `POST /api/auth/register-teacher` | Submit a teacher account application; admin must activate the inactive account before sign-in | Public | Required: `name`, `email`, `phone`, `dob`, `designation`, `password`, `confirmPassword`; optional `degrees` array of `{ degree, university, year }`. |
 | `POST /api/auth/login` | Sign in an account with an allowed role | Public | `email`, `password`. The Admin portal also exposes `/api/admin/login`. |
 | `POST /api/auth/forgot-password` | Password reset request | Public; returns 501 | No functioning reset flow; email delivery is not configured. |
 | `POST /api/admin/login` | Admin sign-in | Public | `email`, `password`; account must have the admin role. |

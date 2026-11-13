@@ -121,6 +121,40 @@ async function runTests() {
     });
     assert.strictEqual(registration.status, 201);
     assert.ok(!Object.prototype.hasOwnProperty.call(registration.body.user, 'password_hash'));
+    const invalidTeacherApplication = await makeRequest(port, '/api/auth/register-teacher', 'POST', {
+      name: 'Pending Teacher',
+      email: 'new-teacher@example.test',
+      phone: '9876543210',
+      dob: '1990-01-01',
+      designation: 'Science Teacher',
+      password: 'StrongTeacherPass-1',
+      confirmPassword: 'StrongTeacherPass-1',
+      degrees: [{ degree: 'B.Sc', university: '', year: '' }]
+    });
+    assert.strictEqual(invalidTeacherApplication.status, 400, 'Partial qualifications must be rejected');
+    const teacherApplication = await makeRequest(port, '/api/auth/register-teacher', 'POST', {
+      name: 'Pending Teacher',
+      email: 'new-teacher@example.test',
+      phone: '9876543210',
+      dob: '1990-01-01',
+      designation: 'Science Teacher',
+      password: 'StrongTeacherPass-1',
+      confirmPassword: 'StrongTeacherPass-1',
+      degrees: [{
+        degree: 'B.Sc',
+        university: 'Example University',
+        year: String(new Date().getFullYear() - 2)
+      }]
+    });
+    assert.strictEqual(teacherApplication.status, 201);
+    assert.strictEqual(teacherApplication.body.user.role, 'teacher');
+    assert.strictEqual(teacherApplication.body.user.is_active, false);
+    assert.ok(!Object.prototype.hasOwnProperty.call(teacherApplication.body.user, 'password_hash'));
+    const pendingTeacherLogin = await makeRequest(port, '/api/auth/login', 'POST', {
+      email: 'new-teacher@example.test',
+      password: 'StrongTeacherPass-1'
+    });
+    assert.strictEqual(pendingTeacherLogin.status, 401, 'Teacher application must require admin approval');
     const legacyLogin = await makeRequest(port, '/api/auth/login', 'POST', {
       email: 'student@example.test', password: '123'
     });
@@ -443,12 +477,45 @@ async function runTests() {
       password: 'StrongPass-1'
     });
     assert.strictEqual(closedRegistration.status, 403);
+    const closedTeacherRegistration = await makeRequest(port, '/api/auth/register-teacher', 'POST', {
+      name: 'Closed Teacher',
+      email: 'closed-teacher@example.test',
+      phone: '9876543210',
+      dob: '1990-01-01',
+      designation: 'Science Teacher',
+      password: 'StrongTeacherPass-1',
+      confirmPassword: 'StrongTeacherPass-1'
+    });
+    assert.strictEqual(closedTeacherRegistration.status, 403);
     const students = await makeRequest(port, '/api/admin/students', 'GET', null, adminToken);
     assert.strictEqual(students.status, 200);
     assert.ok(students.body.data.every(user => !Object.prototype.hasOwnProperty.call(user, 'password_hash')));
     const teachers = await makeRequest(port, '/api/admin/teachers', 'GET', null, adminToken);
     assert.strictEqual(teachers.status, 200);
     assert.ok(teachers.body.data.every(user => !Object.prototype.hasOwnProperty.call(user, 'password_hash')));
+    const pendingTeacher = teachers.body.data.find(user => user.email === 'new-teacher@example.test');
+    assert.ok(pendingTeacher, 'Admin must be able to review new teacher applications');
+    assert.strictEqual(pendingTeacher.is_active, false);
+    assert.deepStrictEqual(pendingTeacher.qualifications, [{
+      degree: 'B.Sc',
+      university: 'Example University',
+      year: new Date().getFullYear() - 2
+    }]);
+    const approveTeacher = await makeRequest(
+      port,
+      '/api/admin/teachers/toggle-status',
+      'POST',
+      { id: pendingTeacher.id },
+      adminToken
+    );
+    assert.strictEqual(approveTeacher.status, 200);
+    assert.strictEqual(approveTeacher.body.is_active, true);
+    const approvedTeacherLogin = await makeRequest(port, '/api/auth/login', 'POST', {
+      email: 'new-teacher@example.test',
+      password: 'StrongTeacherPass-1'
+    });
+    assert.strictEqual(approvedTeacherLogin.status, 200);
+    assert.strictEqual(approvedTeacherLogin.body.user.role, 'teacher');
     const logsDenied = await makeRequest(port, '/api/logs', 'GET', null, studentToken);
     assert.strictEqual(logsDenied.status, 403);
     const unauthenticatedAdmin = await makeRequest(port, '/api/admin/stats');

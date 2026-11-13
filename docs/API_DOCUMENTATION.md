@@ -58,6 +58,12 @@ Registers a new student account.
   ```
 - **Error (400 Bad Request):** If email already exists or required fields are missing.
 
+### `POST /api/auth/register-teacher`
+Submits a teacher account application. The account is created inactive and cannot sign in until an administrator activates it through the Admin Teachers page.
+- **Payload:** Required: `name`, `email`, `phone`, `dob`, `designation`, `password`, and `confirmPassword`. Optional: `degrees`, an array of `{ "degree", "university", "year" }` objects; each included entry must provide all three values.
+- **Response (201 Created):** Returns the application message and basic account details. Password hashes are never included in the response.
+- **Error (400 Bad Request):** If account details or degree entries are invalid, or the email is already registered. Teacher registration also respects the administrator's registration setting.
+
 ### `POST /api/auth/login` (also `/login`)
 Authenticates credentials and issues a signed JWT session token.
 - **Payload:**

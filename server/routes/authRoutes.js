@@ -4,6 +4,7 @@ const authController = require('../controllers/authController');
 const { validateLogin, validateRegister } = require('../validators/authValidator');
 
 router.post('/register', validateRegister, authController.register);
+router.post('/register-teacher', validateRegister, authController.registerTeacher);
 router.post('/login', validateLogin, authController.login);
 router.post('/forgot-password', authController.forgotPassword);
 

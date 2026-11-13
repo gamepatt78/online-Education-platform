@@ -4,6 +4,29 @@ const { Users, Settings } = require('../services/storageService');
 
 const JWT_SECRET = require('../config/jwtSecret');
 
+function normalizeTeacherQualifications(value) {
+  if (value === undefined) return [];
+  if (!Array.isArray(value) || value.length > 10) return null;
+
+  const currentYear = new Date().getFullYear();
+  const qualifications = [];
+  for (const item of value) {
+    if (!item || typeof item !== 'object' || Array.isArray(item)) return null;
+    const degree = typeof item.degree === 'string' ? item.degree.trim() : '';
+    const university = typeof item.university === 'string' ? item.university.trim() : '';
+    const yearText = item.year === undefined || item.year === null ? '' : String(item.year).trim();
+    if (!degree && !university && !yearText) continue;
+
+    const year = /^\d{4}$/.test(yearText) ? Number(yearText) : NaN;
+    if (!degree || degree.length > 120 || !university || university.length > 200 ||
+        !Number.isSafeInteger(year) || year < 1950 || year > currentYear) {
+      return null;
+    }
+    qualifications.push({ degree, university, year });
+  }
+  return qualifications;
+}
+
 // Register User
 exports.register = async (req, res) => {
   try {
@@ -50,6 +73,66 @@ exports.register = async (req, res) => {
   } catch (error) {
     console.error('Registration request failed.');
     return res.status(500).json({ success: false, message: 'Registration failed. Please try again.' });
+  }
+};
+
+exports.registerTeacher = async (req, res) => {
+  try {
+    const settings = await Settings.get();
+    if (!settings.registration_open) {
+      return res.status(403).json({ success: false, message: 'Teacher registration is currently closed.' });
+    }
+
+    const body = req.body || {};
+    const designation = typeof body.designation === 'string' ? body.designation.trim() : '';
+    if (!designation || designation.length > 100) {
+      return res.status(400).json({
+        success: false,
+        message: 'Designation is required and must be 100 characters or fewer.'
+      });
+    }
+
+    const qualifications = normalizeTeacherQualifications(body.degrees);
+    if (!qualifications) {
+      return res.status(400).json({
+        success: false,
+        message: 'Enter complete degree, university, and valid year details for each qualification.'
+      });
+    }
+
+    const normalizedEmail = body.email.trim().toLowerCase();
+    const existing = await Users.findByEmail(normalizedEmail);
+    if (existing) {
+      return res.status(400).json({ success: false, message: 'An account with this email already exists.' });
+    }
+
+    const passwordHash = await bcrypt.hash(body.password, 10);
+    const newTeacher = await Users.create({
+      name: body.name.trim(),
+      email: normalizedEmail,
+      phone: body.phone.trim(),
+      dob: body.dob,
+      designation,
+      password_hash: passwordHash,
+      role: 'teacher',
+      is_active: false,
+      qualifications
+    });
+
+    return res.status(201).json({
+      success: true,
+      message: 'Your teacher application was submitted. An administrator must approve your account before you can sign in.',
+      user: {
+        id: newTeacher.id,
+        name: newTeacher.name,
+        email: newTeacher.email,
+        role: newTeacher.role,
+        is_active: false
+      }
+    });
+  } catch (error) {
+    console.error('Teacher registration request failed.');
+    return res.status(500).json({ success: false, message: 'Teacher registration failed. Please try again.' });
   }
 };
 
